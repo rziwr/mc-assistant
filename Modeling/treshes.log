@@ -1,0 +1,24 @@
+
+
+	
+
+	#define I_MSG_HIGH '1'
+	#define I_MSG_LOW '1'
+	#define CURRENT_THRESHOLD 0x08FD	;11 A
+
+	#define I_MSG_HIGH '1'
+	#define I_MSG_LOW '5'
+	#define CURRENT_THRESHOLD 0x0B9F	;15 A
+
+	#define I_MSG_HIGH '1'
+	#define I_MSG_LOW '6'
+	#define CURRENT_THRESHOLD 0x0C48	;16 A
+
+	#define I_MSG_HIGH '1'
+	#define I_MSG_LOW '8'
+	#define CURRENT_THRESHOLD 0x0D99	;18 A
+
+	#define I_MSG_HIGH '2'
+	#define I_MSG_LOW '0'
+	#define CURRENT_THRESHOLD 0x0EEA	;20 A
+
