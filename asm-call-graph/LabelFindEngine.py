@@ -18,10 +18,13 @@ from LabelPurgers import *
 	
 	Форматирование можно сделать как callback
 '''
-def findArrMainLabels( srcStr ):
+def findArrMainLabels( strList ):
+	pattern = '^\S.*?$'	# нужно исключить табы
+	string = '\r\n'.join(strList)
 	headers = list( '' )
 	positions = list( '' )	# p^p^...^p на один диапазон меньше
-	result = re.finditer( pattern , srcStr, re.M | re.S | re.X )
+	
+	result = re.finditer( pattern , string, re.M | re.S | re.X )
 	for match in result :
 		# результаты поиска
 		s = match.group()
@@ -34,7 +37,7 @@ def findArrMainLabels( srcStr ):
 		positions.append( pair[0] )
   
 	# добавляем конечную позицию
-	positions.append( len(srcStr)-1 )	# нужны... без них можно было обойтись и без рег.
+	positions.append( len(string)-1 )	# нужны... без них можно было обойтись и без рег.
 	
 	# число совпадений
 	return headers, positions

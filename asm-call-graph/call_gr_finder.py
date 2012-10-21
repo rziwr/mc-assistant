@@ -60,9 +60,8 @@ sys.path.append('D:\\github\\text-processors\\pkgs')
 from usaio.io_wrapper import *
 import LabelFindEngine 
 
-"""
 # add libs
-from GrClasses import gr"""
+from GrClasses import gr
 
 def printList( lst ):
 	for at in lst:
@@ -127,9 +126,10 @@ def find( strList ):
 	#   найти !все метки. Как будет выглядеть последующий алгоритм?
 	# По идее не должно ничего изменится, но все же
 	[ headers, positions ] = LabelFindEngine.findArrMainLabels( strList )
-	print headers, positions
+	pureCodeStr = '\r\n'.join(strList)
+	#print headers, positions
 
-	"""
+	
 	# Добавляем главные узлы
 	gr.addMainNodes( headers )
 	
@@ -140,9 +140,6 @@ def find( strList ):
 	headersNum = len(headers)
 	axisHeaders = range(headersNum)
 	for k in axisHeaders:	# по карте меток
-		# выводим в лог главную метку
-		IOOperations.wrMainLabel( positions[k], headers[k] )
-
 		# Ищем распределение вызовов по шаблонам
 		#   все метки по запросу -> raw labels
 		[resStr, j] = LabelFindEngine.bypassAndRetFinder(pureCodeStr[positions[k]:positions[k+1]], j)
@@ -159,44 +156,9 @@ def find( strList ):
 			retNodeConnect(purgeLocalLabelList, headers[k], headers[k+1], headers)
 		else : 
 			retNodeConnect(purgeLocalLabelList, headers[k], 'NoNext', headers)
-	"""
+
 	# нужны главные метки для присков
 	return headers
-
-	
-""" Запускае поиск по одному файлу(=модулю) """
-def Run( ifile, ofile ):
-	# Получаем содержимое файла
-	sets = { 'name':  ifile, 'howOpen': 'r', 'coding': 'cp1251' }
-	strList = file2list(sets)
-		
-	# Удаляем комментарии - отдельные строки и знаки после end\t\n и прочие
-	#   чтобы можно было применить регулярное выражение
-	noCommentCode = deleteCom( strList )
-	sets = { 'name':  'tmp.asm', 'howOpen': 'w', 'coding': 'utf_8' }
-	
-
-	# Выделяем только код
-	pureCodeStr = extractCode( noCommentCode )
-	list2file(sets, pureCodeStr)
-	
-	# Ищем граф вызовов для одного файла
-	print 'finding...'
-	headers = find( pureCodeStr )
-
-	"""
-	# Рисуем картинку графа
-	print 'plotting...'
-	gr.wrGr( ofile )"""
-	""" только для python-graph type' ''
-	print 'finding...'
-	root = "_v#v(HERE)_COMP_SETuw_wByteIn"
-	availableNodes = gr.searchNodes( root )
-	
-	# Удаляем ненужные узлы
-	purgedAvailableNodes = purgeAvailableNodes( availableNodes, headers )
-	for item in purgedAvailableNodes:
-		print item"""
 
 """ """
 def purgeAvailableNodes( availableNodes, headers ):
@@ -274,6 +236,46 @@ def jumpTrueBr( header, header_next, headers, locals ):
 	# Соединяем с последующей главной
 	if not strContSubStrItTrue( saveNode, 'zxy' ):
 		gr.addEdge( saveNode, header_next ) 
+		
+""" Main(){}
+	Запускае поиск по одному файлу(=модулю) 
+"""
+def Run( ifile, ofile ):
+	""" Данные передаются в виде списков строк без переносов строки """
+	# Получаем содержимое файла
+	sets = { 'name':  ifile, 'howOpen': 'r', 'coding': 'cp1251' }
+	strList = file2list(sets)
+		
+	# Удаляем комментарии - отдельные строки и знаки после end\t\n и прочие
+	#   чтобы можно было применить регулярное выражение
+	noCommentCode = deleteCom( strList )
+	sets = { 'name':  'tmp.asm', 'howOpen': 'w', 'coding': 'utf_8' }
+	
+
+	# Выделяем только код
+	pureCodeStrList = extractCode( noCommentCode )
+	list2file(sets, pureCodeStrList)
+	
+	# Ищем граф вызовов для одного файла
+	print 'finding...'
+	headers = find( pureCodeStrList )
+	print gr
+
+	# Рисуем картинку графа
+	print 'plotting...'
+	print ofile
+	gr.wrGr( ofile )
+	
+	""" только для python-graph type' ''
+	print 'finding...'
+	root = "_v#v(HERE)_COMP_SETuw_wByteIn"
+	availableNodes = gr.searchNodes( root )
+	
+	# Удаляем ненужные узлы
+	purgedAvailableNodes = purgeAvailableNodes( availableNodes, headers )
+	for item in purgedAvailableNodes:
+		print item"""
+
 
 
 

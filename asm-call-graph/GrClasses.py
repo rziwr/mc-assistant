@@ -3,6 +3,17 @@
 ''' 
 file : import GrClasses
 '''
+import sys
+pathesList = [ 'C:\\Program Files\\Graphviz 2.28\\bin' ]
+sys.path.append('D:\\github\\Forks\\pydot\\trunk')
+sys.path.append('D:\\github\\Forks\\python-graph\\trunk\\core')
+sys.path.append('D:\\github\\Forks\\python-graph\\trunk\\dot')
+
+#
+import os
+os.environ["PATH"] += pathesList[0]
+print os.environ["PATH"]
+
 import pydot
 from subprocess import call
 
@@ -23,10 +34,12 @@ class OneGrPyDot:
 	def addEdge( self, v, u ):
 		self._gr.add_edge(pydot.Edge( v, u ) )
 
+	""" Интерфейсы """
 	def addMainNodes( self, headers ):
 		for node in headers:
 			node_c = pydot.Node(node, style="filled", fillcolor="#976856")
 			self._gr.add_node(node_c)	# добавляем узлы
+			print self._gr
 
 	def wrGr( self, ofile ):
 		self._gr.write_jpg(ofile)
