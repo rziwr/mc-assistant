@@ -12,7 +12,7 @@ sys.path.append('D:\\github\\Forks\\python-graph\\trunk\\dot')
 #
 import os
 os.environ["PATH"] += pathesList[0]
-print os.environ["PATH"]
+#print os.environ["PATH"]
 
 import pydot
 from subprocess import call
@@ -105,7 +105,7 @@ class OneGrPyGr :
 		dot = write(self._gr)
 		with open("odata/gr.dot", 'w') as f:
 			f.write(dot)
-		call(["dot", "odata/gr.dot", "-Tjpg", "-o", ofile])
+		#call(["dot", "odata/gr.dot", "-Tjpg", "-o", ofile])
 	
 	# Ищет все узлы доступные из данного узла
 	def searchNodes( self, root ):
