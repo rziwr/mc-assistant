@@ -1,34 +1,45 @@
 #-*- coding: utf-8 -*-
-import usaio.io_wrapper
-
 # core
 import math
+import json
 
 # utils
+import usaio.io_wrapper as iow
 from pyDbg.doColoredConsole import co
 import simpleDataTypesConvertors.Float32Convertors as f32cnv
 import simpleDataTypesConvertors.IntTypeConvertors as tc
 
+# Читаем конфигурация сенсора
+sets = { 'name': 'current_sensor.cfg', 'howOpen': 'r', 'coding': 'cp1251'}
+sensorSettings = iow.file2list( sets )
 
-# Mults
-R1 = 5.11
-R2 = 10.0
-Splitter = R2/(R1+R2)
+# here we are converting python object to json string
+sensor_sets = json.loads( ' '.join(sensorSettings))
+print json.dumps(sensor_sets, sort_keys=True, indent=2)
+
+# Параметры делителя напряжения
+splitter_params = sensor_sets['splitter_params']
+R1 = splitter_params['R1']
+R2 = splitter_params['R2']
+
+splitter = R2/(R1+R2)
 
 # Параметры ADDAC
-dVmax = 430.0	# mV сдвиг ЦАП
-VmaxIdeal = 5000.0
+addac = sensor_sets['addac']
+dVmax = addac[ 'dVmax' ]	# mV сдвиг ЦАП
+VmaxIdeal = addac[ 'VmaxIdeal' ]
+capacity = addac[ 'capacity' ]
+
 Vmax = VmaxIdeal-dVmax 	# mV - это максимальное значение ЦАП - площадка при выс. сигн.
-Vmax = VmaxIdeal 
-capacity = 12
 
 # Параметры входной кривой
-Kiu = 188.0		# mV/A
-dU = 500.0		# mV
+curve_params = sensor_sets['curve_params']
+Kiu = curve_params[ 'Kiu' ]		# mV/A
+dU = curve_params[ 'dU' ]		# mV
 
-# Deprecated
-Resol = math.pow(2, capacity)
-toDigital = Resol/Vmax#/VmaxIdeal
+# Coeffs
+resolution = math.pow(2, capacity)
+toDigital = resolution/Vmax
 toAnalog = 1/toDigital
 
 
