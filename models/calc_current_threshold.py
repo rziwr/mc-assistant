@@ -83,42 +83,58 @@ def calcCoeffTransf(I):
 	nprintValue( 'Udig_f, mV',Udig_f)
 	nprintValue( 'Udig, ue', Udig )
 	eprint( '\t'+tc.byte4strhex( Udig )+'\n' )
-	
-	# Записать в файл шаблон
+	return Udig
 
 # Run 
 if __name__ == '__main__':
 	# расчет коэффициентов трансформации
-	listOfCurrents = [0]
-	for current in listOfCurrents :
-		msg = '\nI,A : ' + str( current ) + '\n'
+	listOfCurrents = [16]
+	for I in listOfCurrents :
+		msg = '\nI,A : ' + str( I ) + '\n'
 		wprint( msg )
-		calcCoeffTransf( current ) 
+		Udig = calcCoeffTransf( I ) 
 		
+		# Записать в файл шаблон
+		sets = { 'name': 'threshes.h', 'howOpen': 'w', 'coding': 'cp1251'}
+		lstForWrite = list('')
+		lstForWrite.append('\t#define CURRENT_THRESHOLD '+tc.byte4strhex( Udig )+"\t;"+str(I)+" A"+"\n")
+		iow.list2file( sets=sets, lst=lstForWrite )
+		
+	# смещение нуля при обратоной обработке
+	I = 0
+	Udig = calcCoeffTransf( I ) 
+	# Записать в файл шаблон
+	sets = { 'name': 'threshes.h', 'howOpen': 'a', 'coding': 'cp1251'}
+	lstForWrite = list('')
+	lstForWrite.append('#ifdef HALL_SENSOR')
+	lstForWrite.append('\t#define ZERO_HALL_CORRECT '+tc.byte4strhex( Udig )+"\t;"+str(I)+" A"+"")
+	lstForWrite.append('#endif ;HALL_SENSOR')
+	iow.list2file( sets=sets, lst=lstForWrite )
+
 ''' 
 
-	# коэффициент перевода. Это чистое значение тока - для рассчетов и отображения
-	# Warning : немного расходится с прошитым, но прошитый откалиброван, поэтому 
-	#   наверное пусть как есть
-	Ktrans = I/Udig_corr  # A/ue
-	
-	# переводим в плавающую точку
-	print 'capacity : ' + str( capacity )
-	co.printN( 'Udig_src, ue : ' )
-	co.printE( tc.byte4strhex( Udig )+'\n')
-	
-	msg = "Tr. I,A="
-	msg = msgSplit(msg)
-	f = open('treshes.log', 'at');
-	ILow = I%10
-	IHigh = (I-ILow)/10
-	f.write("\t#define I_MSG_HIGH '"+str(IHigh)+"'\n")
-	f.write("\t#define I_MSG_LOW '"+str(ILow)+"'\n")
-	#f.write("; "+msg+"I_MSG_HIGH,I_MSG_LOW"+",'/'\n")
-	f.write( '\t#define CURRENT_THRESHOLD '+tc.byte4strhex( Udig )+"\t;"+str(I)+" A"+"\n\n")
-	f.close()
-	#print 'Udig_cor, ue :  ' + tc.byte4strhex( Udig_corr )
-	return Udig
+# коэффициент перевода. Это чистое значение тока - для рассчетов и отображения
+# Warning : немного расходится с прошитым, но прошитый откалиброван, поэтому 
+#   наверное пусть как есть
+Ktrans = I/Udig_corr  # A/ue
+
+# переводим в плавающую точку
+print 'capacity : ' + str( capacity )
+co.printN( 'Udig_src, ue : ' )
+co.printE( tc.byte4strhex( Udig )+'\n')
+
+msg = "Tr. I,A="
+msg = msgSplit(msg)
+f = open('treshes.log', 'at');
+ILow = I%10
+IHigh = (I-ILow)/10
+f.write("\t#define I_MSG_HIGH '"+str(IHigh)+"'\n")
+f.write("\t#define I_MSG_LOW '"+str(ILow)+"'\n")
+#f.write("; "+msg+"I_MSG_HIGH,I_MSG_LOW"+",'/'\n")
+f.write( '\t#define CURRENT_THRESHOLD '+tc.byte4strhex( Udig )+"\t;"+str(I)+" A"+"\n\n")
+f.close()
+#print 'Udig_cor, ue :  ' + tc.byte4strhex( Udig_corr )
+return Udig
 
 '' ' Просто заглушка '' '
 def printRpt( value, valueDisplacemented, valueScaled, valueCode, Kda ):
@@ -127,12 +143,12 @@ def printRpt( value, valueDisplacemented, valueScaled, valueCode, Kda ):
 	print 'Kda : '+str(Kda)
 '''
 #import ModelADDAC as adda
-	# проверяем
-	'''valueDict = {}
-	valueDict[ 'value' ] = I
-	valueDict['displacement'] = dU
-	valueDict['converter' ] = Kiu
-	valueDict['scale'] = Splitter
-	valueDict['capacity'] = capacity
-	valueDict['Vmax'] = Vmax 
-	code, Kda = adda.modelADC( valueDict, printRpt, adda.calcZeroDisplacmentY )'''
+# проверяем
+'''valueDict = {}
+valueDict[ 'value' ] = I
+valueDict['displacement'] = dU
+valueDict['converter' ] = Kiu
+valueDict['scale'] = Splitter
+valueDict['capacity'] = capacity
+valueDict['Vmax'] = Vmax 
+code, Kda = adda.modelADC( valueDict, printRpt, adda.calcZeroDisplacmentY )'''
