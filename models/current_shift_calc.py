@@ -1,92 +1,57 @@
 #-*- coding: utf-8 -*-
 # core
-import math
-import json
-
 # utils
-import usaio.io_wrapper as iow
 from pyDbg.doColoredConsole import co
+nprint = co.printN
+wprint = co.printW
+eprint = co.printE
+	
 import simpleDataTypesConvertors.Float32Convertors as f32cnv
 import simpleDataTypesConvertors.IntTypeConvertors as tc
 
-# Читаем конфигурация сенсора
-sets = { 'name': 'current_sensor.cfg', 'howOpen': 'r', 'coding': 'cp1251'}
-sensorSettings = iow.file2list( sets )
+# Р§РёС‚Р°РµРј РєРѕРЅС„РёРіСѓСЂР°С†РёСЏ СЃРµРЅСЃРѕСЂР°
+from current_head import *
 
-# here we are converting python object to json string
-sensor_sets = json.loads( ' '.join(sensorSettings))
-print json.dumps(sensor_sets, sort_keys=True, indent=2)
-
-# Параметры делителя напряжения
-splitter_params = sensor_sets['splitter_params']
-R1 = splitter_params['R1']
-R2 = splitter_params['R2']
-
-splitter = R2/(R1+R2)
-
-# Параметры ADDAC
-addac = sensor_sets['addac']
-dVmax = addac[ 'dVmax' ]	# mV сдвиг ЦАП
-VmaxIdeal = addac[ 'VmaxIdeal' ]
-capacity = addac[ 'capacity' ]
-
-Vmax = VmaxIdeal-dVmax 	# mV - это максимальное значение ЦАП - площадка при выс. сигн.
-
-# Параметры входной кривой
-curve_params = sensor_sets['curve_params']
-Kiu = curve_params[ 'Kiu' ]		# mV/A
-dU = curve_params[ 'dU' ]		# mV
-
-# Coeffs
-resolution = math.pow(2, capacity)
-toDigital = resolution/Vmax
-toAnalog = 1/toDigital
-
-
-''' Ток в код и обратно I, A '''
-''' код не переведен в цифру - предст. с плав. точкой '''
+''' 
+	РўРѕРє РІ РєРѕРґ Рё РѕР±СЂР°С‚РЅРѕ I, A 
+	РєРѕРґ РЅРµ РїРµСЂРµРІРµРґРµРЅ РІ С†РёС„СЂСѓ - РїСЂРµРґСЃС‚. СЃ РїР»Р°РІ. С‚РѕС‡РєРѕР№ 
+'''
 def toDigitalFull( U, mult, toDigital ):
-	Uadc = U * mult	# На плече делителя нужный нам потенц
+	Uadc = U * mult	# РќР° РїР»РµС‡Рµ РґРµР»РёС‚РµР»СЏ РЅСѓР¶РЅС‹Р№ РЅР°Рј РїРѕС‚РµРЅС†
 	# ADC
 	Udig = toDigital * Uadc
 	return Udig
 	
-def calcCoeffTransf(I):
-	# Исходная зашумленная зависимость
-	multer = 1	# если напрямую с датчик Холла
-	U = I * Kiu + dU
-	co.printW( 'Udac : ' + str( U )+'\n')
-	Udig_f = toDigitalFull( U, multer, toDigital )
-	Udig = int( Udig_f )
 	
-	# Рассчитываем шум - смещение по Y
+def wprintValue( name, value ):
+	wprint( name+' : '+str(value)+'\n')
+def calcCoeffTransf(I):
+	# РСЃС…РѕРґРЅР°СЏ Р·Р°С€СѓРјР»РµРЅРЅР°СЏ Р·Р°РІРёСЃРёРјРѕСЃС‚СЊ
+	multer = splitter	# РµСЃР»Рё РЅР°РїСЂСЏРјСѓСЋ СЃ РґР°С‚С‡РёРє РҐРѕР»Р»Р°
+	U = I * Kiu + dU
+	wprint( 'Udac : ' + str( U )+'\n')
+	Udig_f = toDigitalFull( U, multer, toDigital )
+	wprint( 'Udig_f, mC : '+str(Udig_f)+'\n')
+	Udig = int( Udig_f )
+	wprintValue( 'Udig, ue', Udig )
+	
+	# Р Р°СЃСЃС‡РёС‚С‹РІР°РµРј С€СѓРј - СЃРјРµС‰РµРЅРёРµ РїРѕ Y
 	Udig_noise_f = toDigitalFull( dU, multer, toDigital )
 	
-	# Очищенное значение - без шума
-	Udig_corr = int(Udig_f - Udig_noise_f)	# суммируются перед оцифровкой
-
-	# коэффициент перевода. Это чистое значение тока - для рассчетов и отображения
-	# Warning : немного расходится с прошитым, но прошитый откалиброван, поэтому 
-	#   наверное пусть как есть
-	Ktrans = I/Udig_corr  # A/ue
+	# РћС‡РёС‰РµРЅРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ - Р±РµР· С€СѓРјР°
+	Udig_corr = int(Udig_f - Udig_noise_f)	# СЃСѓРјРјРёСЂСѓСЋС‚СЃСЏ РїРµСЂРµРґ РѕС†РёС„СЂРѕРІРєРѕР№
 	
-	# переводим в плавающую точку
+	# РїРµСЂРµРІРѕРґРёРј РІ РїР»Р°РІР°СЋС‰СѓСЋ С‚РѕС‡РєСѓ
 	print 'capacity : ' + str( capacity )
-	co.printN( 'Udig_src, ue : ' )
-	co.printE( tc.byte4strhex( Udig )+'\n')
+	nprint( 'Udig_src, ue : ' )
+	eprint( tc.byte4strhex( Udig )+'\n')
 	return Udig
-
-''' Просто заглушка '''
-def printRpt( value, valueDisplacemented, valueScaled, valueCode, Kda ):
-	print '\n<< Output values:'
-	print 'Code : '+str(valueCode)
-	print 'Kda : '+str(Kda)
 
 # Run 
 if __name__ == '__main__':
-	# расчет коэффициентов трансформации
-	listOfCurrents = [15, 10, 5]
+	# СЂР°СЃС‡РµС‚ РєРѕСЌС„С„РёС†РёРµРЅС‚РѕРІ С‚СЂР°РЅСЃС„РѕСЂРјР°С†РёРё
+	listOfCurrents = [0]
 	for current in listOfCurrents :
 		msg = '\nI,A : ' + str( current ) + '\n'
-		co.printW( msg )
+		wprint( msg )
 		print calcCoeffTransf( current ) 

@@ -5,31 +5,8 @@ import math
 import ModelADDAC as adda
 from pyDbg.doColoredConsole import co
 
-# Mults
-# 526.051
-#R1 = 5.11
-#R2 = 10.0	# на землю
-
-# 286.052
-R1 = 3.01
-R2 = 27.4	# на землю
-Splitter = R2/(R1+R2)
-
-# Параметры ADDAC
-dVmax = 430.0	# mV сдвиг ЦАП
-VmaxIdeal = 5000.0
-
-#Vmax = VmaxIdeal-dVmax 	# mV - это максимальное значение ЦАП - площадка при выс. сигн.
-capacity = 12
-
-# Параметры входной кривой
-Kiu = 188.0		# mV/A
-dU = 500.0		# mV
-
-# Deprecated
-Resol = math.pow(2, capacity)
-toDigital = Resol/VmaxIdeal
-toAnalog = 1/toDigital
+# Читаем конфигурация сенсора
+from current_head import *
 
 
 ''' Ток в код и обратно 
@@ -49,6 +26,8 @@ def msgSplit(msg):
 		result += at
 		result += "',"
 	return result
+	
+#! здесь нет делителя ! в отличии от измерения для нидикации, нет есть, но свой!
 def calcCoeffTransf(I):
 	# Исходная зашумленная зависимость
 	#multer = Splitter	# с делителя на АЦП
