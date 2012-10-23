@@ -1,10 +1,14 @@
 #-*- coding: utf-8 -*-
-#import ui
+import usaio.io_wrapper
+
+# core
+import math
+
+# utils
+from pyDbg.doColoredConsole import co
 import simpleDataTypesConvertors.Float32Convertors as f32cnv
 import simpleDataTypesConvertors.IntTypeConvertors as tc
-import math
-import ModelADDAC as adda
-from pyDbg.doColoredConsole import co
+
 
 # Mults
 R1 = 5.11
@@ -15,6 +19,7 @@ Splitter = R2/(R1+R2)
 dVmax = 430.0	# mV сдвиг ЦАП
 VmaxIdeal = 5000.0
 Vmax = VmaxIdeal-dVmax 	# mV - это максимальное значение ЦАП - площадка при выс. сигн.
+Vmax = VmaxIdeal 
 capacity = 12
 
 # Параметры входной кривой
@@ -27,9 +32,7 @@ toDigital = Resol/Vmax#/VmaxIdeal
 toAnalog = 1/toDigital
 
 
-''' Ток в код и обратно 
-I, A
-'''
+''' Ток в код и обратно I, A '''
 ''' код не переведен в цифру - предст. с плав. точкой '''
 def toDigitalFull( U, mult, toDigital ):
 	Uadc = U * mult	# На плече делителя нужный нам потенц
@@ -39,7 +42,6 @@ def toDigitalFull( U, mult, toDigital ):
 	
 def calcCoeffTransf(I):
 	# Исходная зашумленная зависимость
-	#multer = Splitter	# с делителя на АЦП
 	multer = 1	# если напрямую с датчик Холла
 	U = I * Kiu + dU
 	co.printW( 'Udac : ' + str( U )+'\n')
@@ -61,7 +63,6 @@ def calcCoeffTransf(I):
 	print 'capacity : ' + str( capacity )
 	co.printN( 'Udig_src, ue : ' )
 	co.printE( tc.byte4strhex( Udig )+'\n')
-	#print 'Udig_cor, ue :  ' + tc.byte4strhex( Udig_corr )
 	return Udig
 
 ''' Просто заглушка '''
@@ -78,18 +79,3 @@ if __name__ == '__main__':
 		msg = '\nI,A : ' + str( current ) + '\n'
 		co.printW( msg )
 		print calcCoeffTransf( current ) 
-	
-	# проверяем
-	'''valueDict = {}
-	valueDict[ 'value' ] = I
-	valueDict['displacement'] = dU
-	valueDict['converter' ] = Kiu
-	valueDict['scale'] = Splitter
-	valueDict['capacity'] = capacity
-	valueDict['Vmax'] = Vmax 
-	code, Kda = adda.modelADC( valueDict, printRpt, adda.calcZeroDisplacmentY )'''
-
-
-
-
-

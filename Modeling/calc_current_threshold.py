@@ -6,14 +6,20 @@ import ModelADDAC as adda
 from pyDbg.doColoredConsole import co
 
 # Mults
-R1 = 5.11
-R2 = 10.0
+# 526.051
+#R1 = 5.11
+#R2 = 10.0	# на землю
+
+# 286.052
+R1 = 3.01
+R2 = 27.4	# на землю
 Splitter = R2/(R1+R2)
 
 # Параметры ADDAC
 dVmax = 430.0	# mV сдвиг ЦАП
 VmaxIdeal = 5000.0
-Vmax = VmaxIdeal-dVmax 	# mV - это максимальное значение ЦАП - площадка при выс. сигн.
+
+#Vmax = VmaxIdeal-dVmax 	# mV - это максимальное значение ЦАП - площадка при выс. сигн.
 capacity = 12
 
 # Параметры входной кривой
@@ -22,7 +28,7 @@ dU = 500.0		# mV
 
 # Deprecated
 Resol = math.pow(2, capacity)
-toDigital = Resol/Vmax#/VmaxIdeal
+toDigital = Resol/VmaxIdeal
 toAnalog = 1/toDigital
 
 
@@ -90,7 +96,7 @@ def printRpt( value, valueDisplacemented, valueScaled, valueCode, Kda ):
 # Run 
 if __name__ == '__main__':
 	# расчет коэффициентов трансформации
-	listOfCurrents = [5, 11, 15, 16, 18, 20]
+	listOfCurrents = [16]
 	for current in listOfCurrents :
 		msg = '\nI,A : ' + str( current ) + '\n'
 		co.printW( msg )
