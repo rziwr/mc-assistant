@@ -1,54 +1,108 @@
 #-*- coding: utf-8 -*-
+# core
+# utils
+from pyDbg.doColoredConsole import co
+nprint = co.printN
+wprint = co.printW
+eprint = co.printE
+	
 import simpleDataTypesConvertors.Float32Convertors as f32cnv
 import simpleDataTypesConvertors.IntTypeConvertors as tc
+
+# Р§РёС‚Р°РµРј РєРѕРЅС„РёРіСѓСЂР°С†РёСЏ СЃРµРЅСЃРѕСЂР°
 import math
-import ModelADDAC as adda
-from pyDbg.doColoredConsole import co
+import json
 
-# Читаем конфигурация сенсора
-from current_head import *
+import usaio.io_wrapper as iow
 
+# Р§РёС‚Р°РµРј РєРѕРЅС„РёРіСѓСЂР°С†РёСЏ СЃРµРЅСЃРѕСЂР°
+sets = { 'name': 'sensors_cfg_names.json', 'howOpen': 'r', 'coding': 'cp1251'}
+uni_sensor_settings = iow.file2list( sets )
+uni_sensor_sets = json.loads( ' '.join(uni_sensor_settings))
+print json.dumps(uni_sensor_sets, sort_keys=True, indent=2)
 
-''' Ток в код и обратно 
-I, A
+sets[ 'name' ] = uni_sensor_sets['I']
+sensorSettings = iow.file2list( sets )
+
+# here we are converting python object to json string
+sensor_sets = json.loads( ' '.join(sensorSettings))
+print json.dumps(sensor_sets, sort_keys=True, indent=2)
+
+# РџР°СЂР°РјРµС‚СЂС‹ РґРµР»РёС‚РµР»СЏ РЅР°РїСЂСЏР¶РµРЅРёСЏ
+splitter_params = sensor_sets['splitter_params']
+R1 = splitter_params['R1']
+R2 = splitter_params['R2']
+
+splitter = R2/(R1+R2)
+
+# РџР°СЂР°РјРµС‚СЂС‹ ADDAC
+addac = sensor_sets['addac']
+dVmax = addac[ 'dVmax' ]	# mV СЃРґРІРёРі Р¦РђРџ
+VmaxIdeal = addac[ 'VmaxIdeal' ]
+capacity = addac[ 'capacity' ]
+
+Vmax = VmaxIdeal-dVmax 	# mV - СЌС‚Рѕ РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ Р¦РђРџ - РїР»РѕС‰Р°РґРєР° РїСЂРё РІС‹СЃ. СЃРёРіРЅ.
+
+# РџР°СЂР°РјРµС‚СЂС‹ РІС…РѕРґРЅРѕР№ РєСЂРёРІРѕР№
+curve_params = sensor_sets['curve_params']
+Kiu = curve_params[ 'Kiu' ]		# mV/A
+dU = curve_params[ 'dU' ]		# mV
+
+# Coeffs
+resolution = math.pow(2, capacity)
+toDigital = resolution/Vmax
+toAnalog = 1/toDigital
+
+''' 
+	РўРѕРє РІ РєРѕРґ Рё РѕР±СЂР°С‚РЅРѕ I, A 
+	РєРѕРґ РЅРµ РїРµСЂРµРІРµРґРµРЅ РІ С†РёС„СЂСѓ - РїСЂРµРґСЃС‚. СЃ РїР»Р°РІ. С‚РѕС‡РєРѕР№ 
 '''
-''' код не переведен в цифру - предст. с плав. точкой '''
 def toDigitalFull( U, mult, toDigital ):
-	Uadc = U * mult	# На плече делителя нужный нам потенц
+	Uadc = U * mult	# РќР° РїР»РµС‡Рµ РґРµР»РёС‚РµР»СЏ РЅСѓР¶РЅС‹Р№ РЅР°Рј РїРѕС‚РµРЅС†
 	# ADC
 	Udig = toDigital * Uadc
 	return Udig
 	
-def msgSplit(msg):
-	result = ''
-	for at in msg:
-		result += "'"
-		result += at
-		result += "',"
-	return result
-	
-#! здесь нет делителя ! в отличии от измерения для нидикации, нет есть, но свой!
+def wprintValue( name, value ):
+	wprint( name+' : '+str(value)+'\n')
+def nprintValue( name, value ):
+	nprint( name+' : '+str(value)+'\n')
+
+# Uo = R16*Uerr/(R16+R10) = 10*500/(10+5.11) = 330.907 mV
+# 2^10 - 5000 mV
+# x - Uo ; x = 67.76 ue = 68 ue = 0x44 ue
 def calcCoeffTransf(I):
-	# Исходная зашумленная зависимость
-	#multer = Splitter	# с делителя на АЦП
-	multer = 1	# если напрямую с датчик Холла
+	# РСЃС…РѕРґРЅР°СЏ Р·Р°С€СѓРјР»РµРЅРЅР°СЏ Р·Р°РІРёСЃРёРјРѕСЃС‚СЊ
+	multer = splitter	# РµСЃР»Рё РЅР°РїСЂСЏРјСѓСЋ СЃ РґР°С‚С‡РёРє РҐРѕР»Р»Р°
 	U = I * Kiu + dU
-	co.printW( 'Udac : ' + str( U )+'\n')
 	Udig_f = toDigitalFull( U, multer, toDigital )
 	Udig = int( Udig_f )
 	
-	# Рассчитываем шум - смещение по Y
-	Udig_noise_f = toDigitalFull( dU, multer, toDigital )
+	# РїРµСЂРµРІРѕРґРёРј РІ РїР»Р°РІР°СЋС‰СѓСЋ С‚РѕС‡РєСѓ
+	nprintValue( 'Udac, mV', U )
+	nprintValue( 'Udig_f, mV',Udig_f)
+	nprintValue( 'Udig, ue', Udig )
+	eprint( '\t'+tc.byte4strhex( Udig )+'\n' )
 	
-	# Очищенное значение - без шума
-	Udig_corr = int(Udig_f - Udig_noise_f)	# суммируются перед оцифровкой
+	# Р—Р°РїРёСЃР°С‚СЊ РІ С„Р°Р№Р» С€Р°Р±Р»РѕРЅ
 
-	# коэффициент перевода. Это чистое значение тока - для рассчетов и отображения
-	# Warning : немного расходится с прошитым, но прошитый откалиброван, поэтому 
-	#   наверное пусть как есть
+# Run 
+if __name__ == '__main__':
+	# СЂР°СЃС‡РµС‚ РєРѕСЌС„С„РёС†РёРµРЅС‚РѕРІ С‚СЂР°РЅСЃС„РѕСЂРјР°С†РёРё
+	listOfCurrents = [0]
+	for current in listOfCurrents :
+		msg = '\nI,A : ' + str( current ) + '\n'
+		wprint( msg )
+		calcCoeffTransf( current ) 
+		
+''' 
+
+	# РєРѕСЌС„С„РёС†РёРµРЅС‚ РїРµСЂРµРІРѕРґР°. Р­С‚Рѕ С‡РёСЃС‚РѕРµ Р·РЅР°С‡РµРЅРёРµ С‚РѕРєР° - РґР»СЏ СЂР°СЃСЃС‡РµС‚РѕРІ Рё РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ
+	# Warning : РЅРµРјРЅРѕРіРѕ СЂР°СЃС…РѕРґРёС‚СЃСЏ СЃ РїСЂРѕС€РёС‚С‹Рј, РЅРѕ РїСЂРѕС€РёС‚С‹Р№ РѕС‚РєР°Р»РёР±СЂРѕРІР°РЅ, РїРѕСЌС‚РѕРјСѓ 
+	#   РЅР°РІРµСЂРЅРѕРµ РїСѓСЃС‚СЊ РєР°Рє РµСЃС‚СЊ
 	Ktrans = I/Udig_corr  # A/ue
 	
-	# переводим в плавающую точку
+	# РїРµСЂРµРІРѕРґРёРј РІ РїР»Р°РІР°СЋС‰СѓСЋ С‚РѕС‡РєСѓ
 	print 'capacity : ' + str( capacity )
 	co.printN( 'Udig_src, ue : ' )
 	co.printE( tc.byte4strhex( Udig )+'\n')
@@ -66,22 +120,14 @@ def calcCoeffTransf(I):
 	#print 'Udig_cor, ue :  ' + tc.byte4strhex( Udig_corr )
 	return Udig
 
-''' Просто заглушка '''
+'' ' РџСЂРѕСЃС‚Рѕ Р·Р°РіР»СѓС€РєР° '' '
 def printRpt( value, valueDisplacemented, valueScaled, valueCode, Kda ):
 	print '\n<< Output values:'
 	print 'Code : '+str(valueCode)
 	print 'Kda : '+str(Kda)
-
-# Run 
-if __name__ == '__main__':
-	# расчет коэффициентов трансформации
-	listOfCurrents = [16]
-	for current in listOfCurrents :
-		msg = '\nI,A : ' + str( current ) + '\n'
-		co.printW( msg )
-		print calcCoeffTransf( current ) 
-	
-	# проверяем
+'''
+#import ModelADDAC as adda
+	# РїСЂРѕРІРµСЂСЏРµРј
 	'''valueDict = {}
 	valueDict[ 'value' ] = I
 	valueDict['displacement'] = dU
@@ -90,8 +136,3 @@ if __name__ == '__main__':
 	valueDict['capacity'] = capacity
 	valueDict['Vmax'] = Vmax 
 	code, Kda = adda.modelADC( valueDict, printRpt, adda.calcZeroDisplacmentY )'''
-
-
-
-
-
