@@ -5,6 +5,8 @@ from pyDbg.doColoredConsole import co
 nprint = co.printN
 wprint = co.printW
 eprint = co.printE
+def eprintValue( name, value ):
+	eprint( name+' : '+str(value)+'\n')
 def wprintValue( name, value ):
 	wprint( name+' : '+str(value)+'\n')
 def nprintValue( name, value ):
@@ -24,6 +26,7 @@ sensor_sets = get_sensor_cfg('I')
 
 # Настройки прочитаны, можно разбирать их
 metroChannal = SensorChannal( sensor_sets,'adc_metro','splitter_metro_parems', value2voltage )
+thresholdChannal = SensorChannal( sensor_sets,'dac_threshes','splitter_threshold_parems', value2voltage )
 
 ''' 
 	Ток в код и обратно I, A 
@@ -33,7 +36,7 @@ metroChannal = SensorChannal( sensor_sets,'adc_metro','splitter_metro_parems', v
 # Uo = R16*Uerr/(R16+R10) = 10*500/(10+5.11) = 330.907 mV
 # 2^10 - 5000 mV
 # x - Uo ; x = 67.76 ue = 68 ue = 0x44 ue
-def calcCoeffTransf( value, channal, plot_cb ):
+def calcCoeffTransf( value, channal ):
 	# Получаем описание канала и кривой сенсора
 	multer = channal.getSplitter()
 	toDigital = channal.toBitCoeff()
@@ -44,39 +47,38 @@ def calcCoeffTransf( value, channal, plot_cb ):
 	# Умножаем на коэфф. перед. аналоговой цепи и "оцифровываем"
 	Uadc = U * multer * toDigital	
 	Udig = int( Uadc )
-	
-	# переводим в плавающую точку
-	nprintValue( 'Udac, mV', U )
-	nprintValue( 'Udig, ue', Udig )
-	eprint( 'Code WORD: '+tc.byte4strhex( Udig )+'\n' )
-	return Udig
+	return tc.byte4strhex( Udig ), str( channal.getCapacity() )
 
 
 # Run 
 if __name__ == '__main__':
-	# расчет коэффициентов трансформации
-	listOfCurrents = [0]
-	for I in listOfCurrents :
-		msg = '\nI,A : ' + str( I ) + '\n'
-		wprint( msg )
-		Udig = calcCoeffTransf( I, metroChannal, None ) 
-		
-		# Записать в файл шаблон
-		sets = { 'name': 'threshes.h', 'howOpen': 'w', 'coding': 'cp1251'}
-		lstForWrite = list('')
-		lstForWrite.append('\t#define CURRENT_THRESHOLD '+tc.byte4strhex( Udig )+"\t;"+str(I)+" A"+"\n")
-		iow.list2file( sets=sets, lst=lstForWrite )
-	'''	
+
 	# смещение нуля при обратоной обработке
 	I = 0
-	Udig = calcCoeffTransf( I ) 
+	Udig, capacity = calcCoeffTransf( I, metroChannal ) 
 	# Записать в файл шаблон
-	sets = { 'name': 'threshes.h', 'howOpen': 'a', 'coding': 'cp1251'}
+	sets = { 'name': 'threshes.h', 'howOpen': 'w', 'coding': 'cp1251'}
 	lstForWrite = list('')
 	lstForWrite.append('#ifdef HALL_SENSOR')
-	lstForWrite.append('\t#define ZERO_HALL_CORRECT '+tc.byte4strhex( Udig )+"\t;"+str(I)+" A"+"")
-	lstForWrite.append('#endif ;HALL_SENSOR')
-	iow.list2file( sets=sets, lst=lstForWrite )'''
+	lstForWrite.append('\t#define ZERO_HALL_CORRECT '+Udig+"\t;"+
+		str(I)+" A; bits - "+capacity )
+	lstForWrite.append('#endif ;HALL_SENSOR\n')
+	iow.list2file( sets=sets, lst=lstForWrite )
+	
+	# Пороги
+	listOfCurrents = [0, 1]
+	for I in listOfCurrents :
+		wprintValue('\nI,A : ', I)
+		Udig, capacity = calcCoeffTransf( I, thresholdChannal ) 
+		eprintValue('U_code', Udig)
+		
+		# Записать в файл шаблон
+		sets = { 'name': 'threshes.h', 'howOpen': 'a', 'coding': 'cp1251'}
+		lstForWrite = list('')
+		lstForWrite.append('\t#define CURRENT_THRESHOLD '+Udig+"\t;"+
+			str(I)+" A  bits - "+capacity+"\n")
+		iow.list2file( sets=sets, lst=lstForWrite )
+	
 
 ''' 
 # коэффициент перевода. Это чистое значение тока - для рассчетов и отображения

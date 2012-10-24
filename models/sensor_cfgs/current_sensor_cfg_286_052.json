@@ -1,19 +1,21 @@
 {
-	"splitter_params": { 
-		"R1" : 3.01,
-		"R2" : 27.4
-	},
-	"addac" : {
-		"dVmax" : 0.0,
-		"dVmax_" : "mV",
-		"VmaxIdeal" : 5000.0,
-		"VmaxIdeal_" : "mV",
-		"capacity" : 12
-	},
-	"curve_params" : {
+	"sensor_curve_params" : {
+		"units" : "[Kiu] = mV/A; [dU] = mV",
 		"Kiu" : 188.0,		
-		"Kui_" : "mV/A",
-		"dU" : 500.0,		
-		"dU_" : "mV"
+		"dU" : 500.0		
+	},
+	"splitter_metro_parems" : {	"units" : "kOm", "R1" : 3.01, "R2" : 27.4 },
+	"splitter_threshold_parems" : { "units" : "kOm", "R1" : 3.01, "R2" : 27.4 },
+	"adc_metro" : {
+		"units" : "mV",
+		"dVmax" : 0.0,
+		"VmaxIdeal" : 5000.0,
+		"capacity" : 10
+	},
+	"dac_threshes" : {
+		"units" : "mV",
+		"dVmax" : 0.0,
+		"VmaxIdeal" : 5000.0,
+		"capacity" : 12
 	}
 }

@@ -58,6 +58,9 @@ class SensorChannalHall():
 
 		toDigital = resolution/Vmax
 		return toDigital
+	
+	def getCapacity(self):
+		return self._addac[ 'capacity' ]
 		
 	def toWaveCoeff( self ):
 		return 1/self.toBitCoeff( )
