@@ -4,6 +4,7 @@ import json
 import math
 
 import usaio.io_wrapper as iow
+import simpleDataTypesConvertors.IntTypeConvertors as tc
 
 # Читаем конфигурация сенсора
 def get_sensors_cfg():
@@ -76,6 +77,23 @@ def value2voltageHall(value, curve_params):
 	U = value * Kiu + dU
 	return U
 	
-value2voltage = value2voltageHall
-SensorChannal = SensorChannalHall
+'''
+	Ток в код и обратно I, A 
+	код не переведен в цифру - предст. с плав. точкой 
+'''
+# Example:
+# Uo = R16*Uerr/(R16+R10) = 10*500/(10+5.11) = 330.907 mV
+# 2^10 - 5000 mV
+# x - Uo ; x = 67.76 ue = 68 ue = 0x44 ue
+def calcCoeffTransf( value, channal ):
+	# Получаем описание канала и кривой сенсора
+	multer = channal.getSplitter()
+	toDigital = channal.toBitCoeff()
 	
+	# Обработка
+	U = channal.sensor_curve( value )
+	
+	# Умножаем на коэфф. перед. аналоговой цепи и "оцифровываем"
+	Uadc = U * multer * toDigital
+	Udig = int( Uadc )
+	return tc.byte4strhex( Udig ), str( channal.getCapacity() )	
