@@ -1,9 +1,12 @@
 {
-	"I_" : "sensor_cfgs/current_sensor_cfg_286_052.json",
-	"I__" : "sensor_cfgs/current_sensor_cfg_526_051.json",
-	"I" : "sensor_cfgs/current_sensor_cfg_template.json",
-	"I_pretect" : "sensor_cfgs/current_sensor_cfg_526_051.json",
 	"Current notes" : "разрешение разное для ЦАП и АЦП, так же \r\nразные делители снятого напряжения важно",
+	"I" : "sensor_cfgs/current_sensor_cfg_286_052.json",
+	
+	
+	"I__" : "sensor_cfgs/current_sensor_cfg_526_051.json",
+	"I_" : "sensor_cfgs/current_sensor_cfg_template.json",
+	"I_pretect" : "sensor_cfgs/current_sensor_cfg_526_051.json",
+
 	
 	"U" : "sensor_cfgs/current_sensor_cfg_526_051.json"
 }

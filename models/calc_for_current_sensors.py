@@ -45,7 +45,7 @@ def calcCoeffTransf( value, channal ):
 	U = channal.sensor_curve( I )
 	
 	# Умножаем на коэфф. перед. аналоговой цепи и "оцифровываем"
-	Uadc = U * multer * toDigital	
+	Uadc = U * multer * toDigital
 	Udig = int( Uadc )
 	return tc.byte4strhex( Udig ), str( channal.getCapacity() )
 
@@ -55,28 +55,35 @@ if __name__ == '__main__':
 
 	# смещение нуля при обратоной обработке
 	I = 0
-	Udig, capacity = calcCoeffTransf( I, metroChannal ) 
+	Udig_zero, capacity = calcCoeffTransf( I, metroChannal ) 
 	# Записать в файл шаблон
 	sets = { 'name': 'threshes.h', 'howOpen': 'w', 'coding': 'cp1251'}
 	lstForWrite = list('')
 	lstForWrite.append('#ifdef HALL_SENSORS')
-	lstForWrite.append('\t#define ZERO_HALL_CORRECT '+Udig+"\t;"+
+	lstForWrite.append('\t#define ZERO_HALL_CORRECT '+Udig_zero+"\t;"+
 		str(I)+" A; bits - "+capacity+'\n' )
 	iow.list2file( sets=sets, lst=lstForWrite )
 	
 	# Пороги
 	listOfCurrents = [16]
 	lstForWrite = list('')
+	# Записать в файл шаблон
+	sets = { 'name': 'threshes.h', 'howOpen': 'a', 'coding': 'cp1251'}
 	for I in listOfCurrents :
 		wprintValue('\nI,A : ', I)
 		Udig, capacity = calcCoeffTransf( I, thresholdChannal ) 
 		eprintValue('U_code', Udig)
-		
-		# Записать в файл шаблон
-		sets = { 'name': 'threshes.h', 'howOpen': 'a', 'coding': 'cp1251'}
-		
 		lstForWrite.append('\t#define CURRENT_THR '+Udig+"\t;"+
 			str(I)+" A  bits - "+capacity)
+			
+	# Находим коэффициент пересчета
+	I = 10
+	Udig_value, capacity = calcCoeffTransf( I, metroChannal ) 
+	realCodeCurrent = tc.hex_word_to_uint(Udig_value)-tc.hex_word_to_uint(Udig_zero)
+	k = I/realCodeCurrent
+	wprintValue('K code to A :', k)
+	
+	lstForWrite.append(';const double TA_CURRENT_MUL = '+str(k)+';')
 
 	# Закрываем запись
 	lstForWrite.append('#endif ;HALL_SENSOR\n')

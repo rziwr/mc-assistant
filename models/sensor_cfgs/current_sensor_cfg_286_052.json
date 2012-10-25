@@ -15,7 +15,7 @@
 	"dac_threshes" : {
 		"units" : "mV",
 		"dVmax" : 0.0,
-		"VmaxIdeal" : 5000.0,
+		"VmaxIdeal" : 4560.0,
 		"capacity" : 12
 	}
 }
