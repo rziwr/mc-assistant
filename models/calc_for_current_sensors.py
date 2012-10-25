@@ -28,7 +28,7 @@ sensor_sets = get_sensor_cfg('I')
 metroChannal = SensorChannal( sensor_sets,'adc_metro','splitter_metro_parems', value2voltage )
 thresholdChannal = SensorChannal( sensor_sets,'dac_threshes','splitter_threshold_parems', value2voltage )
 
-''' 
+'''
 	Ток в код и обратно I, A 
 	код не переведен в цифру - предст. с плав. точкой 
 '''
@@ -59,14 +59,14 @@ if __name__ == '__main__':
 	# Записать в файл шаблон
 	sets = { 'name': 'threshes.h', 'howOpen': 'w', 'coding': 'cp1251'}
 	lstForWrite = list('')
-	lstForWrite.append('#ifdef HALL_SENSOR')
+	lstForWrite.append('#ifdef HALL_SENSORS')
 	lstForWrite.append('\t#define ZERO_HALL_CORRECT '+Udig+"\t;"+
-		str(I)+" A; bits - "+capacity )
-	lstForWrite.append('#endif ;HALL_SENSOR\n')
+		str(I)+" A; bits - "+capacity+'\n' )
 	iow.list2file( sets=sets, lst=lstForWrite )
 	
 	# Пороги
-	listOfCurrents = [0, 1]
+	listOfCurrents = [16]
+	lstForWrite = list('')
 	for I in listOfCurrents :
 		wprintValue('\nI,A : ', I)
 		Udig, capacity = calcCoeffTransf( I, thresholdChannal ) 
@@ -74,10 +74,13 @@ if __name__ == '__main__':
 		
 		# Записать в файл шаблон
 		sets = { 'name': 'threshes.h', 'howOpen': 'a', 'coding': 'cp1251'}
-		lstForWrite = list('')
-		lstForWrite.append('\t#define CURRENT_THRESHOLD '+Udig+"\t;"+
-			str(I)+" A  bits - "+capacity+"\n")
-		iow.list2file( sets=sets, lst=lstForWrite )
+		
+		lstForWrite.append('\t#define CURRENT_THR '+Udig+"\t;"+
+			str(I)+" A  bits - "+capacity)
+
+	# Закрываем запись
+	lstForWrite.append('#endif ;HALL_SENSOR\n')
+	iow.list2file( sets=sets, lst=lstForWrite )
 	
 
 ''' 
