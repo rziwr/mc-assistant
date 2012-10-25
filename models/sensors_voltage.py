@@ -22,18 +22,20 @@ import json
 from sensors_uni import *
 
 # читае конфигурация сенсора
-sensor_sets = get_sensor_cfg('I')
+sensor_sets = get_sensor_cfg('U')
 
 # Настройки прочитаны, можно разбирать их
 value2voltage = value2voltageHall
 SensorChannal = SensorChannalHall
 
 metroChannal = SensorChannal( sensor_sets,'adc_metro','splitter_metro_parems', value2voltage )
-thresholdChannal = SensorChannal( sensor_sets,'dac_threshes','splitter_threshold_parems', value2voltage )
+thresholdChannal_max = SensorChannal( sensor_sets,'dac_threshes','splitter_threshold_parems', value2voltage )
+thresholdChannal_min = SensorChannal( sensor_sets,'dac_threshes','splitter_threshold_parems', value2voltage )
 
 # Run 
 if __name__ == '__main__':
-
+	pass
+'''
 	# смещение нуля при обратоной обработке
 	I = 0
 	Udig_zero, capacity = calcCoeffTransf( I, metroChannal ) 
@@ -68,5 +70,5 @@ if __name__ == '__main__':
 
 	# Закрываем запись
 	lstForWrite.append('#endif ;HALL_SENSOR\n')
-	iow.list2file( sets=sets, lst=lstForWrite )
+	iow.list2file( sets=sets, lst=lstForWrite )'''
 
