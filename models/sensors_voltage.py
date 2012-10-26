@@ -21,35 +21,39 @@ import json
 # Общая читалка
 from sensors_uni import *
 
+'''def value2voltageHall(value, curve_params):
+	Kiu = curve_params[ 'Kiu' ]		# mV/A
+	dU = curve_params[ 'dU' ]		# mV
+	U = value * Kiu + dU
+	return U'''
+
 # читае конфигурация сенсора
 sensor_sets = get_sensor_cfg('U')
+
 
 # Настройки прочитаны, можно разбирать их
 value2voltage = value2voltageHall
 SensorChannal = SensorChannalHall
 
 metroChannal = SensorChannal( sensor_sets,'adc_metro','splitter_metro_parems', value2voltage )
-thresholdChannal_max = SensorChannal( sensor_sets,'dac_threshes','splitter_threshold_parems', value2voltage )
-thresholdChannal_min = SensorChannal( sensor_sets,'dac_threshes','splitter_threshold_parems', value2voltage )
+#thresholdChannal_max = SensorChannal( sensor_sets,'dac_threshes','splitter_threshold_parems', value2voltage )
+#thresholdChannal_min = SensorChannal( sensor_sets,'dac_threshes','splitter_threshold_parems', value2voltage )
 
 # Run 
 if __name__ == '__main__':
-	pass
-'''
-	# смещение нуля при обратоной обработке
-	I = 0
-	Udig_zero, capacity = calcCoeffTransf( I, metroChannal ) 
-	# Записать в файл шаблон
-	sets = { 'name': 'threshes.h', 'howOpen': 'w', 'coding': 'cp1251'}
 	lstForWrite = list('')
-	lstForWrite.append('#ifdef HALL_SENSORS')
-	lstForWrite.append('\t#define ZERO_HALL_CORRECT '+Udig_zero+"\t;"+
-		str(I)+" A; bits - "+capacity+'\n' )
-	iow.list2file( sets=sets, lst=lstForWrite )
+	sets = { 'name': 'voltage_header.h', 'howOpen': 'w', 'coding': 'cp1251'}
 	
-	# Пороги
-	listOfCurrents = [16]
+	# смещение нуля при обратоной обработке
+	U = 0
+	Udig_zero, capacity = calcCoeffTransf( U, metroChannal ) 
+	# Записать в файл шаблон
 	lstForWrite = list('')
+	lstForWrite.append('\t#define ZERO_VOLTAGE_CORRECT '+Udig_zero+"\t;"+str(U)+" V; bits - "+capacity+'\n' )
+	
+	'''# Пороги
+	listOfCurrents = [16]
+	
 	# Записать в файл шаблон
 	sets = { 'name': 'threshes.h', 'howOpen': 'a', 'coding': 'cp1251'}
 	for I in listOfCurrents :
@@ -57,18 +61,19 @@ if __name__ == '__main__':
 		Udig, capacity = calcCoeffTransf( I, thresholdChannal ) 
 		eprintValue('U_code', Udig)
 		lstForWrite.append('\t#define CURRENT_THR '+Udig+"\t;"+
-			str(I)+" A  bits - "+capacity)
+			str(I)+" A  bits - "+capacity)'''
 			
 	# Находим коэффициент пересчета
-	I = 10
-	Udig_value, capacity = calcCoeffTransf( I, metroChannal ) 
-	realCodeCurrent = tc.hex_word_to_uint(Udig_value)-tc.hex_word_to_uint(Udig_zero)
-	k = I/realCodeCurrent
-	wprintValue('K code to A :', k)
+	U = 48.0
+	Udig_value, capacity = calcCoeffTransf( U, metroChannal ) 
+	lstForWrite.append('\t#define TEST_MOCK_VOLTAGE '+Udig_value+"\t;"+str(U)+" V; bits - "+capacity+'\n' )
 	
-	lstForWrite.append(';const double TA_CURRENT_MUL = '+str(k)+';')
+	realCodeVoltage = tc.hex_word_to_uint(Udig_value)-tc.hex_word_to_uint(Udig_zero)
+	k = U/realCodeVoltage
+	wprintValue('K code to V :', k)
+	
+	lstForWrite.append(';const double TA_VOLTAGE_MUL = '+str(k)+';')
 
 	# Закрываем запись
-	lstForWrite.append('#endif ;HALL_SENSOR\n')
-	iow.list2file( sets=sets, lst=lstForWrite )'''
+	iow.list2file( sets=sets, lst=lstForWrite )
 

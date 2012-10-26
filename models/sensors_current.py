@@ -22,7 +22,7 @@ import json
 from sensors_uni import *
 
 # читае конфигурация сенсора
-sensor_sets = get_sensor_cfg('U')
+sensor_sets = get_sensor_cfg('I')
 
 # Настройки прочитаны, можно разбирать их
 value2voltage = value2voltageHall
@@ -60,6 +60,7 @@ if __name__ == '__main__':
 	# Находим коэффициент пересчета
 	I = 10
 	Udig_value, capacity = calcCoeffTransf( I, metroChannal ) 
+	print Udig_value
 	realCodeCurrent = tc.hex_word_to_uint(Udig_value)-tc.hex_word_to_uint(Udig_zero)
 	k = I/realCodeCurrent
 	wprintValue('K code to A :', k)
