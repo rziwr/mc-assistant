@@ -46,7 +46,7 @@ if __name__ == '__main__':
 	iow.list2file( sets=sets, lst=lstForWrite )
 	
 	# Пороги
-	listOfCurrents = [16]
+	listOfCurrents = [20, 22]
 	lstForWrite = list('')
 	# Записать в файл шаблон
 	sets = { 'name': 'threshes.h', 'howOpen': 'a', 'coding': 'cp1251'}

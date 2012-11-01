@@ -15,14 +15,19 @@
 	
 	
 	"dac_threshes" : {
-		"units" : "mV",
+		"units" : "V",
 		"dVmax" : 0.0,
-		"VmaxIdeal" : 4560.0,
+		"VmaxIdeal" : 4.5600,
 		"capacity" : 12
 	},
-	"splitter_threshold_parems" : { 
+	"splitter_threshold_parems_min" : { 
 		"units" : "kOm", 
-		"R1" : 3.01, "R2" : 27.4,
-		"R3" : 3.01, "R4" : 27.4
+		"R1" : 27.4, "R2" : 1.5,
+		"R3" : 4.22, "R4" : 4.02
+	},
+	"splitter_threshold_parems_max" : { 
+		"units" : "kOm", 
+		"R1" : 27.4, "R2" : 1.5,
+		"R3" : 3.01, "R4" : 5.23
 	}
 }

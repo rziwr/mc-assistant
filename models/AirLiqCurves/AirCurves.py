@@ -6,14 +6,15 @@
 from matplotlib import pyplot
 import pylab
 
+
 # Calc engines
 from scipy.interpolate import interp1d
 import random
 import numpy
 
 # my
-import api_convertors.type_conv as tc
-import api_os_wrappers.os_wrapper as os_w
+import usaio.io_wrapper as iow
+import simpleDataTypesConvertors.IntTypeConvertors as tc
 
 # хранилище кривых
 import AirCurvesDB as airDB
@@ -55,7 +56,7 @@ def processInData( inCurve, Hex ):
 	
 ''' входные данные - интерполированные '''
 def plotSrcCurves( rpt, curveNames ):
-	# Model
+	'''# Model
 	curveNames = curveNames
 	CurvesSet, hex = airDB.getDataFromDb(curveNames[0])
 
@@ -67,17 +68,17 @@ def plotSrcCurves( rpt, curveNames ):
 		xData, yData = processInData( CurvesSet[ at ], hex[ at ] )
 		yData = yData
 		pylab.hold(True)
-		pylab.plot( xData, yData, CurvesSetMark[ at ], label=at, linewidth=2)
+		pylab.plot( xData, yData, CurvesSetMark[ at ], label=at, linewidth=2)'''
 	
 	# добавляем интерполированные данные
-	pylab.hold(True)
+	pyplot.hold(True)
 	xData, yData = processInData( rpt, True )
-	pylab.plot( xData, yData, 'y^-', label='src', linewidth=2)
+	pyplot.plot( xData, yData, 'y^-', label='src', linewidth=2)
 	
 	# показываем график
-	pylab.legend()
-	pylab.grid(True)
-	pylab.show()
+	pyplot.legend()
+	pyplot.grid(True)
+	pyplot.show()
 
 ''' Набирает строку для записи в файл '''
 def rptCureve(xDataSrc, yDataSrc):
@@ -121,7 +122,11 @@ def linInterpolAirCurve(x, y):
 	# htp
 	rpt = rptCureve(xDataSrc, yDataSrc)
 	fname = 'curve.txt'
-	os_w.printStrToNamedFile(rpt, fname)
+		
+	sets = { 'name': 'curve.txt', 'howOpen': 'w', 'coding': 'cp1251'}
+	sensorSettings = iow.list2file( sets, rpt.split('\n') )
+	
+	#os_w.printStrToNamedFile(rpt, fname)
 	
 	# выводим данные
 	return rpt
@@ -132,17 +137,18 @@ if __name__ == '__main__':
 	# входные данные
 	#'''
 	y = [
-		20, 20, # началное 
-		45, 	# конторольная точка
-		75, 75, # максиальная скорость в обычным
+		40, 40, # началное 
+		70, 	# конторольная точка
+		100, 100, # максиальная скорость в обычным
 		100, 100	# максимальная
 	]	# %
-	x = [1, 26,   42,   55, 85,   86, 99]
+	x = [1, 26,   42,   50, 85,   86, 99]
 	rpt = linInterpolAirCurve(x, y)
 	
 	# обработка кривой из кода
 	plotSrcCurves( rpt, ['VIRTUAL_ONE'] )
 	
+	'''
 	# Обновляем кривую
 	curveNames = ['VIRTUAL_ONE']
 	airDB.showDB()
@@ -151,5 +157,5 @@ if __name__ == '__main__':
 	# запись существует?
 	if not Err:
 		pass
-	airDB.showDB()
+	airDB.showDB()'''
 

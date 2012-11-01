@@ -93,7 +93,9 @@ def calcCoeffTransf( value, channal ):
 	# Обработка
 	U = channal.sensor_curve( value )
 	
+	
 	# Умножаем на коэфф. перед. аналоговой цепи и "оцифровываем"
+	#print 'U splitter', U * multer
 	Uadc = U * multer * toDigital
 	Udig = int( Uadc )
 	return tc.byte4strhex( Udig ), str( channal.getCapacity() )	
