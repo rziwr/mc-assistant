@@ -1,6 +1,12 @@
 ﻿#-*- coding: utf-8 -*-
 ''' 
 	Хранит историю изменений по имени
+	Y% - (82-N/2)/127
+	
+	255 - (82-164/2)/127
+	x - (82-N/2)/127
+	
+	N = (Y*127.0-82)*2
 '''
 # View
 from matplotlib import pyplot
@@ -18,6 +24,8 @@ import simpleDataTypesConvertors.IntTypeConvertors as tc
 
 # хранилище кривых
 import AirCurvesDB as airDB
+
+MAX_SPEED = 164.0
 
 ''' Метод разбивки входных данных '''
 def processInData( inCurve, Hex ):
@@ -42,10 +50,10 @@ def processInData( inCurve, Hex ):
 		# если хекс формат, то нужно удалить 0x
 		if Hex:
 			xAt = int( tc.hexByte2uint( CurveSplit[ 2*i ] ) )
-			yAt = int( tc.hexByte2uint( CurveSplit[ 2*i+1 ])*100/255 )  
+			yAt = int( tc.hexByte2uint( CurveSplit[ 2*i+1 ])*100/MAX_SPEED )  
 		else :
 			xAt = int( int(CurveSplit[ 2*i ]) ) 
-			yAt = int( int(CurveSplit[ 2*i+1 ])*100/255.0 ) 
+			yAt = int( int(CurveSplit[ 2*i+1 ])*100/MAX_SPEED ) 
 		
 		# заполняют
 		xData.append( xAt )
@@ -83,8 +91,8 @@ def plotSrcCurves( rpt, curveNames ):
 ''' Набирает строку для записи в файл '''
 def rptCureve(xDataSrc, yDataSrc):
 	result = '\tdb '
-	resultList = list('')
-	proc2shim = 255/100.0
+	resultList = list('')	# итоговая кривая
+	proc2shim = MAX_SPEED/100.0
 	for i in range( len(xDataSrc) ):
 		value = int(xDataSrc[ i ])
 		resultList.append( value )
