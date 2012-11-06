@@ -1,10 +1,74 @@
-﻿#!/usr/bin/python
+#!/usr/bin/python
 #-*- coding: utf-8 -*-
-import ui
-import api_convertors.float32_conv as f32_conv
-import api_convertors.type_conv as tc
 import math
-from api_dbg.doColoredConsole import co
+
+import ui
+
+import simpleDataTypesConvertors.IntTypeConvertors as tc
+import simpleDataTypesConvertors.Float32Convertors as f32_conv
+
+from pyDbg.doColoredConsole import co
+nprint = co.printN
+wprint = co.printW
+eprint = co.printE
+
+import usaio.io_wrapper as iow
+
+''' '''
+def printFormatter(string):
+	string = '0x'+string
+	return string[:-1].replace(' ',', 0x')
+
+''' 
+	Метод отображения результатов и плагины для вывода на комм. строку
+	
+	notes. : Низший модуль передает полностью всю информацию. Потом можно разбить
+	  регулярными выражениями
+
+	rem. : функции обратного вызова можно собрать в кортеж и внизу управлять 
+	  действиями по имени
+'''
+def plotPlugin(string):	# пустой
+	None
+def plotPluginFull(string):
+	print string
+
+sets = { 'name': 'convertion.log', 'howOpen': 'a', 'coding': 'cp1251'}
+	
+# подборка плагинов
+pluginList = {"None" : plotPlugin, 'Full':plotPluginFull}
+def plot(msg, value):
+	print msg+" "+str(value)
+	ieee, mchip = f32_conv.run(value, pluginList["Full"])
+	mchip = printFormatter(mchip)
+	
+	lst = list()
+	lst.append(msg+' '+mchip+'\n')
+	iow.list2file( sets, lst )
+
+''' msg : Lhl Hhl'''
+def plotWord(msg, word):
+	string = f32_conv.byte2hex(int(word)%256) 	# L
+	string += ' '+ f32_conv.byte2hex(int(word)/256)	# H
+	print msg+' '+string
+
+	lst = list()
+	lst.append(msg+' '+string+'\n')
+	iow.list2file( sets, lst )
+	
+def rout():
+	lst = list()
+	lst.append('\n')
+	iow.list2file( sets, lst )
+	
+''' ''' ''' '''
+
+def eprintValue( name, value ):
+	eprint( name+' : '+str(value)+'\n')
+def wprintValue( name, value ):
+	wprint( name+' : '+str(value)+'\n')
+def nprintValue( name, value ):
+	nprint( name+' : '+str(value)+'\n')
 
 def hexWordToInt( hexWord ):
 	sum = 0
@@ -48,9 +112,6 @@ ui.plot(msg, Usm_src)
 ui.rout()'''
 
 
-#print f32_conv.hexMCHIPfloat32toFloat("80 33 D7 0A")
-#f32_conv.hexMCHIPfloat32toFloat("81 0A EC 08")
-
 ''' '''
 def shift2Code( fShift ):
 	Usm_needed = fShift
@@ -66,7 +127,7 @@ def shift2Code( fShift ):
 	co.printE( 'U : ' + str( Usm_needed )+'\n') 
 	co.printW( 'Code : ' + str( int(Code) )+'\n')
 	msg = 'Hex code, LH: : '
-	ui.plotWord(msg, Code)
+	plotWord(msg, Code)
 	
 	# Выходные параметры
 	return Code
@@ -85,7 +146,7 @@ dUsm_code = shift2Code( dUsm )
 K_oC2Code = dUsm_code / T
 # переводим в плавающую точку
 msg = 'T to code, float32:'
-ui.plot(msg, K_oC2Code)
+plot(msg, K_oC2Code)
 co.printW( 'T to code : '+str(K_oC2Code)+'\n' )
 
 # нулевое приближение в коде
