@@ -1,6 +1,3 @@
-//#ifndef _GCC
-#include "stdafx.h"
-//#endif
 #include "Convertors.h"
 using namespace std;
 using namespace Convertors;

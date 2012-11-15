@@ -13,6 +13,7 @@ wprint = co.printW
 eprint = co.printE
 
 import usaio.io_wrapper as iow
+sets = { 'name': 'convertion.log', 'howOpen': 'a', 'coding': 'cp1251'}
 
 ''' '''
 def printFormatter(string):
@@ -28,14 +29,12 @@ def printFormatter(string):
 	rem. : функции обратного вызова можно собрать в кортеж и внизу управлять 
 	  действиями по имени
 '''
+# подборка плагинов
 def plotPlugin(string):	# пустой
 	None
 def plotPluginFull(string):
 	print string
-
-sets = { 'name': 'convertion.log', 'howOpen': 'a', 'coding': 'cp1251'}
 	
-# подборка плагинов
 pluginList = {"None" : plotPlugin, 'Full':plotPluginFull}
 def plot(msg, value):
 	print msg+" "+str(value)
@@ -45,6 +44,8 @@ def plot(msg, value):
 	lst = list()
 	lst.append(msg+' '+mchip+'\n')
 	iow.list2file( sets, lst )
+
+	
 
 ''' msg : Lhl Hhl'''
 def plotWord(msg, word):
@@ -60,8 +61,6 @@ def rout():
 	lst = list()
 	lst.append('\n')
 	iow.list2file( sets, lst )
-	
-''' ''' ''' '''
 
 def eprintValue( name, value ):
 	eprint( name+' : '+str(value)+'\n')
@@ -80,39 +79,6 @@ def hexWordToInt( hexWord ):
 def intWordToHex( intWord ):
 	sum = ''
 
-# Расчет для УКВ ЧМ
-T = 0	# Температура 8 бит бит/градус
-
-# температурный коэффициент
-corrected_mult = 4.9 * 5 * 1e-3	# V/oC
-
-# поправка
-mult = 4.9/1000*5*4000.0/4.6	# V/oC положительная!
-delta_U = mult*T	# deltaU V
-
-# конкретное значение смещения
-hexWord = '0F99'
-Usm_src = hexWordToInt( hexWord ) 
-Usm_src -= delta_U	# вычитание вот здесь!
-
-# Report
-'''
-msg = 'T oC :'
-ui.plot(msg, T)
-msg = 'mult V/oC :'
-ui.plot(msg, mult)
-msg = 'deltaU, ue LH:'
-ui.plotWord(msg, delta_U)
-msg = 'deltaU ue :'
-ui.plot(msg, delta_U)
-msg = 'Usm src, ue LH:'
-ui.plotWord(msg, Usm_src)
-msg = 'Usm src, ue float32:'
-ui.plot(msg, Usm_src)
-ui.rout()'''
-
-
-''' '''
 def shift2Code( fShift ):
 	Usm_needed = fShift
 
@@ -132,6 +98,36 @@ def shift2Code( fShift ):
 	# Выходные параметры
 	return Code
 
+# Расчет для УКВ ЧМ
+T = 0	# Температура 8 бит бит/градус
+
+# температурный коэффициент
+corrected_mult = 4.9 * 5 * 1e-3	# V/oC
+
+# поправка
+mult = 4.9/1000*5*4000.0/4.6	# V/oC положительная!
+delta_U = mult*T	# deltaU V
+
+# конкретное значение смещения
+hexWord = '0F99'
+Usm_src = hexWordToInt( hexWord ) 
+Usm_src -= delta_U	# вычитание вот здесь!
+
+# Report
+
+msg = 'T oC :'
+plot(msg, T)
+msg = 'mult V/oC :'
+plot(msg, mult)
+msg = 'deltaU, ue LH:'
+plotWord(msg, delta_U)
+msg = 'deltaU ue :'
+plot(msg, delta_U)
+msg = 'Usm src, ue LH:'
+plotWord(msg, Usm_src)
+msg = 'Usm src, ue float32:'
+plot(msg, Usm_src)
+rout()
 # Перобразование смещения
 T = 26.0	# Температура 8 бит бит/градус
 
