@@ -42,7 +42,7 @@ def plot( msg, value ):
 	mchip = printFormatter( mchip )
 	
 	lst = list( )
-	lst.append( msg+' '+mchip+'\n' )
+	lst.append( ';\t'+msg+' '+mchip+'\n' )
 	iow.list2file( sets, lst )
 
 ''' msg : Lhl Hhl'''
@@ -52,7 +52,7 @@ def plotWord( msg, word ):
 	print msg+' '+string
 
 	lst = list( )
-	lst.append( msg+' '+string+'\n' )
+	lst.append( ';\t'+msg+' '+string+'\n' )
 	iow.list2file( sets, lst )
 	
 def new_line( ):
@@ -92,7 +92,7 @@ def hexWordToInt( hexWord ):
 '''
 # Расчет для УКВ ЧМ
 T = 10	# Температура 8 бит бит/градус
-src_shift_code = '0FFF'	# значение кода для установки смещения по умолчанию из EEPROM
+src_shift_code = '0111'	# значение кода для установки смещения по умолчанию из EEPROM
 
 # температурный коэффициент
 corrected_mult = -4.9 * 5 * 1e-3	# V/oC
@@ -111,6 +111,7 @@ out_shift_code = src_shift_code+math.copysign( 1, corrected_mult )*dU	# вычи
 
 # Report
 msg = 'T oC :'
+plotWord( msg, T )
 plot( msg, T )
 msg = 'mult, V/oC :'
 plot( msg, mult )
