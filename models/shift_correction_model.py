@@ -98,35 +98,49 @@ def shift2Code( fShift ):
 	# Выходные параметры
 	return Code
 
+''' 
+	version : 1.0
+	
+	notes:
+		v 1.0
+		  precond.:
+		    1. попр. коэфф. всегда берется по модулю
+			2. при коррекции кода склад. или выч. в зависимости от знака коэфф. коррекции
+		  contraints :
+		    
+'''
 # Расчет для УКВ ЧМ
-T = 0	# Температура 8 бит бит/градус
+T = 1	# Температура 8 бит бит/градус
+src_shift_code = '0FFF'	# значение кода для установки смещения по умолчанию из EEPROM
 
 # температурный коэффициент
 corrected_mult = -4.9 * 5 * 1e-3	# V/oC
+corrected_mult = math.fabs(corrected_mult)	# ufloat
 
 # поправка
 out_proportion = 4000.0/4.6	# ue/V число, загружаемое в ЦАП 
 mult = corrected_mult * out_proportion	# V/oC положительная!
-delta_U = mult*T	# deltaU V
+dU = mult * T	# deltaU V uintXX
 
-# конкретное значение смещения
-src_shift_code = '0FFF'
-Usm_src = hexWordToInt( src_shift_code ) 
-Usm_src += delta_U	# вычитание вот здесь!
+# значение изначального кода смещения для расчетов
+src_shift_code = hexWordToInt( src_shift_code )
+
+# uintXX = uintXX+(or -)uintXX
+out_shift_code = src_shift_code+math.copysign(1, corrected_mult)*dU	# вычитание вот здесь!
 
 # Report
 msg = 'T oC :'
 plot(msg, T)
-msg = 'mult V/oC :'
+msg = 'mult, V/oC :'
 plot(msg, mult)
 msg = 'deltaU, ue LH:'
-plotWord(msg, delta_U)
-msg = 'deltaU ue :'
-plot(msg, delta_U)
-msg = 'Usm src, ue LH:'
-plotWord(msg, Usm_src)
-msg = 'Usm src, ue float32:'
-plot(msg, Usm_src)
+plotWord(msg, dU)
+msg = 'deltaU, ue :'
+plot(msg, dU)
+msg = 'Out shift value, ue LH:'
+plotWord(msg, out_shift_code)
+msg = 'Out shift value, ue float32:'
+plot(msg, out_shift_code)
 rout()
 
 '''
