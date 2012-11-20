@@ -4,8 +4,6 @@ import sys
 sys.path.append('D:/home/lugansky-igor/pyPkgs/text-processors/pkgs')
 import math
 
-import ui
-
 import convertors_simple_data_types.IntTypeConvertors as tc
 import convertors_simple_data_types.Float32Convertors as f32_conv
 
@@ -40,7 +38,7 @@ def plotPluginFull(string):
 pluginList = {"None" : plotPlugin, 'Full':plotPluginFull}
 def plot(msg, value):
 	print msg+" "+str(value)
-	ieee, mchip = f32_conv.run(value, pluginList["Full"])
+	ieee, mchip = f32_conv.run(value, pluginList["None"])
 	mchip = printFormatter(mchip)
 	
 	lst = list()
@@ -104,19 +102,19 @@ def shift2Code( fShift ):
 T = 0	# Температура 8 бит бит/градус
 
 # температурный коэффициент
-corrected_mult = 4.9 * 5 * 1e-3	# V/oC
+corrected_mult = -4.9 * 5 * 1e-3	# V/oC
 
 # поправка
-mult = 4.9/1000*5*4000.0/4.6	# V/oC положительная!
+out_proportion = 4000.0/4.6	# ue/V число, загружаемое в ЦАП 
+mult = corrected_mult * out_proportion	# V/oC положительная!
 delta_U = mult*T	# deltaU V
 
 # конкретное значение смещения
-hexWord = '0F99'
-Usm_src = hexWordToInt( hexWord ) 
-Usm_src -= delta_U	# вычитание вот здесь!
+src_shift_code = '0FFF'
+Usm_src = hexWordToInt( src_shift_code ) 
+Usm_src += delta_U	# вычитание вот здесь!
 
 # Report
-
 msg = 'T oC :'
 plot(msg, T)
 msg = 'mult V/oC :'
@@ -130,6 +128,8 @@ plotWord(msg, Usm_src)
 msg = 'Usm src, ue float32:'
 plot(msg, Usm_src)
 rout()
+
+'''
 # Перобразование смещения
 T = 26.0	# Температура 8 бит бит/градус
 
@@ -149,7 +149,7 @@ co.printW( 'T to code : '+str(K_oC2Code)+'\n' )
 
 # нулевое приближение в коде
 #U = 1.433
-#U_code = shift2Code( U )
+#U_code = shift2Code( U )'''
 
 
 
