@@ -1,13 +1,15 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
+import sys
+sys.path.append('D:/home/lugansky-igor/pyPkgs/text-processors/pkgs')
 import math
 
 import ui
 
-import simpleDataTypesConvertors.IntTypeConvertors as tc
-import simpleDataTypesConvertors.Float32Convertors as f32_conv
+import convertors_simple_data_types.IntTypeConvertors as tc
+import convertors_simple_data_types.Float32Convertors as f32_conv
 
-from pyDbg.doColoredConsole import co
+from py_dbg_toolkit.doColoredConsole import co
 nprint = co.printN
 wprint = co.printW
 eprint = co.printE

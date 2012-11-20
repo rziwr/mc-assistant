@@ -146,3 +146,69 @@ std::vector<std::string> Convertors::SplitSpaces( std::string str ) {
          back_inserter<vector<string> >(tokens));
 	return tokens;
 }
+
+std::wstring Convertors::StringToWString(const std::string& s)
+ {
+	 std::wstring temp(s.length(),L' ');
+	 std::copy(s.begin(), s.end(), temp.begin());
+	 return temp; 
+ }
+
+
+ std::string Convertors::WStringToString(const std::wstring& s)
+ {
+	 std::string temp(s.length(), ' ');
+	 std::copy(s.begin(), s.end(), temp.begin());
+	 return temp; 
+ }
+
+
+ std::wstring Convertors::Utf8ToUtf16(const std::string &s)
+{
+    std::wstring ret;
+    int len = MultiByteToWideChar(CP_UTF8, 0, s.c_str(), s.length(), NULL, 0);
+    if (len > 0)
+    {
+      ret.resize(len);
+      MultiByteToWideChar(CP_UTF8, 0, s.c_str(), s.length(), const_cast<wchar_t*>(ret.c_str()), len);
+    }
+    return ret;
+}
+
+std::string Convertors::Utf16ToUtf8(const std::wstring &s)
+{
+    std::string ret;
+    int len = WideCharToMultiByte(CP_UTF8, 0, s.c_str(), s.length(), NULL, 0, NULL, NULL);
+    if (len > 0)
+    {
+      ret.resize(len);
+      WideCharToMultiByte(CP_UTF8, 0, s.c_str(), s.length(), const_cast<char*>(ret.c_str()), len, NULL, NULL);
+    }
+    return ret;
+}
+
+std::wstring Convertors::ANSIToUtf16(const std::string &s)
+{
+    std::wstring ret;
+    int len = MultiByteToWideChar(CP_ACP, 0, s.c_str(), s.length(), NULL, 0);
+    if (len > 0)
+    {
+      ret.resize(len);
+      MultiByteToWideChar(CP_ACP, 0, s.c_str(), s.length(), const_cast<wchar_t*>(ret.c_str()), len);
+    }
+    return ret;
+}
+std::string Convertors::Utf16ToANSI(const std::wstring &s)
+{
+    std::string ret;
+    int len = WideCharToMultiByte(CP_ACP, 0, s.c_str(), s.length(), NULL, 0, NULL, NULL);
+    if (len > 0)
+    {
+      ret.resize(len);
+      WideCharToMultiByte(CP_ACP, 0, s.c_str(), s.length(), const_cast<char*>(ret.c_str()), len, NULL, NULL);
+    }
+    return ret;
+}
+
+
+

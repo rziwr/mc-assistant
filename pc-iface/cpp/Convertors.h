@@ -103,5 +103,15 @@ namespace Convertors
   char hbCharToChar(char);  // 0x0y -> char число
   int charToInt(char);  // один символ 
   std::vector<std::string> SplitSpaces( std::string );
+
+	// Prototype for conversion functions
+	std::wstring	StringToWString(const std::string& s);
+	std::string		WStringToString(const std::wstring& s);
+	std::wstring Utf8ToUtf16(const std::string &s);
+	std::string Utf16ToUtf8(const std::wstring &s);
+	std::wstring ANSIToUtf16(const std::string &s);
+	std::string Utf16ToANSI(const std::wstring &s);
+	std::string ANSIToUtf8(const std::string &s);
+	std::string Utf8ToANSI(const std::string &s);
 }
 #endif
