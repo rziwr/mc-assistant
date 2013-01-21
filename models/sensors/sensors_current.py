@@ -1,76 +1,87 @@
 #-*- coding: utf-8 -*-
-# core
-# utils
-from pyDbg.doColoredConsole import co
+import sys
+sys.path.append('D:/home/lugansky-igor/github-dev/py-bale')
+sys.path.append('D:/home/lugansky-igor/github-dev')
+import json
+
+# dev
+import uasio.os_io.io_wrapper as iow
+from py_dbg_toolkit.doColoredConsole import co
+import convertors_simple_data_types.xintyy_type_convertors as tc
+
+# App
+import _sensors_uni as app_reuse_code
+
 nprint = co.printN
 wprint = co.printW
 eprint = co.printE
 def eprintValue( name, value ):
-	eprint( name+' : '+str(value)+'\n')
+    eprint( name+' : '+str(value)+'\n')
 def wprintValue( name, value ):
-	wprint( name+' : '+str(value)+'\n')
+    wprint( name+' : '+str(value)+'\n')
 def nprintValue( name, value ):
-	nprint( name+' : '+str(value)+'\n')
-	
-import simpleDataTypesConvertors.Float32Convertors as f32cnv
-import simpleDataTypesConvertors.IntTypeConvertors as tc
+    nprint( name+' : '+str(value)+'\n')
 
-# Читаем конфигурация сенсора
-import json
+def _init_sensors():
+        # читае конфигурация сенсора
+    sensor_sets = app_reuse_code.get_sensor_cfg('I')
 
-# Общая читалка
-from sensors_uni import *
+    # Настройки прочитаны, можно разбирать их
+    value2voltage = app_reuse_code.value2voltageHall
+    SensorChannal = app_reuse_code.SensorChannalHall
 
-# читае конфигурация сенсора
-sensor_sets = get_sensor_cfg('I')
-
-# Настройки прочитаны, можно разбирать их
-value2voltage = value2voltageHall
-SensorChannal = SensorChannalHall
-
-metroChannal = SensorChannal( sensor_sets,'adc_metro','splitter_metro_parems', value2voltage )
-thresholdChannal = SensorChannal( sensor_sets,'dac_threshes','splitter_threshold_parems', value2voltage )
+    metro_channal = SensorChannal( sensor_sets,'adc_metro','splitter_metro_parems', value2voltage )
+    threshold_channal = SensorChannal( sensor_sets,'dac_threshes','splitter_threshold_parems', value2voltage )
+    return metro_channal, threshold_channal
+    
+def main(list_of_currents):
+    metro_channal, threshold_channal = _init_sensors()
+    
+    # смещение нуля при обратной обработке
+    I = 0
+    Udig_zero, capacity = app_reuse_code.calc_coeff_transform( I, metro_channal ) 
+    # Записать в файл шаблон
+    fname = 'threshes.h'
+    sets = { 'name': fname, 'howOpen': 'w', 'coding': 'cp1251'}
+    
+    print 'Threshes write to file '+fname
+    
+    result_list = list('')
+    result_list.append('#ifdef HALL_SENSORS')
+    result_list.append('\t#define ZERO_HALL_CORRECT '+Udig_zero+"\t;"+
+        str(I)+" A; bits - "+capacity+'\n' )
+    iow.list2file( sets=sets, lst=result_list )
+    
+    # Пороги
+    result_list = list('')
+    # Записать в файл шаблон
+    sets['howOpen'] = 'a'
+    for I in list_of_currents :
+        wprintValue('\nI,A : ', I)
+        Udig, capacity = app_reuse_code.calc_coeff_transform( I, threshold_channal ) 
+        eprintValue('U_code', Udig)
+        result_list.append('\t#define CURRENT_THR '+Udig+"\t;"+
+            str(I)+" A  bits - "+capacity)
+            
+    # Находим коэффициент пересчета
+    
+    """I = 10
+    Udig_value, capacity = app_reuse_code.calc_coeff_transform( I, metro_channal ) 
+    print Udig_value
+    realCodeCurrent = tc.hex_word_to_uint(Udig_value)-tc.hex_word_to_uint(Udig_zero)
+    k = I/realCodeCurrent
+    wprintValue('K code to A :', k)
+    
+    result_list.append(';const double TA_CURRENT_MUL = '+str(k)+';')
+"""
+    # Закрываем запись
+    result_list.append('#endif ;HALL_SENSOR\n')
+    iow.list2file( sets=sets, lst=result_list )
 
 # Run 
 if __name__ == '__main__':
-
-	# смещение нуля при обратоной обработке
-	I = 0
-	Udig_zero, capacity = calcCoeffTransf( I, metroChannal ) 
-	# Записать в файл шаблон
-	sets = { 'name': 'threshes.h', 'howOpen': 'w', 'coding': 'cp1251'}
-	lstForWrite = list('')
-	lstForWrite.append('#ifdef HALL_SENSORS')
-	lstForWrite.append('\t#define ZERO_HALL_CORRECT '+Udig_zero+"\t;"+
-		str(I)+" A; bits - "+capacity+'\n' )
-	iow.list2file( sets=sets, lst=lstForWrite )
-	
-	# Пороги
-	listOfCurrents = [20, 22]
-	lstForWrite = list('')
-	# Записать в файл шаблон
-	sets = { 'name': 'threshes.h', 'howOpen': 'a', 'coding': 'cp1251'}
-	for I in listOfCurrents :
-		wprintValue('\nI,A : ', I)
-		Udig, capacity = calcCoeffTransf( I, thresholdChannal ) 
-		eprintValue('U_code', Udig)
-		lstForWrite.append('\t#define CURRENT_THR '+Udig+"\t;"+
-			str(I)+" A  bits - "+capacity)
-			
-	# Находим коэффициент пересчета
-	I = 10
-	Udig_value, capacity = calcCoeffTransf( I, metroChannal ) 
-	print Udig_value
-	realCodeCurrent = tc.hex_word_to_uint(Udig_value)-tc.hex_word_to_uint(Udig_zero)
-	k = I/realCodeCurrent
-	wprintValue('K code to A :', k)
-	
-	lstForWrite.append(';const double TA_CURRENT_MUL = '+str(k)+';')
-
-	# Закрываем запись
-	lstForWrite.append('#endif ;HALL_SENSOR\n')
-	iow.list2file( sets=sets, lst=lstForWrite )
-	
+    main()
+    
 
 ''' 
 # коэффициент перевода. Это чистое значение тока - для рассчетов и отображения
@@ -98,9 +109,9 @@ return Udig
 
 '' ' Просто заглушка '' '
 def printRpt( value, valueDisplacemented, valueScaled, valueCode, Kda ):
-	print '\n<< Output values:'
-	print 'Code : '+str(valueCode)
-	print 'Kda : '+str(Kda)
+    print '\n<< Output values:'
+    print 'Code : '+str(valueCode)
+    print 'Kda : '+str(Kda)
 '''
 #import ModelADDAC as adda
 # проверяем
