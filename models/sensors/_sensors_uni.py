@@ -50,7 +50,7 @@ class SensorChannalHall():
         splitter = R2/(R1+R2)
         return splitter
         
-    def get_coeff_to_digital_conv(self):
+    def get_ad_coeff(self):
         dVmax = self._addac['dVmax']    # mV сдвиг ЦАП
         VmaxIdeal = self._addac['VmaxIdeal']
 
@@ -64,8 +64,8 @@ class SensorChannalHall():
     def get_capacity(self):
         return self._addac['capacity']
         
-    def to_wave_coeff(self):
-        return 1/self.get_coeff_to_digital_conv()
+    def get_da_coeff(self):
+        return 1/self.get_ad_coeff()
         
     def sensor_curve(self, value):
         return self._sensor_curve_cb(value, self._sensor_curve_sets)
@@ -88,7 +88,7 @@ def calc_coeff_transform(value, channal):
     """
     # Получаем описание канала и кривой сенсора
     multer = channal.get_splitter()
-    to_digital = channal.get_coeff_to_digital_conv()
+    to_digital = channal.get_ad_coeff()
     
     # Обработка
     U = channal.sensor_curve(value)
