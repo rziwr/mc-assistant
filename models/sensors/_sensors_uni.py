@@ -44,13 +44,13 @@ class SensorChannalHall():
         self._sensor_curve_cb = curve_cb
         self._sensor_curve_sets = sensor_sets['sensor_curve_params']
 
-    def getSplitter(self):
+    def get_splitter(self):
         R1 = self._splitter_params['R1']
         R2 = self._splitter_params['R2']
         splitter = R2/(R1+R2)
         return splitter
         
-    def toBitCoeff(self):
+    def get_coeff_to_digital_conv(self):
         dVmax = self._addac['dVmax']    # mV сдвиг ЦАП
         VmaxIdeal = self._addac['VmaxIdeal']
 
@@ -58,44 +58,42 @@ class SensorChannalHall():
         Vmax = VmaxIdeal-dVmax     # mV - это максимальное значение ЦАП - площадка при выс. сигн.
         resolution = math.pow(2, capacity)
 
-        toDigital = resolution/Vmax
-        return toDigital
+        to_digital = resolution/Vmax
+        return to_digital
     
-    def getCapacity(self):
+    def get_capacity(self):
         return self._addac['capacity']
         
-    def toWaveCoeff(self):
-        return 1/self.toBitCoeff()
+    def to_wave_coeff(self):
+        return 1/self.get_coeff_to_digital_conv()
         
     def sensor_curve(self, value):
         return self._sensor_curve_cb(value, self._sensor_curve_sets)
         
-# Параметры входной кривой
-# Датчик Холла
-def value2voltageHall(value, curve_params):
-    Kiu = curve_params['Kiu']        # mV/A
-    dU = curve_params['dU']        # mV
+def value_to_voltage_hall(value, curve_params):
+    """ Параметры входной кривой. Датчик Холла """
+    Kiu = curve_params['Kiu']  # mV/A
+    dU = curve_params['dU']  # mV
     U = value * Kiu + dU
     return U
     
-'''
-    Ток в код и обратно I, A 
-    код не переведен в цифру - предст. с плав. точкой 
-'''
-# Example:
-# Uo = R16*Uerr/(R16+R10) = 10*500/(10+5.11) = 330.907 mV
-# 2^10 - 5000 mV
-# x - Uo ; x = 67.76 ue = 68 ue = 0x44 ue
+
 def calc_coeff_transform(value, channal):
+    """ Ток в код и обратно I, A 
+        код не переведен в цифру - предст. с плав. точкой 
+        Example:
+         Uo = R16*Uerr/(R16+R10) = 10*500/(10+5.11) = 330.907 mV
+         2^10 - 5000 mV
+         x - Uo ; x = 67.76 ue = 68 ue = 0x44 ue
+    """
     # Получаем описание канала и кривой сенсора
-    multer = channal.getSplitter()
-    toDigital = channal.toBitCoeff()
+    multer = channal.get_splitter()
+    to_digital = channal.get_coeff_to_digital_conv()
     
     # Обработка
     U = channal.sensor_curve(value)
     
     # Умножаем на коэфф. перед. аналоговой цепи и "оцифровываем"
-    #print 'U splitter', U * multer
-    Uadc = U * multer * toDigital
+    Uadc = U * multer * to_digital
     Udig = int(Uadc)
-    return tc.byte4strhex(Udig), str(channal.getCapacity())    
+    return tc.byte4strhex(Udig), str(channal.get_capacity())    

@@ -12,26 +12,29 @@ import convertors_simple_data_types.xintyy_type_convertors as tc
 # App
 import _sensors_uni as app_reuse_code
 
+_fname = 'threshes.h'
+sets = { 'name': _fname, 'howOpen': 'w', 'coding': 'cp1251'}
+    
 nprint = co.printN
 wprint = co.printW
 eprint = co.printE
-def eprintValue( name, value ):
-    eprint( name+' : '+str(value)+'\n')
-def wprintValue( name, value ):
-    wprint( name+' : '+str(value)+'\n')
-def nprintValue( name, value ):
-    nprint( name+' : '+str(value)+'\n')
+def eprintValue(name, value):
+    eprint(name+' : '+str(value)+'\n')
+def wprintValue(name, value):
+    wprint(name+' : '+str(value)+'\n')
+def nprintValue(name, value):
+    nprint(name+' : '+str(value)+'\n')
 
 def _init_sensors():
         # читае конфигурация сенсора
     sensor_sets = app_reuse_code.get_sensor_cfg('I')
 
     # Настройки прочитаны, можно разбирать их
-    value2voltage = app_reuse_code.value2voltageHall
+    value2voltage = app_reuse_code.value_to_voltage_hall
     SensorChannal = app_reuse_code.SensorChannalHall
 
-    metro_channal = SensorChannal( sensor_sets,'adc_metro','splitter_metro_parems', value2voltage )
-    threshold_channal = SensorChannal( sensor_sets,'dac_threshes','splitter_threshold_parems', value2voltage )
+    metro_channal = SensorChannal(sensor_sets,'adc_metro','splitter_metro_parems', value2voltage)
+    threshold_channal = SensorChannal(sensor_sets,'dac_threshes','splitter_threshold_parems', value2voltage)
     return metro_channal, threshold_channal
     
 def main(list_of_currents):
@@ -39,34 +42,26 @@ def main(list_of_currents):
     
     # смещение нуля при обратной обработке
     I = 0
-    Udig_zero, capacity = app_reuse_code.calc_coeff_transform( I, metro_channal ) 
-    # Записать в файл шаблон
-    fname = 'threshes.h'
-    sets = { 'name': fname, 'howOpen': 'w', 'coding': 'cp1251'}
-    
-    print 'Threshes write to file '+fname
-    
+    Udig_zero, capacity = app_reuse_code.calc_coeff_transform(I, metro_channal) 
     result_list = list('')
     result_list.append('#ifdef HALL_SENSORS')
-    result_list.append('\t#define ZERO_HALL_CORRECT '+Udig_zero+"\t;"+
-        str(I)+" A; bits - "+capacity+'\n' )
-    iow.list2file( sets=sets, lst=result_list )
+    result_list.append('    constant kZeroHallCorrect = '+Udig_zero+
+        "  ; "+str(I)+" A; bits - "+capacity+'\n')
+    iow.list2file(sets=sets, lst=result_list)
     
     # Пороги
     result_list = list('')
-    # Записать в файл шаблон
     sets['howOpen'] = 'a'
     for I in list_of_currents :
         wprintValue('\nI,A : ', I)
-        Udig, capacity = app_reuse_code.calc_coeff_transform( I, threshold_channal ) 
-        eprintValue('U_code', Udig)
-        result_list.append('\t#define CURRENT_THR '+Udig+"\t;"+
-            str(I)+" A  bits - "+capacity)
-            
+        Udig, capacity = app_reuse_code.calc_coeff_transform(I, threshold_channal) 
+        eprintValue('Voltage code', Udig)
+        result_list.append('    constant kCurrentThreshold = '+Udig+
+            "  ; "+str(I)+" A  bits - "+capacity)
+
     # Находим коэффициент пересчета
-    
     """I = 10
-    Udig_value, capacity = app_reuse_code.calc_coeff_transform( I, metro_channal ) 
+    Udig_value, capacity = app_reuse_code.calc_coeff_transform(I, metro_channal) 
     print Udig_value
     realCodeCurrent = tc.hex_word_to_uint(Udig_value)-tc.hex_word_to_uint(Udig_zero)
     k = I/realCodeCurrent
@@ -74,9 +69,11 @@ def main(list_of_currents):
     
     result_list.append(';const double TA_CURRENT_MUL = '+str(k)+';')
 """
+
     # Закрываем запись
     result_list.append('#endif ;HALL_SENSOR\n')
-    iow.list2file( sets=sets, lst=result_list )
+    iow.list2file(sets=sets, lst=result_list)
+    print 'Threshes write to file '+_fname
 
 # Run 
 if __name__ == '__main__':
@@ -90,9 +87,9 @@ if __name__ == '__main__':
 Ktrans = I/Udig_corr  # A/ue
 
 # переводим в плавающую точку
-print 'capacity : ' + str( capacity )
-co.printN( 'Udig_src, ue : ' )
-co.printE( tc.byte4strhex( Udig )+'\n')
+print 'capacity : ' + str(capacity)
+co.printN('Udig_src, ue : ')
+co.printE(tc.byte4strhex(Udig)+'\n')
 
 msg = "Tr. I,A="
 msg = msgSplit(msg)
@@ -102,13 +99,13 @@ IHigh = (I-ILow)/10
 f.write("\t#define I_MSG_HIGH '"+str(IHigh)+"'\n")
 f.write("\t#define I_MSG_LOW '"+str(ILow)+"'\n")
 #f.write("; "+msg+"I_MSG_HIGH,I_MSG_LOW"+",'/'\n")
-f.write( '\t#define CURRENT_THRESHOLD '+tc.byte4strhex( Udig )+"\t;"+str(I)+" A"+"\n\n")
+f.write('\t#define CURRENT_THRESHOLD '+tc.byte4strhex(Udig)+"\t;"+str(I)+" A"+"\n\n")
 f.close()
-#print 'Udig_cor, ue :  ' + tc.byte4strhex( Udig_corr )
+#print 'Udig_cor, ue :  ' + tc.byte4strhex(Udig_corr)
 return Udig
 
 '' ' Просто заглушка '' '
-def printRpt( value, valueDisplacemented, valueScaled, valueCode, Kda ):
+def printRpt(value, valueDisplacemented, valueScaled, valueCode, Kda):
     print '\n<< Output values:'
     print 'Code : '+str(valueCode)
     print 'Kda : '+str(Kda)
@@ -122,4 +119,4 @@ valueDict['converter' ] = Kiu
 valueDict['scale'] = Splitter
 valueDict['capacity'] = capacity
 valueDict['Vmax'] = Vmax 
-code, Kda = adda.modelADC( valueDict, printRpt, adda.calcZeroDisplacmentY )'''
+code, Kda = adda.modelADC(valueDict, printRpt, adda.calcZeroDisplacmentY)'''
