@@ -3,16 +3,17 @@ import sys
 import math
 
 # Other
-sys.path.append('D:/home/lugansky-igor/libs-dev/py-reuse-pkgs')
-import convertors_simple_data_types.IntTypeConvertors as tc
-import convertors_simple_data_types.Float32Convertors as f32_conv
+import convertors_simple_data_types.xintyy_type_convertors as tc
+import convertors_simple_data_types.float32_convertors as f32_conv
 from py_dbg_toolkit.doColoredConsole import co
-import usaio.io_wrapper as iow
+import uasio.os_io.io_wrapper as iow
 
 _SETS = { 'name': 'convertion.log', 'howOpen': 'a', 'coding': 'cp1251'}
 _nprint = co.printN
 _wprint = co.printW
 _eprint = co.printE
+
+
 
 def printFormatter(string):
     string = '0x'+string
@@ -30,13 +31,14 @@ def printFormatter(string):
 # подборка плагинов
 def plot_plugin(string):    # пустой
     None
+    
 def plot_plugin_full(string):
     print string
-    
-_PLUGIN_LIST = {"None" : plot_plugin, 'Full':plot_plugin_full}
+_kPluginList = {"None" : plot_plugin, 'Full':plot_plugin_full}
+
 def _plot_item(msg, value):
     print msg+" "+str(value)
-    ieee, mchip = f32_conv.run(value, _PLUGIN_LIST["None"])
+    ieee, mchip = f32_conv.float_to_hex32(value, _kPluginList["None"])
     mchip = printFormatter(mchip)
     
     lst = list()
@@ -47,8 +49,8 @@ def _plot_item(msg, value):
 def _plot_word(msg, word):
     """ msg : Lhl Hhl"""
     
-    string = f32_conv.byte2hex(int(word)%256)     # L
-    string += ' '+ f32_conv.byte2hex(int(word)/256)    # H
+    string = tc.byte2hex(int(word)%256)     # L
+    string += ' '+ tc.byte2hex(int(word)/256)    # H
     print msg+' '+string
 
     lst = list()
@@ -74,7 +76,7 @@ def _hex_word_to_int(hexWord):
         sum += oneIt
     return sum
 
-def calc_for_ukv()
+def calc_for_ukv():
     """ 
         @version : 1.0
         
@@ -125,7 +127,7 @@ def calc_for_ukv()
     _plot_item(msg, out_shift_code)
     _new_line()
 
-if __name__='__main__' :
+if __name__=='__main__' :
     calc_for_ukv()
 
 
