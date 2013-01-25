@@ -1,4 +1,8 @@
 #-*- coding: utf-8 -*-
+""" Convention : 
+    cu - conventional unit - условная единица - шаг
+    
+"""
 import sys
 import math
 
@@ -9,7 +13,8 @@ from py_dbg_toolkit.doColoredConsole import co
 import uasio.os_io.io_wrapper as iow
 
 _kSets = { 'name': 'convertion.log', 'howOpen': 'a', 'coding': 'cp1251'}
-_kOutProportion = 4000/4.6    # ue/V число, загружаемое в ЦАП 
+_kOutProportion = 4000/4.6    # cu/V число, загружаемое в ЦАП 
+#_kOutProportion = 4095/5
 
 # shortcuts
 _nprint = co.printN
@@ -88,51 +93,53 @@ def calc_for_ukv(
         src_shift_code  # значение кода для установки смещения по умолчанию из EEPROM
         ):
     """ Расчет для УКВ ЧМ
-        @version : 1.0
-        
-        @notes:
-            v 1.0
-              precond.:
-                1. попр. коэфф. всегда берется по модулю
-                2. при коррекции кода склад. или выч. в зависимости от знака коэфф. коррекции
-              contraints :
-                
-        @math:
-            u_shift = u_shift_src+K*T    [float32]
-            u_shift_code = to_code*(from_code*u_shift_src_code+K*T) = 
-                u_shift_src+to_code*(K*T) = u_shift_src + int(T*(to_code*K)) = 
-                u_shift_src+sign(K)*int(T*(to_code*abs(K)))
+    @version : 1.0
+    
+    @notes:
+    v 1.0
+      precond.:
+        1. попр. коэфф. всегда берется по модулю
+        2. при коррекции кода склад. или выч. в зависимости от знака коэфф. коррекции
+      contraints :
+            
+    @math:
+    u_shift = u_shift_src+K*T    [float32]
+    u_shift_code = to_code*(from_code*u_shift_src_code+K*T) = 
+        u_shift_src+to_code*(K*T) = u_shift_src + int(T*(to_code*K)) = 
+        u_shift_src+sign(K)*int(T*(to_code*abs(K)))
     """
 
     # Run
     correcting_mult = math.fabs(correcting_mult)    # ufloat
+    dU_wave = correcting_mult*T  # реальные вольты
+    dU_digital = _kOutProportion*dU_wave  # напряжение в cu
+    
     # поправка
-    K = correcting_mult*_kOutProportion    # ue(uint16)/oC положительная!
-    dU = K*T    # dU ue(uint16)
+    K = dU_digital/T  # cu(uint16)/oC положительная!
 
     # значение изначального кода смещения для расчетов
     src_shift_code = _hex_word_to_int(src_shift_code)
 
     # uintXX = uintXX+(or -)uintXX
-    out_shift_code = src_shift_code+math.copysign(1, correcting_mult)*dU    # вычитание вот здесь!
+    out_shift_code = src_shift_code+math.copysign(1, correcting_mult)*dU_digital  # вычитание вот здесь
     
     # Report
-    msg = 'T oC :'
+    '''msg = 'T oC :'
     _plot_word(msg, T)
     _plot_item(msg, T)
-    
-    msg = 'K, ue(uint16)/oC:'
-    _print_string(msg+' '+str(K))
-    _plot_item(msg, K)
-    
-    msg = 'dU, ue LH:'
-    _plot_word(msg, dU)
-    msg = 'dU, ue :'
-    _plot_item(msg, dU)
-    msg = 'Out shift value, ue LH:'
+    msg = 'dU, cu LH:'
+    _plot_word(msg, dU_digital)
+    msg = 'dU, cu :'
+    _plot_item(msg, dU_digital)
+    msg = 'Out shift value, cu LH:'
     _plot_word(msg, out_shift_code)
-    msg = 'Out shift value, ue float32:'
-    _plot_item(msg, out_shift_code)
+    msg = 'Out shift value, cu float32:'
+    _plot_item(msg, out_shift_code)'''
+    
+    msg = 'K, cu(uint16)/oC:'
+    _print_string(msg+' '+str(K))
+    _plot_item('mK_to_Barg ', K)
+    
     _new_line()
 
 if __name__=='__main__' :
