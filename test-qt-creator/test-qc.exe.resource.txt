@@ -1,0 +1,1 @@
+1 /* CREATEPROCESS_MANIFEST_RESOURCE_ID */ 24 /* RT_MANIFEST */ "D:/github-develop/mc-assistant/test-qt-creator/test-qc.exe.embed.manifest"
