@@ -1,13 +1,12 @@
 #-*- coding: utf-8 -*-
 import sys
-sys.path.append('D:/home/lugansky-igor/github-dev/py-bale')
-sys.path.append('D:/home/lugansky-igor/github-dev')
 import json
 
 # dev
 import uasio.os_io.io_wrapper as iow
 from py_dbg_toolkit.doColoredConsole import co
 import convertors_simple_data_types.xintyy_type_convertors as tc
+import convertors_simple_data_types.float32_convertors as f32c
 
 # App
 import _sensors_uni as app_reuse_code
@@ -37,41 +36,67 @@ def _init_sensors():
     threshold_channal = SensorChannal(sensor_sets,'dac_threshes','splitter_threshold_parems', value2voltage)
     return metro_channal, threshold_channal
     
-def main(list_of_currents):
+def main(list_of_currents, list_metro):
     metro_channal, threshold_channal = _init_sensors()
     
-    # смещение нуля при обратной обработке
-    I = 0
-    Udig_zero, capacity = app_reuse_code.calc_coeff_transform(I, metro_channal) 
     result_list = list('')
+    
+    # смещение нуля при обратной обработке
     result_list.append('#ifdef HALL_SENSORS')
-    result_list.append('    constant kZeroHallCorrect = '+Udig_zero+
-        "  ; "+str(I)+" A; bits - "+capacity+'\n')
-    iow.list2file(sets=sets, lst=result_list)
+    
+    # Коррекция нуля
+    delta_zero_code, capacity = app_reuse_code.calc_coeff_transform(
+        0, 
+        metro_channal) 
+
+    result_list.append('    constant kZeroHallCorrect = '+delta_zero_code+
+        "  ; Metro: "+str(0)+" A / "+capacity+' bit')
+        
+    # Теперь можно говорить об измеренных значениях
+    for I in list_metro:
+        src_code, capacity = app_reuse_code.calc_coeff_transform(
+            list_metro[I], 
+            metro_channal) 
+
+        real_current_code = tc.hex_word_to_uint(src_code)-tc.hex_word_to_uint(delta_zero_code)
+        print 'real_current_code', real_current_code
+        print 'delta_zero_code', delta_zero_code
+        print 'src_code', src_code
+        
+        result_list.append('    constant k'+I+' = 0x'+tc.byte4hex(int(real_current_code))+
+            "  ; Metro: "+str(list_metro[I])+" A / "+capacity+' bit')
+        
     
     # Пороги
-    result_list = list('')
-    sets['howOpen'] = 'a'
     for I in list_of_currents :
         wprintValue('\nI,A : ', I)
         Udig, capacity = app_reuse_code.calc_coeff_transform(I, threshold_channal) 
         eprintValue('Voltage code', Udig)
         result_list.append('    constant kCurrentThreshold = '+Udig+
-            "  ; "+str(I)+" A  bits - "+capacity)
+            "  ; Threshes: "+str(I)+" A / "+capacity+' bit')
 
     # Находим коэффициент пересчета
-    """I = 10
+    delta_zero_code, capacity = app_reuse_code.calc_coeff_transform(0, metro_channal) 
+            
+    I = 10
     Udig_value, capacity = app_reuse_code.calc_coeff_transform(I, metro_channal) 
-    print Udig_value
-    realCodeCurrent = tc.hex_word_to_uint(Udig_value)-tc.hex_word_to_uint(Udig_zero)
+    realCodeCurrent = tc.hex_word_to_uint(Udig_value)-tc.hex_word_to_uint(delta_zero_code)
     k = I/realCodeCurrent
     wprintValue('K code to A :', k)
     
-    result_list.append(';const double TA_CURRENT_MUL = '+str(k)+';')
-"""
+    result_list.append(';const double kTAOneCurrentFactor_ = '+str(k)+';')
+    
+    k *= 10 # 3.3 -> 33 для упаковки
+    
+    ieee, mchip = f32c.float_to_hex32(k, None)
+    mchip = ', 0x'.join(mchip.split(' '))
+    mchip = '0x'+mchip[:-4]
+    result_list.append('; mchip: '+mchip+' ; K = '+str(k))
+
 
     # Закрываем запись
     result_list.append('#endif ;HALL_SENSOR\n')
+   
     iow.list2file(sets=sets, lst=result_list)
     print 'Threshes write to file '+_fname
 
