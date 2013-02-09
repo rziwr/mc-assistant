@@ -83,7 +83,7 @@ def _nprint_value(name, value):
 def _hex_word_to_int(hexWord):
     sum = 0
     for pos in range(0, len(hexWord)):
-        oneIt =  tc.hex2int(hexWord[ pos ])*math.pow(16, len(hexWord)-pos-1)
+        oneIt =  tc.hex2int(hexWord[pos])*math.pow(16, len(hexWord)-pos-1)
         sum += oneIt
     return sum
 
@@ -109,6 +109,7 @@ def calc_for_ukv(
         u_shift_src+sign(K)*int(T*(to_code*abs(K)))
     """
 
+    result = 0
     # Run
     correcting_mult = math.fabs(correcting_mult)    # ufloat
     dU_wave = correcting_mult*T  # реальные вольты
@@ -143,6 +144,13 @@ def calc_for_ukv(
     _new_line()
 
 if __name__=='__main__' :
-    calc_for_ukv()
+    kCorrectingMult = -4.9*5*1e-3    # Коэффициент перевода величины, V/oC
+    print 'kCorrectingMult', kCorrectingMult
+    T = 10
+    src_shift_code = '0111'    # Исходно зачение EEPROM
+    calc_for_ukv(
+        kCorrectingMult, 
+        T,
+        src_shift_code)
 
 

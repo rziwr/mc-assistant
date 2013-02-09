@@ -7,32 +7,32 @@ import xintyy_type_convertors as xint_module
 
  
 def hexstr2float(src):
-    """ seee_eeee emmm_mmmm mmmm_mmmm mmmm_mmmm    - по стандарту """   
+    """ seee_eeee emmm_mmmm mmmm_mmmm mmmm_mmmm    - РїРѕ СЃС‚Р°РЅРґР°СЂС‚Сѓ """   
     srcList = src.split(' ')
     intList = list('')
     for i in srcList:
         for j in i:
             intList.append(hex2int(j))
             
-    # к обратному преобразованию готово
+    # Рє РѕР±СЂР°С‚РЅРѕРјСѓ РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёСЋ РіРѕС‚РѕРІРѕ
     expExtr =  intList[2]+intList[1]*16+intList[0]*16*16
     expExtr = expExtr >> 3
     expExtr = expExtr & 255
-    # мантисса
+    # РјР°РЅС‚РёСЃСЃР°
     mant = intList[-1]+intList[-2]*16+intList[-3]*16*16+\
         intList[-4]*16*16*16+\
         intList[-5]*16*16*16*16+(intList[-6]&7)*16*16*16*16*16
-    mant = float(mant)/m.pow(2, 23)+1  # полсностью в скобках
+    mant = float(mant)/m.pow(2, 23)+1  # РїРѕР»СЃРЅРѕСЃС‚СЊСЋ РІ СЃРєРѕР±РєР°С…
     summaryo = mant*m.pow(2, (expExtr-127))
     if intList[0] >= 9:
         summaryo = -summaryo
     return summaryo
 
 def hexMCHIPfloat32toFloat(src):
-    """ Функция преобразования float MICROCHIP 32 to IEEE float32
-        seee_eeee emmm_mmmm mmmm_mmmm mmmm_mmmm    - по стандарту
+    """ Р¤СѓРЅРєС†РёСЏ РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёСЏ float MICROCHIP 32 to IEEE float32
+        seee_eeee emmm_mmmm mmmm_mmmm mmmm_mmmm    - РїРѕ СЃС‚Р°РЅРґР°СЂС‚Сѓ
         0    1    2    3    -4   -3   -2   -1
-        eeee_eeee smmm_mmmm mmmm_mmmm mmmm_mmmm - микрочиповский формат
+        eeee_eeee smmm_mmmm mmmm_mmmm mmmm_mmmm - РјРёРєСЂРѕС‡РёРїРѕРІСЃРєРёР№ С„РѕСЂРјР°С‚
     """
     srcList = src.split(' ')
     intList = list('')
@@ -40,11 +40,11 @@ def hexMCHIPfloat32toFloat(src):
         for j in i:
             intList.append(xint_module.hex2int(j))
             
-    # к обратному преобразованию готово
-    # выделяем экспаненту
+    # Рє РѕР±СЂР°С‚РЅРѕРјСѓ РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёСЋ РіРѕС‚РѕРІРѕ
+    # РІС‹РґРµР»СЏРµРј СЌРєСЃРїР°РЅРµРЅС‚Сѓ
     expExtr =  intList[1]+intList[0]*16
 
-    # мантисса
+    # РјР°РЅС‚РёСЃСЃР°
     mant = intList[-1]+\
         intList[-2]*16+\
         intList[-3]*256+\
@@ -52,7 +52,7 @@ def hexMCHIPfloat32toFloat(src):
         intList[-5]*256*256+\
         (intList[-6]&7)*16*256*256
     
-    mant = float(mant)/m.pow(2, 23)+1  # полсностью в скобках
+    mant = float(mant)/m.pow(2, 23)+1  # РїРѕР»СЃРЅРѕСЃС‚СЊСЋ РІ СЃРєРѕР±РєР°С…
     result = mant*m.pow(2, (expExtr-127))
     if intList[-6]&8 != 0:
         result = -result
@@ -68,50 +68,50 @@ def hex_mchip_float_to_float(src_string):
 def float_to_hex32(float_value, plot_callback):
     """ """
     abs_in_value = abs(float_value)
-    # Точность предельная
+    # РўРѕС‡РЅРѕСЃС‚СЊ РїСЂРµРґРµР»СЊРЅР°СЏ
     count_steps = 23+1
 
-    # поиск подходящей степени
+    # РїРѕРёСЃРє РїРѕРґС…РѕРґСЏС‰РµР№ СЃС‚РµРїРµРЅРё
     begin = 0
     while 1:
         power = m.pow(2, begin)
         if abs_in_value-int(power) < 0:
-            begin -= 1     # нужно отнять
+            begin -= 1     # РЅСѓР¶РЅРѕ РѕС‚РЅСЏС‚СЊ
             break
     
-        # степень растет
+        # СЃС‚РµРїРµРЅСЊ СЂР°СЃС‚РµС‚
         begin += 1
     
-    # степень отрицательная
+    # СЃС‚РµРїРµРЅСЊ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅР°СЏ
     if abs_in_value < 1:
-        begin = 0    # нолик всегда должен быть
+        begin = 0    # РЅРѕР»РёРє РІСЃРµРіРґР° РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ
 
-    # представляем в двoичном коде
+    # РїСЂРµРґСЃС‚Р°РІР»СЏРµРј РІ РґРІoРёС‡РЅРѕРј РєРѕРґРµ
     res = 0
     summary = ''
     for i in range(count_steps):
-        # сохраняемся перед делением
+        # СЃРѕС…СЂР°РЅСЏРµРјСЃСЏ РїРµСЂРµРґ РґРµР»РµРЅРёРµРј
         res = abs_in_value/m.pow(2, begin-i)
         
-        # принимае решение о бите
+        # РїСЂРёРЅРёРјР°Рµ СЂРµС€РµРЅРёРµ Рѕ Р±РёС‚Рµ
         if res < 1 :
             summary += '0'
         else :
             summary += '1'
             abs_in_value = abs_in_value-int(res)*m.pow(2, begin-i)
             
-        # ставим запятую
+        # СЃС‚Р°РІРёРј Р·Р°РїСЏС‚СѓСЋ
         if m.pow(2, begin-i) == 1:
             summary += ','
             
     # zero - ok
     #print summary
     
-    # Нужно узнать экспаненту, ищем где запятая и первая 1
+    # РќСѓР¶РЅРѕ СѓР·РЅР°С‚СЊ СЌРєСЃРїР°РЅРµРЅС‚Сѓ, РёС‰РµРј РіРґРµ Р·Р°РїСЏС‚Р°СЏ Рё РїРµСЂРІР°СЏ 1
     first_one = summary.find('1')
     coma = summary.find(',')
     exp = 0
-    if first_one != -1: # единиц нет
+    if first_one != -1: # РµРґРёРЅРёС† РЅРµС‚
         if coma < first_one:
             exp = coma-first_one
         else :
@@ -119,19 +119,19 @@ def float_to_hex32(float_value, plot_callback):
     else:
         exp = -127
     
-    # значение экспаненты
-    exp += 127    # задаем смещение 
+    # Р·РЅР°С‡РµРЅРёРµ СЌРєСЃРїР°РЅРµРЅС‚С‹
+    exp += 127    # Р·Р°РґР°РµРј СЃРјРµС‰РµРЅРёРµ 
     
     exp = xint_module.char2bitarray(exp)
 
-    # Итоговое формирование
-    # ставим знак числа
+    # РС‚РѕРіРѕРІРѕРµ С„РѕСЂРјРёСЂРѕРІР°РЅРёРµ
+    # СЃС‚Р°РІРёРј Р·РЅР°Рє С‡РёСЃР»Р°
     if str(float_value)[0] == '-' :
         exp = '1'+exp
     else :
         exp = '0'+exp
 
-    # Офформление мантиссы
+    # РћС„С„РѕСЂРјР»РµРЅРёРµ РјР°РЅС‚РёСЃСЃС‹
     summary = summary.replace(',','')
     position_firs_one = summary.find('1')
     value_mant_in_str = summary[position_firs_one+1: -1]
@@ -139,10 +139,10 @@ def float_to_hex32(float_value, plot_callback):
     for j in range(23-len_value_mant_in_str):
         value_mant_in_str += '0'
 
-    # Итого сцепляем и выводим
+    # РС‚РѕРіРѕ СЃС†РµРїР»СЏРµРј Рё РІС‹РІРѕРґРёРј
     summary = exp+value_mant_in_str
 
-    # Форматируем
+    # Р¤РѕСЂРјР°С‚РёСЂСѓРµРј
     summary_tmp = '0000000'+summary+'0'
     float32 = ''
     for k in range(32+4+4):
@@ -157,25 +157,25 @@ def float_to_hex32(float_value, plot_callback):
         if((k+1)%4 == 0):
             float32 += ' '
     
-    # первый результат
+    # РїРµСЂРІС‹Р№ СЂРµР·СѓР»СЊС‚Р°С‚
     ieee = float32
 
-    # преобразование числа для pic
+    # РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ С‡РёСЃР»Р° РґР»СЏ pic
     pure_exp = aux_format_result.split(' ')
     pure_exp = pure_exp[2]+' '+pure_exp[3]
     sign = ieee[0][0]
     
-    # разбиваем еще раз
+    # СЂР°Р·Р±РёРІР°РµРј РµС‰Рµ СЂР°Р·
     mplab_float = ieee.split(' ')  # seee0_eeee1 e
     mplab_format = pure_exp
     tmp = '' 
     for i in mplab_float[3:]:
         tmp = tmp+' '+i
         
-    # второй результат
+    # РІС‚РѕСЂРѕР№ СЂРµР·СѓР»СЊС‚Р°С‚
     mplab_format = mplab_format + ' '+sign+mplab_float[2][1:]+tmp
     
-    # Проверка И вывод разультатов
+    # РџСЂРѕРІРµСЂРєР° Р РІС‹РІРѕРґ СЂР°Р·СѓР»СЊС‚Р°С‚РѕРІ
     if plot_callback:
         plot_callback( "IEEE : "+str(float_value) + 
             ' : '+xint_module.bit_formatted_array_to_hex(ieee)+' -> '+ieee)

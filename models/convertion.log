@@ -6,3 +6,4 @@
 ;	Out shift value, ue LH: E6 01
 ;	Out shift value, ue float32: 0x87, 0x73, 0x05, 0x90
 
+;    K, cu(uint16)/oC: 21.3043478261

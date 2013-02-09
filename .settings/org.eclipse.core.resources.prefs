@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+encoding//models/fan_curves/generator_fan_curves.py=utf-8
+encoding//models/shift_correction_model.py=utf-8
+encoding//tests/test_sensor_channals.py=utf-8
+encoding//tests/test_shift_correction.py=utf-8
