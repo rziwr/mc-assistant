@@ -28,6 +28,44 @@ def get_sensor_cfg(name):
     print json.dumps(sensor_sets, sort_keys=True, indent=2)
     return sensor_sets
     
+class SensorChannal(object):
+    """ Базовый класс, описывающий канал сенсора.
+    
+    Переводит значение некой физической величины в некий код код. 
+    Сперва величина переводится в вольты (пропускается через кривую преобразования).
+    Затем домножается на коэффциент передачи канала сенсора.
+    И в итоге оцифровывается и возможно кодируется.
+    
+    Attributes:
+    """
+    _sensor_settings_map = None
+    
+    def init_channal(self, sensor_settings_map):
+        """ Загружает настройки канала. 
+        Warinig: Необходимо вызвать до начала использования объекта.
+        """
+        self._sensor_settings_map = sensor_settings_map
+    
+    def phy_value_to_voltage(self, value):
+        """ Переводит измеряемую величину в вольты.        
+        Чисто виртуальная функция.
+        """
+        return 0
+        
+    def transmit_voltage(self, value_in_volts):
+        """ Доводит напряжение до АЦП. 
+        По сути домножает на коэффициент передачи напряжения по цепи сенсора.
+        Чисто виртуальная функция.
+        """
+        return 0
+        
+    def voltage_to_digital(self, value_in_volts):
+        """ Оцифровывает напряжение, прищедшее на АЦП, и возможно кодирует его.
+        Чисто виртуальная функция.
+        """
+        return 0
+
+    
 class SensorChannalHall():
     _addac = None
     _splitter_params = None
@@ -79,12 +117,18 @@ def value_to_voltage_hall(value, curve_params):
     
 
 def calc_coeff_transform(value, channal):
-    """ Ток в код и обратно I, A 
-        код не переведен в цифру - предст. с плав. точкой 
-        Example:
+    """ Ток в код и обратно I, A код не переведен в цифру - предст. с плав. точкой 
+        Sample usige:
          Uo = R16*Uerr/(R16+R10) = 10*500/(10+5.11) = 330.907 mV
          2^10 - 5000 mV
          x - Uo ; x = 67.76 ue = 68 ue = 0x44 ue
+         
+    Args:
+    
+    Returns:
+    
+    Raises:
+    
     """
     # Получаем описание канала и кривой сенсора
     multer = channal.get_splitter()
