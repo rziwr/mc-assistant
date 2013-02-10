@@ -2,6 +2,11 @@
 import random
 import unittest
 
+# App
+import models.sensors.one_sensor as sensor_channal
+
+
+
 class TestSequenceFunctions(unittest.TestCase):
 
     def setUp(self):
@@ -27,4 +32,10 @@ class TestSequenceFunctions(unittest.TestCase):
             self.assertTrue(element in self.seq)
 
 if __name__ == '__main__':
-    unittest.main()
+    #unittest.main()
+    pass
+    name = 'I'  # Current
+    cfg = sensor_channal.get_sensor_cfg_new(
+        name, sensor_channal.kSensorCfgMap)
+    print cfg
+    

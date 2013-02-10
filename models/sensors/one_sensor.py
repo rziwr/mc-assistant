@@ -6,9 +6,11 @@ import json
 import uasio.os_io.io_wrapper as iow
 import convertors_simple_data_types.xintyy_type_convertors as tc
 kSensorCfgMap_ = 'sensors_cfg_names.json'
+kSensorCfgMap = 'sensors_cfg_names.json'
 
 # Читаем конфигурация сенсора
 def get_sensors_cfg():
+    """ Deprecated! """
     sets = { 'name': kSensorCfgMap_, 'howOpen': 'r', 'coding': 'cp1251'}
     readedList = iow.file2list(sets)
     sensor_sets = json.loads(' '.join(readedList))
@@ -16,9 +18,11 @@ def get_sensors_cfg():
     return sensor_sets
     
 def get_sensor_cfg(name):
+    """ Deprecated! """
     # читае общую конфигурацию
+    
     uni_sensor_sets = get_sensors_cfg()
-    sets = { 'name': kSensorCfgMap_, 'howOpen': 'r', 'coding': 'cp1251'}
+
     # читаем конфигурацию для тока
     sets['name'] = uni_sensor_sets[name]
     sensorSettings = iow.file2list(sets)
@@ -28,6 +32,37 @@ def get_sensor_cfg(name):
     print json.dumps(sensor_sets, sort_keys=True, indent=2)
     return sensor_sets
     
+def _json_in_file_to_obj(fname):
+    """ Преобразует json-структуру, содержащуюся в файле в python-объект. 
+    
+    Args: Имя исходного файла.
+    
+    Returns: 
+    
+    TODO(zaqwes): Обработка ошибок опущена.
+    """
+    
+    sets = {'name': fname, 'howOpen': 'r', 'coding': 'cp1251'}
+    
+    readed_list = iow.file2list(sets)
+    py_object = json.loads(' '.join(readed_list))
+    return py_object
+    
+def get_sensor_cfg_new(name, global_cfg_file):
+    """ Читает общую конфигурацию сенсора. 
+    Имя конфигурации задано в глобальной конфигурации.
+    """
+    uni_sensor_sets = _json_in_file_to_obj(global_cfg_file)
+    
+    sets = {'name': uni_sensor_sets[name], 
+            'howOpen': 'r', 
+            'coding': 'cp1251'}
+    sensor_settings = iow.file2list(sets)
+
+    sensor_sets = json.loads(' '.join(sensor_settings))
+    #print json.dumps(sensor_sets, sort_keys=True, indent=2)
+    return sensor_sets
+    
 class SensorChannal(object):
     """ Базовый класс, описывающий канал сенсора.
     
@@ -35,6 +70,12 @@ class SensorChannal(object):
     Сперва величина переводится в вольты (пропускается через кривую преобразования).
     Затем домножается на коэффциент передачи канала сенсора.
     И в итоге оцифровывается и возможно кодируется.
+    
+    Может использоваться как в канале измерения, так и в каналах сравнения.
+    
+    Только для преобразования в код.
+    
+    TODO(zaqwes): Преобразование кода в величину.
     
     Attributes:
     """
@@ -65,6 +106,9 @@ class SensorChannal(object):
         """
         return 0
 
+class HallCurrenSensor(SensorChannal):
+    """ """
+    pass
     
 class SensorChannalHall():
     _addac = None
