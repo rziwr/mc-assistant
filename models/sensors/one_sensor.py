@@ -52,6 +52,8 @@ def get_sensor_cfg_new(name, global_cfg_file):
     """ Читает общую конфигурацию сенсора. 
     Имя конфигурации задано в глобальной конфигурации.
     """
+    
+    # TODO(zaqwes): Сделать просто чтение из файла. Неакт. конф. закомменчивать.
     uni_sensor_sets = _json_in_file_to_obj(global_cfg_file)
     
     sets = {'name': uni_sensor_sets[name], 
