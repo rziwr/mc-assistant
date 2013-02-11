@@ -68,7 +68,7 @@ thresholdChannal_min = app_reuse_code.SensorChannalHall(
     'splitter_threshold_parems_min', 
     value2voltage)
 
-def main(a, merto_list):
+def main(v_nom, merto_list):
     result_list = list('')
     sets = { 'name': 'voltage_header.h', 'howOpen': 'w', 'coding': 'cp1251'}
     
@@ -86,7 +86,7 @@ def main(a, merto_list):
         
     
     # Порог
-    U_nom = 48.0
+    U_nom = v_nom
     U_min = U_nom-U_nom/100*15
     U_max = U_nom+U_nom/100*13
     print U_min, U_max
@@ -97,20 +97,20 @@ def main(a, merto_list):
     result_list.append('#define VOLTAGE_THR_MAX '+U_max_d+"  ; +13% V  bits - "+capacity+'\n')
             
     # Находим коэффициент пересчета
-    U = 48.0
+    U = 42.0
     Udig_value, capacity = app_reuse_code.calc_coeff_transform(U, metroChannal) 
     #result_list.append('#define TEST_MOCK_VOLTAGE '+Udig_value+"\t;"+str(U)+" V; bits - "+capacity)
     
     realCodeVoltage = tc.hex_word_to_uint(Udig_value)-tc.hex_word_to_uint(Udig_zero)
     k = U/realCodeVoltage
     wprintValue('K code to V :', k)
+    result_list.append(';const double kTAOneVoltagePSFactor_ = '+str(k)+';')
     
+    k *= 10
     ieee, mchip = f32c.float_to_hex32(k, None)
     mchip = ', 0x'.join(mchip.split(' '))
     mchip = '0x'+mchip[:-4]
-    result_list.append('; mchip: '+mchip+' ; K = '+str(k))
-    
-    result_list.append(';const double kTAOneVoltagePSFactor_ = '+str(k)+';')
+    result_list.append('; mchip: '+mchip+' ; K*10 = '+str(k))
 
     # Закрываем запись
     iow.list2file(sets=sets, lst=result_list)
