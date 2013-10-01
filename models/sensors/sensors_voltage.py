@@ -10,7 +10,7 @@ import json
 
 # Other
 import uasio.os_io.io_wrapper as iow
-from py_dbg_toolkit.doColoredConsole import co
+from jarvis.py_dbg_toolkit.doColoredConsole import co
 import convertors_simple_data_types.xintyy_type_convertors as tc
 import convertors_simple_data_types.float32_convertors as f32c
 
@@ -87,8 +87,8 @@ def main(v_nom, merto_list):
     
     # Порог
     U_nom = v_nom
-    U_min = U_nom-U_nom/100*15
-    U_max = U_nom+U_nom/100*13
+    U_min = U_nom-U_nom/100.0*15
+    U_max = U_nom+U_nom/100.0*13
     print U_min, U_max
     U_min_d, capacity = app_reuse_code.calc_coeff_transform(U_min, thresholdChannal_min) 
     U_max_d, capacity = app_reuse_code.calc_coeff_transform(U_max, thresholdChannal_max) 
@@ -97,9 +97,15 @@ def main(v_nom, merto_list):
     result_list.append('#define VOLTAGE_THR_MAX '+U_max_d+"  ; +13% V  bits - "+capacity+'\n')
             
     # Находим коэффициент пересчета
+    U = U_nom
+    Udig_value, capacity = app_reuse_code.calc_coeff_transform(U, thresholdChannal_min) 
+    print Udig_value
+    
     U = 42.0
     Udig_value, capacity = app_reuse_code.calc_coeff_transform(U, metroChannal) 
     #result_list.append('#define TEST_MOCK_VOLTAGE '+Udig_value+"\t;"+str(U)+" V; bits - "+capacity)
+    
+    
     
     realCodeVoltage = tc.hex_word_to_uint(Udig_value)-tc.hex_word_to_uint(Udig_zero)
     k = U/realCodeVoltage

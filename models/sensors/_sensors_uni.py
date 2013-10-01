@@ -5,12 +5,13 @@ import json
 # dev
 import uasio.os_io.io_wrapper as iow
 import convertors_simple_data_types.xintyy_type_convertors as tc
-kPathToCfg_ = 'D:/home/lugansky-igor/power-amplifer-system/models/'
+#kPathToCfg_ = 'D:/home/lugansky-igor/power-amplifer-system/models/'
+kPathToCfg_ = ''
 kSensorCfgMap_ = kPathToCfg_+'sensors_cfg_names.json'
 
 
 # Читаем конфигурация сенсора
-def get_sensors_cfg():
+def _get_cfg_all_sensors_cfg():
     sets = { 'name': kSensorCfgMap_, 'howOpen': 'r', 'coding': 'cp1251'}
     readedList = iow.file2list(sets)
     sensor_sets = json.loads(' '.join(readedList))
@@ -19,11 +20,12 @@ def get_sensors_cfg():
     
 def get_sensor_cfg(name):
     # читае общую конфигурацию
-    uni_sensor_sets = get_sensors_cfg()
+    uni_sensor_sets = _get_cfg_all_sensors_cfg()
     sets = { 'name': kSensorCfgMap_, 'howOpen': 'r', 'coding': 'cp1251'}
     # читаем конфигурацию для тока
     sets['name'] = kPathToCfg_+uni_sensor_sets[name]
     sensorSettings = iow.file2list(sets)
+    print sensorSettings
 
     # here we are converting python object to json string
     sensor_sets = json.loads(' '.join(sensorSettings))
