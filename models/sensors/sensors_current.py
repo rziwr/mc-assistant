@@ -88,7 +88,7 @@ def main(list_of_currents, list_metro):
     
     k *= 10 # 3.3 -> 33 для упаковки
     
-    ieee, mchip = f32c.float_to_hex32(k, None)
+    ieee, mchip = f32c.pack_f32_into_i32(k, None)
     mchip = ', 0x'.join(mchip.split(' '))
     mchip = '0x'+mchip[:-4]
     result_list.append('; mchip: '+mchip+' ; K = '+str(k))

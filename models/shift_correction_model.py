@@ -52,7 +52,7 @@ def calc_for_ukv(
 
     def _plot_item(msg, value):
         print msg+" "+str(value)
-        ieee, mchip = f32conv.float_to_hex32(value, _kPluginList["None"])
+        ieee, mchip = f32conv.pack_f32_into_i32(value, _kPluginList["None"])
         mchip = _print_formatter(mchip)
         
         lst = list()
