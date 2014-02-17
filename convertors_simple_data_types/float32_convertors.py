@@ -21,7 +21,7 @@ def hex_ieee_f32_str_to_float(src):
     mantissa = int_list[-1] + int_list[-2] * 16 + int_list[-3] * 16 * 16 + \
                int_list[-4] * 16 * 16 * 16 + \
                int_list[-5] * 16 * 16 * 16 * 16 + (int_list[-6] & 7) * 16 * 16 * 16 * 16 * 16
-    
+
     mantissa = float(mantissa) / m.pow(2, 23) + 1  # полсностью в скобках
     summaryo = mantissa * m.pow(2, (extracted_exp - 127))
     if int_list[0] >= 9:
@@ -100,7 +100,7 @@ def pack_f32_into_i32(float_value, plot_callback):
             summary += '0'
         else:
             summary += '1'
-            abs_in_value = abs_in_value - int(res) * m.pow(2, begin - i)
+            abs_in_value -= int(res) * m.pow(2, begin - i)
 
         # ставим запятую
         if m.pow(2, begin - i) == 1:
@@ -124,7 +124,7 @@ def pack_f32_into_i32(float_value, plot_callback):
     # значение экспаненты
     exp += 127    # задаем смещение 
 
-    exp = xint_module.char2bitarray(exp)
+    exp = xint_module.char_to_bitarray(exp)
 
     # Итоговое формирование
     # ставим знак числа
@@ -146,21 +146,21 @@ def pack_f32_into_i32(float_value, plot_callback):
 
     # Форматируем
     summary_tmp = '0000000' + summary + '0'
-    float32 = ''
+    str_f32 = ''
     for k in range(32 + 4 + 4):
-        float32 += summary_tmp[k]
+        str_f32 += summary_tmp[k]
         if (k + 1) % 4 == 0:
-            float32 += ' '
-    aux_format_result = float32
+            str_f32 += ' '
+    aux_format_result = str_f32
 
-    float32 = ''
+    str_f32 = ''
     for k in range(32):
-        float32 += summary[k]
+        str_f32 += summary[k]
         if (k + 1) % 4 == 0:
-            float32 += ' '
+            str_f32 += ' '
 
     # первый результат
-    ieee = float32
+    ieee = str_f32
 
     # преобразование числа для pic
     pure_exp = aux_format_result.split(' ')

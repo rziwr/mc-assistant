@@ -5,89 +5,91 @@
 """
 import math as m
 
-def char2bitarray(string):
-    """ abs. : переводит байт в его бинарное представление """ 
+
+def char_to_bitarray(string):
+    """ abs. : переводит байт в его бинарное представление """
     begin = 7
     src = string
     res = 0
-    itog = ''
+    summary = ''
     for i in range(8):
         # сохраняемся перед делением
-        res = src/m.pow(2, begin-i)
-        
+        res = src / m.pow(2, begin - i)
+
         # принимае решение о бите
-        if res < 1 :
-            itog += '0'
-        else :
-            itog += '1'
-            src = src-int(res)*m.pow(2, begin-i)
-    return itog
-    
-""" 
+        if res < 1:
+            summary += '0'
+        else:
+            summary += '1'
+            src -= int(res) * m.pow(2, begin - i)
+    return summary
+
+
+def bit_formatted_array_to_hex(src):
+    """
     abs. : переводит тетрабы бинарных символов в их шест. предст
-    
+
     pre. :
         1000 0000 0010 ... пробел обязателен
-"""
-def bit_formatted_array_to_hex(src):
+    """
     arr = src.split(' ')
     pos = 0
     outStr = ''
     for i in arr:
-        if  i ==  '0000':
-            outStr+='0'
+        if i == '0000':
+            outStr += '0'
         elif i == '0001':
-            outStr+='1'
+            outStr += '1'
         elif i == '0010':
-            outStr+='2'
+            outStr += '2'
         elif i == '0011':
-            outStr+='3'
+            outStr += '3'
         #
         elif i == '0100':
-            outStr+='4'
+            outStr += '4'
         elif i == '0101':
-            outStr+='5'
+            outStr += '5'
         elif i == '0110':
-            outStr+='6'
+            outStr += '6'
         elif i == '0111':
-            outStr+='7'
-            
+            outStr += '7'
+
         #
         elif i == '1000':
-            outStr+='8'
+            outStr += '8'
         elif i == '1001':
-            outStr+='9'
+            outStr += '9'
         elif i == '1010':
-            outStr+='A'
+            outStr += 'A'
         elif i == '1011':
-            outStr+='B'
-        
+            outStr += 'B'
+
         #
         elif i == '1100':
-            outStr+='C'
+            outStr += 'C'
         elif i == '1101':
-            outStr+='D'
+            outStr += 'D'
         elif i == '1110':
-            outStr+='E'
+            outStr += 'E'
         elif i == '1111':
-            outStr+='F'
-            
-            
-        pos += 1 
-        if(pos%2 == 0):
-            outStr+=' '
-        # пробел
+            outStr += 'F'
+
+        pos += 1
+        if (pos % 2 == 0):
+            outStr += ' '
+            # пробел
     return outStr
 
-""" 
-    abs. : переводит один шестнадцатитичный символ в десятичное число
-    
-    pre. : F-0 
-    post. : 15-0
-"""
+
 def hex2int(src):
+    """
+        abs. : переводит один шестнадцатитичный символ в десятичное число
+
+        pre. : F-0
+        post. : 15-0
+    """
     res = ''
-    if src ==   '0':
+    if src == '0':
         res = 0
     elif src == '1':
         res = 1
@@ -95,7 +97,7 @@ def hex2int(src):
         res = 2
     elif src == '3':
         res = 3
-        
+
     #
     elif src == '4':
         res = 4
@@ -105,7 +107,7 @@ def hex2int(src):
         res = 6
     elif src == '7':
         res = 7
-        
+
     #
     elif src == '8':
         res = 8
@@ -125,16 +127,17 @@ def hex2int(src):
     elif src == 'F':
         res = 15
     return res
-    
-""" 
-    abs. : переводит один десятичый символ в его шест. предст.
-    
-    post. : F-0 
-    pre. : 15-0
-"""
+
+
 def uint4b2hex(src):
+    """
+    abs. : переводит один десятичый символ в его шест. предст.
+
+    post. : F-0
+    pre. : 15-0
+    """
     res = ''
-    if src ==   0:
+    if src == 0:
         res = '0'
     elif src == 1:
         res = '1'
@@ -142,7 +145,7 @@ def uint4b2hex(src):
         res = '2'
     elif src == 3:
         res = '3'
-        
+
     #
     elif src == 4:
         res = '4'
@@ -152,7 +155,7 @@ def uint4b2hex(src):
         res = '6'
     elif src == 7:
         res = '7'
-        
+
     #
     elif src == 8:
         res = '8'
@@ -171,23 +174,25 @@ def uint4b2hex(src):
         res = 'E'
     elif src == 15:
         res = 'F'
-    else :
+    else:
         res = 'None'
     return res
 
+
 def hex_byte_to_uint(src):
     """ 0xHL """
-    workSrc = src.replace('0x', '') 
+    workSrc = src.replace('0x', '')
     H = workSrc[0]
     L = workSrc[1]
     h = hex2int(H)
     low = hex2int(L)
-    h *= (2*2*2*2)    # сдвигаем на полбайта
-    result = h+low
+    h *= (2 * 2 * 2 * 2)    # сдвигаем на полбайта
+    result = h + low
     return result
-    
+
+
 def hex_word_to_uint(src):
-    workSrc = src.replace('0x', '') 
+    workSrc = src.replace('0x', '')
     workSrc = workSrc.upper()
     uintlist = list()
     mul = m.pow(2, 16)
@@ -195,23 +200,27 @@ def hex_word_to_uint(src):
     sum = 0
     for i in range(len(workSrc)):
         uintlist.append(hex2int(workSrc[i]))
-        uintlist[i] = uintlist[i]*mul
+        uintlist[i] = uintlist[i] * mul
         sum += uintlist[i]
-        
+
         mul /= m.pow(2, 4)
     return sum
 
+
 def byte2hex(src):
     """ abs. : байт в его Hex-представления. Входное значени берется по модулю """
-    return uint4b2hex(abs(src)/16)+uint4b2hex((src)%16)
+    return uint4b2hex(abs(src) / 16) + uint4b2hex((src) % 16)
+
 
 def byte4hex(src):
-    byte0 = src%256
-    byte1 = src/256
-    return byte2hex(byte1)+byte2hex(byte0)
+    byte0 = src % 256
+    byte1 = src / 256
+    return byte2hex(byte1) + byte2hex(byte0)
+
 
 def byte2strhex(src):
-    return '0x'+str(byte2hex(src))
-    
+    return '0x' + str(byte2hex(src))
+
+
 def byte4strhex(src):
-    return '0x'+byte4hex(src)
+    return '0x' + byte4hex(src)
