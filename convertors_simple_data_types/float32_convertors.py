@@ -12,7 +12,7 @@ def hexstr2float(src):
     intList = list('')
     for i in srcList:
         for j in i:
-            intList.append(hex2int(j))
+            intList.append(xint_module.hex2int(j))
             
     # к обратному преобразованию готово
     expExtr =  intList[2]+intList[1]*16+intList[0]*16*16

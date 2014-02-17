@@ -1,13 +1,13 @@
-#!/usr/bin/python
 #-*- coding: utf-8 -*-
-''' 
+
+"""
     file : testFloat32Conversion
-'''
+"""
 import float32_convertors as f32cnv
 import unittest
 
 
-def plotCallBack(string):
+def plot_call_back(string):
     pass
 
 
@@ -15,9 +15,8 @@ class TestFloatConversion(unittest.TestCase):
     def setUp(self):
         pass
 
-    ''' '''
-
     def testInv(self):
+        """ """
         # проверим обр. преобр
         doubleOne = 1.0
         doubleOneFromMCHIP = f32cnv.hexMCHIPfloat32toFloat("7F 00 00 00")
@@ -42,53 +41,57 @@ class TestFloatConversion(unittest.TestCase):
     def testInvMCHIPTwoValue(self):
         self.assertEqual(f32cnv.hexMCHIPfloat32toFloat("80 00 00 00"), 2.0)
 
-    def testIEEEOneValue(self):
-        doubleOne = 1.0
+    def test_ieee_one_value(self):
+        double_one = 1.0
         # проверка преобразования
-        m, a, doubleOneDirectCnvMCHIP = f32cnv.float_to_hex32(doubleOne, plotCallBack)
-        self.assertEqual(f32cnv.hexstr2float(a), doubleOne)
+        m, a, doubleOneDirectCnvMCHIP = f32cnv.float_to_hex32(double_one, plot_call_back)
+        self.assertEqual(f32cnv.hexstr2float(a), double_one)
 
     def testIEEETwoValue(self):
         doubleOne = 2.0
         # проверка преобразования
-        m, a, doubleOneDirectCnvMCHIP = f32cnv.float_to_hex32(doubleOne, plotCallBack)
+        m, a, doubleOneDirectCnvMCHIP = f32cnv.float_to_hex32(doubleOne, plot_call_back)
         self.assertEqual(f32cnv.hexstr2float(a), doubleOne)
 
     def testIEEEHalfValue(self):
         doubleOne = 0.5
         # проверка преобразования
-        m, a, doubleOneDirectCnvMCHIP = f32cnv.float_to_hex32(doubleOne, plotCallBack)
+        m, a, doubleOneDirectCnvMCHIP = f32cnv.float_to_hex32(doubleOne, plot_call_back)
         self.assertEqual(f32cnv.hexstr2float(a), doubleOne)
 
-    ''' преобразование 1 и 2
-        ошибка 1 = 0.5
-    '''
+
 
     def testOneValue(self):
+        ''' преобразование 1 и 2
+        ошибка 1 = 0.5
+        '''
         doubleOne = 1.0
         # проверка преобразования
-        m, a, doubleOneDirectCnvMCHIP = f32cnv.float_to_hex32(doubleOne, plotCallBack)
+        m, a, doubleOneDirectCnvMCHIP = f32cnv.float_to_hex32(doubleOne, plot_call_back)
         self.assertEqual(f32cnv.hexMCHIPfloat32toFloat(doubleOneDirectCnvMCHIP), doubleOne)
 
-    ''' '''
+
 
     def testTwoValue(self):
+        ''' '''
         doubleOne = 2.0
         # проверка преобразования
-        m, a, doubleOneDirectCnvMCHIP = f32cnv.float_to_hex32(doubleOne, plotCallBack)
+        m, a, doubleOneDirectCnvMCHIP = f32cnv.float_to_hex32(doubleOne, plot_call_back)
         self.assertEqual(f32cnv.hexMCHIPfloat32toFloat(doubleOneDirectCnvMCHIP), doubleOne)
 
-    ''' '''
+
 
     def testHalfValue(self):
+        ''' '''
         doubleOne = 0.5
         # проверка преобразования
-        message, a, doubleOneDirectCnvMCHIP = f32cnv.float_to_hex32(doubleOne, plotCallBack)
+        message, a, doubleOneDirectCnvMCHIP = f32cnv.float_to_hex32(doubleOne, plot_call_back)
         self.assertEqual(f32cnv.hexMCHIPfloat32toFloat(doubleOneDirectCnvMCHIP), doubleOne)
 
-    ''' Просто тест на работоспособность '''
+
 
     def testSimple(self):
+        ''' Просто тест на работоспособность '''
         # IEEE
         self.assertEqual(f32cnv.hexstr2float("43 1B A0 00"), 155.625)
 
