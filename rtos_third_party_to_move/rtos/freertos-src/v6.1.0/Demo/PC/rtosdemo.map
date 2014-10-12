@@ -1,0 +1,704 @@
+Open Watcom Linker Version 1.9
+Portions Copyright (c) 1985-2002 Sybase, Inc. All Rights Reserved.
+Created on:       12/10/19 15:22:57
+Executable Image: rtosdemo.exe
+creating a DOS executable
+
+
+                        +------------+
+                        |   Groups   |
+                        +------------+
+
+Group                           Address              Size
+=====                           =======              ====
+
+DGROUP                          13b2:0000            000072f0
+
+
+
+                        +--------------+
+                        |   Segments   |
+                        +--------------+
+
+Segment                Class          Group          Address         Size
+=======                =====          =====          =======         ====
+
+croutine_TEXT          CODE           AUTO           0000:0000       000006f7
+list_TEXT              CODE           AUTO           0000:06f7       000002d6
+heap_3_TEXT            CODE           AUTO           0000:09cd       00000082
+portcomn_TEXT          CODE           AUTO           0000:0a4f       000001bf
+port_TEXT              CODE           AUTO           0000:0c0e       0000030b
+queue_TEXT             CODE           AUTO           0000:0f19       000012a3
+tasks_TEXT             CODE           AUTO           0000:21bc       000021ae
+blockq_TEXT            CODE           AUTO           0000:436a       00000516
+comtest_TEXT           CODE           AUTO           0000:4880       000003f9
+death_TEXT             CODE           AUTO           0000:4c79       000002e5
+dynamic_TEXT           CODE           AUTO           0000:4f5e       00000722
+events_TEXT            CODE           AUTO           0000:5680       0000058c
+flop_TEXT              CODE           AUTO           0000:5c0c       00000936
+integer_TEXT           CODE           AUTO           0000:6542       00000622
+pollq_TEXT             CODE           AUTO           0000:6b64       0000029b
+print_TEXT             CODE           AUTO           0000:6dff       000000c4
+semtest_TEXT           CODE           AUTO           0000:6ec3       0000049c
+AltBlckQ_TEXT          CODE           AUTO           0000:735f       000004e6
+AltBlock_TEXT          CODE           AUTO           0000:7845       000006c7
+AltPollQ_TEXT          CODE           AUTO           0000:7f0c       00000244
+AltQTest_TEXT          CODE           AUTO           0000:8150       0000096a
+blocktim_TEXT          CODE           AUTO           0000:8aba       0000069b
+countsem_TEXT          CODE           AUTO           0000:9155       000003a7
+crflash_TEXT           CODE           AUTO           0000:94fc       00000274
+crhook_TEXT            CODE           AUTO           0000:9770       00000383
+GenQTest_TEXT          CODE           AUTO           0000:9af3       0000096a
+QPeek_TEXT             CODE           AUTO           0000:a45d       00000663
+recmutex_TEXT          CODE           AUTO           0000:aac0       0000042d
+fileio_TEXT            CODE           AUTO           0000:aeed       00000193
+main_TEXT              CODE           AUTO           0000:b080       0000076f
+partest_TEXT           CODE           AUTO           0000:b7ef       0000011e
+serial_TEXT            CODE           AUTO           0000:b90d       00000ee5
+_TEXT                  CODE           AUTO           0c80:0000       0000731f
+FAR_DATA               FAR_DATA       AUTO           13b1:000f       00000000
+_NULL                  BEGDATA        DGROUP         13b2:0000       00000020
+_AFTERNULL             BEGDATA        DGROUP         13b4:0000       00000002
+CONST                  DATA           DGROUP         13b4:0002       00000e4a
+CONST2                 DATA           DGROUP         1498:000c       00000152
+_DATA                  DATA           DGROUP         14ad:000e       0000055c
+XIB                    DATA           DGROUP         1503:000a       00000000
+XI                     DATA           DGROUP         1503:000a       00000030
+XIE                    DATA           DGROUP         1506:000a       00000000
+YIB                    DATA           DGROUP         1506:000a       00000000
+YI                     DATA           DGROUP         1506:000a       0000000c
+YIE                    DATA           DGROUP         1507:0006       00000000
+STRINGS                DATA           DGROUP         1507:0006       00000000
+DATA                   DATA           DGROUP         1507:0006       00000000
+_emu_init_start        EMU            DGROUP         1507:0006       00000000
+_emu_init_end          EMU            DGROUP         1507:0006       00000000
+_BSS                   BSS            DGROUP         1507:0006       00005596
+STACK                  STACK          DGROUP         1a61:0000       00000800
+
+
+                        +----------------+
+                        |   Memory Map   |
+                        +----------------+
+
+* = unreferenced symbol
++ = symbol only referenced locally
+
+Address        Symbol
+=======        ======
+
+Module: croutine.obj(D:\Libs\FreeRTOSV6.1.0\SOURCE\croutine.c)
+13b2:0fbe+     _pxCurrentCoRoutine
+0000:0000      xCoRoutineCreate_
+0000:0155      vCoRoutineAddToDelayedList_
+0000:04b2      vCoRoutineSchedule_
+0000:0650      xCoRoutineRemoveFromEventList_
+Module: list.obj(D:\Libs\FreeRTOSV6.1.0\source\list.c)
+0000:06f7      vListInitialise_
+0000:075c      vListInitialiseItem_
+0000:0783      vListInsertEnd_
+0000:0836      vListInsert_
+0000:0917      vListRemove_
+Module: heap_3.obj(D:\Libs\FreeRTOSV6.1.0\SOURCE\PORTABLE\MEMMANG\heap_3.c)
+0000:09cd      pvPortMalloc_
+0000:0a0f      vPortFree_
+Module: portcomn.obj(D:\Libs\FreeRTOSV6.1.0\source\portable\owatcom\16bitdos\common\portcomn.c)
+0000:0a4f      pxPortInitialiseStack_
+Module: port.obj(D:\Libs\FreeRTOSV6.1.0\source\portable\owatcom\16bitdos\pc\port.c)
+0000:0c0e      xPortStartScheduler_
+0000:0dc6      vPortEndScheduler_
+Module: queue.obj(D:\Libs\FreeRTOSV6.1.0\source\queue.c)
+0000:0f19      xQueueCreate_
+0000:106e      xQueueCreateMutex_
+0000:115f      xQueueGiveMutexRecursive_
+0000:11ed      xQueueTakeMutexRecursive_
+0000:127b      xQueueCreateCountingSemaphore_
+0000:12d2      xQueueGenericSend_
+0000:1434      xQueueAltGenericSend_
+0000:1539      xQueueAltGenericReceive_
+0000:16f3      xQueueGenericSendFromISR_
+0000:1796      xQueueGenericReceive_
+0000:19af      xQueueReceiveFromISR_
+0000:1a50      uxQueueMessagesWaiting_
+0000:1a7c+     uxQueueMessagesWaitingFromISR_
+0000:1aa5      vQueueDelete_
+0000:1dad+     xQueueIsQueueEmptyFromISR_
+0000:1e2b+     xQueueIsQueueFullFromISR_
+0000:1e6b      xQueueCRSend_
+0000:1f36      xQueueCRReceive_
+0000:2050      xQueueCRSendFromISR_
+0000:20d5      xQueueCRReceiveFromISR_
+Module: tasks.obj(D:\Libs\FreeRTOSV6.1.0\source\tasks.c)
+13b2:0fcc      _pxCurrentTCB
+0000:21bc      xTaskGenericCreate_
+0000:23de      vTaskDelete_
+0000:24e3+     vTaskDelayUntil_
+0000:2607      vTaskDelay_
+0000:26d9      uxTaskPriorityGet_
+0000:2742      vTaskPrioritySet_
+0000:28d3      vTaskSuspend_
+0000:29eb+     xTaskIsTaskSuspended_
+0000:2aab      vTaskResume_
+0000:2b83      xTaskResumeFromISR_
+0000:2c77      vTaskStartScheduler_
+0000:2cde      vTaskEndScheduler_
+0000:2d02      vTaskSuspendAll_
+0000:2d1e      xTaskResumeAll_
+0000:2e98      xTaskGetTickCount_
+0000:2ec2+     xTaskGetTickCountFromISR_
+0000:2ee3      uxTaskGetNumberOfTasks_
+0000:2f04      vTaskList_
+0000:3088      vTaskStartTrace_
+0000:30ea      ulTaskEndTrace_
+0000:3139      vTaskIncrementTick_
+0000:32cc      vTaskCleanUpResources_
+0000:360b      vTaskSetApplicationTaskTag_
+0000:366a      xTaskGetApplicationTaskTag_
+0000:36d9+     xTaskCallApplicationTaskHook_
+0000:375c      vTaskSwitchContext_
+0000:3911      vTaskPlaceOnEventList_
+0000:3a15      xTaskRemoveFromEventList_
+0000:3b25      vTaskSetTimeOutState_
+0000:3b57      xTaskCheckForTimeOut_
+0000:3bf4      vTaskMissedYield_
+0000:417a      xTaskGetCurrentTaskHandle_
+0000:41ae      vTaskPriorityInherit_
+0000:42ac      vTaskPriorityDisinherit_
+Module: blockq.obj(D:\Libs\FreeRTOSV6.1.0\Demo\common\full\blockq.c)
+0000:436a      vStartBlockingQueueTasks_
+0000:47ca      xAreBlockingQueuesStillRunning_
+Module: comtest.obj(D:\Libs\FreeRTOSV6.1.0\Demo\common\full\comtest.c)
+13b2:1002+     _sTxCount
+13b2:1004+     _sRxCount
+13b2:1006+     _sSemCount
+0000:4880      vStartComTestTasks_
+0000:4bbf      xAreComTestTasksStillRunning_
+0000:4c52      vComTestUnsuspendTask_
+13b2:0e6c+     _pcMessageToExchange
+Module: death.obj(D:\Libs\FreeRTOSV6.1.0\Demo\common\full\death.c)
+0000:4c79      vCreateSuicidalTasks_
+0000:4eec      xIsCreateTaskStillRunning_
+13b2:170c+     _xCreatedTask2
+13b2:1710+     _xCreatedTask1
+Module: dynamic.obj(D:\Libs\FreeRTOSV6.1.0\Demo\COMMON\FULL\dynamic.c)
+13b2:1718+     _xSuspendedTestQueue
+0000:4f5e      vStartDynamicPriorityTasks_
+0000:5604      xAreDynamicPriorityTasksStillRunning_
+Module: events.obj(D:\Libs\FreeRTOSV6.1.0\Demo\COMMON\FULL\events.c)
+0000:5680      vStartMultiEventTasks_
+0000:5bbd      xAreMultiEventTasksStillRunning_
+Module: flop.obj(D:\Libs\FreeRTOSV6.1.0\Demo\common\full\flop.c)
+0000:5c0c      vStartMathTasks_
+0000:64cf      xAreMathsTaskStillRunning_
+Module: integer.obj(D:\Libs\FreeRTOSV6.1.0\Demo\common\full\integer.c)
+0000:6542+     vStartIntegerMathTasks_
+0000:6af1+     xAreIntegerMathsTaskStillRunning_
+Module: pollq.obj(D:\Libs\FreeRTOSV6.1.0\Demo\common\full\pollq.c)
+0000:6b64      vStartPolledQueueTasks_
+0000:6d91      xArePollingQueuesStillRunning_
+Module: print.obj(D:\Libs\FreeRTOSV6.1.0\Demo\common\full\print.c)
+0000:6dff      vPrintInitialise_
+0000:6e32      vPrintDisplayMessage_
+0000:6e69      pcPrintGetNextMessage_
+Module: semtest.obj(D:\Libs\FreeRTOSV6.1.0\Demo\common\full\semtest.c)
+0000:6ec3      vStartSemaphoreTasks_
+0000:72ec      xAreSemaphoreTasksStillRunning_
+13b2:0e72+     _pcPollingSemaphoreTaskError
+13b2:0e76+     _pcSemaphoreTaskStart
+Module: AltBlckQ.obj(D:\Libs\FreeRTOSV6.1.0\Demo\COMMON\MINIMAL\AltBlckQ.c)
+0000:735f      vStartAltBlockingQueueTasks_
+0000:778f      xAreAltBlockingQueuesStillRunning_
+Module: AltBlock.obj(D:\Libs\FreeRTOSV6.1.0\Demo\COMMON\MINIMAL\AltBlock.c)
+0000:7845      vCreateAltBlockTimeTasks_
+0000:7e8a      xAreAltBlockTimeTestTasksStillRunning_
+Module: AltPollQ.obj(D:\Libs\FreeRTOSV6.1.0\Demo\COMMON\MINIMAL\AltPollQ.c)
+0000:7f0c      vStartAltPolledQueueTasks_
+0000:80fa      xAreAltPollingQueuesStillRunning_
+Module: AltQTest.obj(D:\Libs\FreeRTOSV6.1.0\Demo\COMMON\MINIMAL\AltQTest.c)
+0000:8150      vStartAltGenericQueueTasks_
+0000:8a06      xAreAltGenericQueueTasksStillRunning_
+Module: blocktim.obj(D:\Libs\FreeRTOSV6.1.0\Demo\COMMON\MINIMAL\blocktim.c)
+0000:8aba      vCreateBlockTimeTasks_
+0000:90d3      xAreBlockTimeTestTasksStillRunning_
+Module: countsem.obj(D:\Libs\FreeRTOSV6.1.0\Demo\COMMON\MINIMAL\countsem.c)
+0000:9155      vStartCountingSemaphoreTasks_
+0000:9476      xAreCountingSemaphoreTasksStillRunning_
+Module: crflash.obj(D:\Libs\FreeRTOSV6.1.0\Demo\COMMON\MINIMAL\crflash.c)
+0000:94fc      vStartFlashCoRoutines_
+0000:974f      xAreFlashCoRoutinesStillRunning_
+Module: crhook.obj(D:\Libs\FreeRTOSV6.1.0\Demo\COMMON\MINIMAL\crhook.c)
+0000:9770      vStartHookCoRoutines_
+0000:981f      vApplicationTickHook_
+0000:9ac5      xAreHookCoRoutinesStillRunning_
+Module: GenQTest.obj(D:\Libs\FreeRTOSV6.1.0\Demo\COMMON\MINIMAL\GenQTest.c)
+0000:9af3      vStartGenericQueueTasks_
+0000:a3a9      xAreGenericQueueTasksStillRunning_
+Module: QPeek.obj(D:\Libs\FreeRTOSV6.1.0\Demo\COMMON\MINIMAL\QPeek.c)
+0000:a45d      vStartQueuePeekTasks_
+0000:aa4c      xAreQueuePeekTasksStillRunning_
+13b2:17b0+     _xHighPriorityTask
+13b2:17b4+     _xMediumPriorityTask
+13b2:17b8+     _xHighestPriorityTask
+Module: recmutex.obj(D:\Libs\FreeRTOSV6.1.0\Demo\COMMON\MINIMAL\recmutex.c)
+0000:aac0      vStartRecursiveMutexTasks_
+0000:ae29      xAreRecursiveMutexTasksStillRunning_
+Module: fileio.obj(D:\Libs\FreeRTOSV6.1.0\Demo\PC\fileio\fileio.c)
+0000:aeed      vDisplayMessage_
+0000:af35      vWriteMessageToDisk_
+0000:aff8      vWriteBufferToDisk_
+Module: main.obj(D:\Libs\FreeRTOSV6.1.0\Demo\PC\main.c)
+0000:b080      main_
+0000:b1c0      vMainQueueSendPassed_
+0000:b7d7      vApplicationIdleHook_
+Module: partest.obj(D:\Libs\FreeRTOSV6.1.0\Demo\PC\partest\partest.c)
+0000:b7ef      vParTestInitialise_
+0000:b81b+     vParTestSetLED_
+0000:b890      vParTestToggleLED_
+Module: serial.obj(D:\Libs\FreeRTOSV6.1.0\Demo\PC\serial\serial.c)
+13b2:1144+     _ulBaudFromEnum
+13b2:1188+     _xPortStatus
+0000:be5d      xSerialPortInit_
+0000:c5e7      xSerialGetChar_
+0000:c636+     xSerialPutChar_
+0000:c6af      vSerialPutString_
+0000:c705      xSerialWaitForSemaphore_
+0000:c746+     vSerialClose_
+Module: C:\WATCOM/lib286/dos\clibl.lib(cmodel)
+0c80:0000      _big_code_
+0c80:0000*     CodeModelMismatch
+Module: C:\WATCOM/lib286/dos\clibl.lib(fmalloc.c)
+0c80:0000      _fmalloc_
+0c80:0000      malloc_
+13b2:1248+     ___fheap
+13b2:124a      ___fheapRover
+13b2:124c      ___LargestSizeB4Rover
+Module: C:\WATCOM/lib286/dos\clibl.lib(ffree.c)
+0c80:010d      _ffree_
+0c80:010d      free_
+Module: C:\WATCOM/lib286/dos\clibl.lib(d_getvec.c)
+0c80:0153      _dos_getvect_
+Module: C:\WATCOM/lib286/dos\clibl.lib(d_setvec.c)
+0c80:015e      _dos_setvect_
+Module: C:\WATCOM/lib286/dos\clibl.lib(setjmp)
+0c80:016c      _setjmp_
+0c80:01c1      longjmp_
+Module: C:\WATCOM/lib286/dos\clibl.lib(outp.c)
+0c80:021e      outp_
+Module: C:\WATCOM/lib286/dos\clibl.lib(i4d)
+0c80:0228      __I4D
+0c80:0277      __U4D
+Module: C:\WATCOM/lib286/dos\clibl.lib(memcpy.c)
+0c80:02fb      memcpy_
+Module: C:\WATCOM/lib286/dos\clibl.lib(strcat.c)
+0c80:031d      strcat_
+Module: C:\WATCOM/lib286/dos\clibl.lib(strncpy.c)
+0c80:0348      strncpy_
+Module: C:\WATCOM/lib286/dos\clibl.lib(memset.c)
+0c80:0384      memset_
+Module: C:\WATCOM/lib286/dos\clibl.lib(sprintf.c)
+0c80:039b      sprintf_
+Module: C:\WATCOM/lib286/dos\clibl.lib(strlen.c)
+0c80:03ca      strlen_
+Module: C:\WATCOM/lib286/dos\clibl.lib(fdmth086)
+0c80:0488      __FDA
+0c80:042e      __EDA
+0c80:0448      __FDS
+0c80:0414*     __EDS
+0c80:0615      __FDM
+0c80:03fa      __EDM
+0c80:07a1      __FDD
+0c80:03e0*     __EDD
+Module: C:\WATCOM/lib286/dos\clibl.lib(memcmp.c)
+0c80:0a7b      memcmp_
+Module: C:\WATCOM/lib286/dos\clibl.lib(fdc086)
+0c80:0abf*     __FDC
+0c80:0aa0      __EDC
+Module: C:\WATCOM/lib286/dos\clibl.lib(i4fd086)
+0c80:0b04*     __I4FD
+0c80:0b14      __U4FD
+Module: C:\WATCOM/lib286/dos\clibl.lib(fltused.c)
+13b2:1256      _fltused_
+Module: C:\WATCOM/lib286/dos\clibl.lib(i4m)
+0c80:0bb8      __I4M
+0c80:0bb8      __U4M
+Module: C:\WATCOM/lib286/dos\clibl.lib(printf.c)
+0c80:0bd0      printf_
+Module: C:\WATCOM/lib286/dos\clibl.lib(iob.c)
+13b2:1258      ___iob
+13b2:13c0      __fmode
+13b2:67ca      ___OpenStreams
+13b2:67ce      ___ClosedStreams
+Module: C:\WATCOM/lib286/dos\clibl.lib(fflush.c)
+0c80:0bff      fflush_
+Module: C:\WATCOM/lib286/dos\clibl.lib(fopen.c)
+0c80:0c14+     __open_flags_
+0c80:0e14+     _fsopen_
+0c80:0e7b      fopen_
+0c80:0f56*     freopen_
+Module: C:\WATCOM/lib286/dos\clibl.lib(fwrite.c)
+0c80:0fcc      fwrite_
+Module: C:\WATCOM/lib286/dos\clibl.lib(fclose.c)
+0c80:11c7      __doclose_
+0c80:1278      __shutdown_stream_
+0c80:1292      fclose_
+13b2:67d2+     ___RmTmpFileFn
+Module: C:\WATCOM/lib286/dos\clibl.lib(getch.c)
+0c80:12dd      getch_
+Module: C:\WATCOM/lib286/dos\clibl.lib(cstart)
+13b2:0000*     __nullarea
+13b2:13c2*     __ovlflag
+13b2:13c3*     __intno
+13b2:13c4*     __ovlvec
+0c80:12f8      _cstart_
+0c80:13cb*     _Not_Enough_Memory_
+0c80:14ff      __exit_
+0c80:151e      __do_exit_with_msg__
+0c80:157c      __GETDS
+Module: C:\WATCOM/lib286/dos\clibl.lib(inp.c)
+0c80:1586      inp_
+Module: C:\WATCOM/lib286/dos\clibl.lib(hpgrw086.c)
+0c80:158e      __CMain_nheapgrow_
+Module: C:\WATCOM/lib286/dos\clibl.lib(mem.c)
+0c80:15a0      __MemAllocator
+0c80:166a      __MemFree
+Module: C:\WATCOM/lib286/dos\clibl.lib(growseg.c)
+0c80:17c7      __GrowSeg_
+Module: C:\WATCOM/lib286/dos\clibl.lib(allocseg.c)
+0c80:18b9      __AllocSeg_
+Module: C:\WATCOM/lib286/dos\clibl.lib(fmemneed.c)
+0c80:1950      __fmemneed_
+Module: C:\WATCOM/lib286/dos\clibl.lib(nmalloc.c)
+0c80:1953      _nmalloc_
+13b2:13c8      ___nheapbeg
+13b2:13ca      ___MiniHeapRover
+13b2:13cc      ___LargestSizeB4MiniHeapRover
+Module: C:\WATCOM/lib286/dos\clibl.lib(nfree.c)
+0c80:1a2d      _nfree_
+13b2:67d6+     ___MiniHeapFreeRover
+Module: C:\WATCOM/lib286/dos\clibl.lib(crwdata)
+13b2:13ce      __curbrk
+13b2:13d6      __STACKLOW
+13b2:13d8      __STACKTOP
+13b2:13da      __cbyte
+13b2:13dc      __child
+13b2:13de      __no87
+13b2:13ec      ___FPE_handler
+13b2:13d0      __psp
+13b2:13e0      __get_ovl_stack
+13b2:13e4      __restore_ovl_stack
+13b2:13e8      __close_ovl_file
+13b2:13f0      __LpCmdLine
+13b2:13f4      __LpPgmName
+13b2:13d2      __osmajor
+13b2:13d3      __osminor
+13b2:13d4      __osmode
+13b2:13d5      __HShift
+Module: C:\WATCOM/lib286/dos\clibl.lib(ljmphdl.c)
+13b2:13f8      ___longjmp_handler
+Module: C:\WATCOM/lib286/dos\clibl.lib(vsprintf.c)
+0c80:1b42      vsprintf_
+Module: C:\WATCOM/lib286/dos\clibl.lib(_8087)
+13b2:13fc      __8087
+13b2:13fd      __real87
+13b2:13fe      __dos87emucall
+13b2:1400      __dos87real
+Module: C:\WATCOM/lib286/dos\clibl.lib(fstat086)
+13b2:1402*     _FPStatus_
+0c80:1b6e      F8UnderFlow
+0c80:1b72*     F4UnderFlow
+0c80:1b83      F8InvalidOp
+0c80:1b8c      F8DivZero
+0c80:1bd3*     F4DivZero
+0c80:1ba3      F8OverFlow
+0c80:1bea*     F4OverFlow
+0c80:1bb1*     F8RetInf_
+0c80:1bb1*     _F8RetInf_
+Module: C:\WATCOM/lib286/dos\clibl.lib(fdiv_patch)
+0c80:1d9c*     __fdiv_fpr
+0c80:223c*     __fdiv_chk
+0c80:2250*     __fdiv_m32
+0c80:2297*     __fdiv_m64
+0c80:22de*     __fdiv_m32r
+0c80:2325      __fdiv_m64r
+Module: C:\WATCOM/lib286/dos\clibl.lib(chipvar)
+13b2:1404      ___chipbug
+13b2:1404      __chipbug
+Module: C:\WATCOM/lib286/dos\clibl.lib(setefg.c)
+0c80:236c      __setEFGfmt_
+Module: C:\WATCOM/lib286/dos\clibl.lib(fprtf.c)
+0c80:23a4      __fprtf_
+Module: C:\WATCOM/lib286/dos\clibl.lib(initfile.c)
+0c80:246f      __InitFiles_
+Module: C:\WATCOM/lib286/dos\clibl.lib(ioexit.c)
+0c80:25bd*     fcloseall_
+0c80:25c4      __full_io_exit_
+Module: C:\WATCOM/lib286/dos\clibl.lib(flushall.c)
+0c80:25ce*     __flushall_
+0c80:262b      flushall_
+Module: C:\WATCOM/lib286/dos\clibl.lib(flush.c)
+0c80:2630      __flush_
+Module: C:\WATCOM/lib286/dos\clibl.lib(comtflag.c)
+0c80:2763*     __set_commode_
+13b2:1408      __commode
+Module: C:\WATCOM/lib286/dos\clibl.lib(seterrno.c)
+0c80:276f      __set_errno_
+0c80:2783*     __set_EDOM_
+0c80:2795      __set_ERANGE_
+0c80:27a7*     __set_EINVAL_
+0c80:27bc      __set_doserrno_
+Module: C:\WATCOM/lib286/dos\clibl.lib(tolower.c)
+0c80:27c8      tolower_
+Module: C:\WATCOM/lib286/dos\clibl.lib(open.c)
+0c80:29d2*     open_
+0c80:2a09      sopen_
+Module: C:\WATCOM/lib286/dos\clibl.lib(fseek.c)
+0c80:2aa1      fseek_
+Module: C:\WATCOM/lib286/dos\clibl.lib(chktty.c)
+0c80:2bef      __chktty_
+Module: C:\WATCOM/lib286/dos\clibl.lib(freefp.c)
+0c80:2c1a      __freefp_
+0c80:2c95      __purgefp_
+Module: C:\WATCOM/lib286/dos\clibl.lib(allocfp.c)
+0c80:2cd6      __allocfp_
+Module: C:\WATCOM/lib286/dos\clibl.lib(qwrit.c)
+0c80:2df8      __qwrite_
+Module: C:\WATCOM/lib286/dos\clibl.lib(ioalloc.c)
+0c80:2e55      __ioalloc_
+Module: C:\WATCOM/lib286/dos\clibl.lib(errno.c)
+0c80:2eef      __get_errno_ptr_
+0c80:2ef6      __get_doserrno_ptr_
+13b2:67d8+     _errno
+13b2:67da+     __doserrno
+Module: C:\WATCOM/lib286/dos\clibl.lib(fputc.c)
+0c80:2efd      fputc_
+Module: C:\WATCOM/lib286/dos\clibl.lib(__lseek.c)
+0c80:2fcd      __lseek_
+Module: C:\WATCOM/lib286/dos\clibl.lib(_clse.c)
+0c80:3007      __close_
+Module: C:\WATCOM/lib286/dos\clibl.lib(xmsg.c)
+0c80:303a*     __exit_with_msg_
+0c80:303f      __fatal_runtime_error_
+Module: C:\WATCOM/lib286/dos\clibl.lib(cmain086.c)
+0c80:305d      __CMain
+Module: C:\WATCOM/lib286/dos\clibl.lib(initrtns.c)
+0c80:30c3      __InitRtns
+0c80:30c3*     __FInitRtns
+0c80:311e      __FiniRtns
+0c80:311e*     __FFiniRtns
+Module: C:\WATCOM/lib286/dos\clibl.lib(uselfn.c)
+13b2:140a      ___uselfn
+Module: C:\WATCOM/lib286/dos\clibl.lib(dosseg)
+0c80:3182      __DOSseg__
+Module: C:\WATCOM/lib286/dos\clibl.lib(heapgrow.c)
+0c80:3183*     _heapgrow_
+0c80:3183*     _fheapgrow_
+0c80:3184      _nheapgrow_
+Module: C:\WATCOM/lib286/dos\clibl.lib(heapen.c)
+0c80:31fe*     _heapenable_
+13b2:140c      ___heap_enabled
+Module: C:\WATCOM/lib286/dos\clibl.lib(amblksiz.c)
+13b2:140e      __amblksiz
+Module: C:\WATCOM/lib286/dos\clibl.lib(nmemneed.c)
+0c80:320f      __nmemneed_
+Module: C:\WATCOM/lib286/dos\clibl.lib(grownear.c)
+0c80:3297      __LastFree_
+0c80:3311      __ExpandDGROUP_
+Module: C:\WATCOM/lib286/dos\clibl.lib(prtf.c)
+0c80:3422      __prtf_
+Module: C:\WATCOM/lib286/dos\clibl.lib(chk8087.c)
+0c80:420c*     _fpreset_
+0c80:4237      __init_8087_
+0c80:426a+     __default_sigfpe_handler_
+0c80:427d      __chk8087_
+Module: C:\WATCOM/lib286/dos\clibl.lib(chipbug.c)
+0c80:42f5      __verify_pentium_fdiv_bug_
+Module: C:\WATCOM/lib286/dos\clibl.lib(noefgfmt.c)
+13b2:1410      ___EFG_printf
+13b2:1414      ___EFG_scanf
+Module: C:\WATCOM/lib286\mathl.lib(efgfmt.c)
+0c80:4375      _EFG_Format_
+Module: C:\WATCOM/lib286\mathl.lib(cnvs2d.c)
+0c80:44f2      __cnvs2d_
+Module: C:\WATCOM/lib286/dos\clibl.lib(fsync.c)
+0c80:4517      fsync_
+Module: C:\WATCOM/lib286/dos\clibl.lib(opendos.c)
+0c80:451c      _dos_open_
+Module: C:\WATCOM/lib286/dos\clibl.lib(iomode.c)
+0c80:4542      __GetIOMode_
+0c80:4567      __SetIOMode_nogrow_
+13b2:1418      ___NFiles
+13b2:141a      ___init_mode
+13b2:1442      ___io_mode
+Module: C:\WATCOM/lib286/dos\clibl.lib(isatt.c)
+0c80:458a      isatty_
+Module: C:\WATCOM/lib286/dos\clibl.lib(dosret.c)
+0c80:45a6*     _dosretax_
+0c80:45ab*     _dosret0_
+0c80:45b2      __set_errno_dos_
+0c80:4610*     __set_errno_dos_reterr_
+Module: C:\WATCOM/lib286/dos\clibl.lib(umaskval.c)
+13b2:145a      ___umaskval
+Module: C:\WATCOM/lib286/dos\clibl.lib(creatdos.c)
+0c80:461b      _dos_creat_
+0c80:463f*     _dos_creatnew_
+Module: C:\WATCOM/lib286/dos\clibl.lib(stiomode.c)
+0c80:4661+     __grow_iomode_
+0c80:4724+     __shrink_iomode_
+0c80:475f      __SetIOMode_
+Module: C:\WATCOM/lib286/dos\clibl.lib(lseek.c)
+0c80:47c2      lseek_
+Module: C:\WATCOM/lib286/dos\clibl.lib(tell.c)
+0c80:47f3      tell_
+Module: C:\WATCOM/lib286/dos\clibl.lib(enterdb.c)
+0c80:4804      __EnterWVIDEO_
+13b2:145c+     ___WD_Present
+Module: C:\WATCOM/lib286/dos\clibl.lib(___argc.c)
+13b2:67de      ____Argv
+13b2:67e2      ____Argc
+Module: C:\WATCOM/lib286/dos\clibl.lib(exit.c)
+0c80:4828+     __null_int23_exit_
+0c80:4829      exit_
+0c80:485a*     _exit_
+13b2:145e+     ___int23_exit
+13b2:1462      ___FPE_handler_exit
+Module: C:\WATCOM/lib286/dos\clibl.lib(sgdef086)
+13b2:151a      __Start_XI
+13b2:154a      __End_XI
+13b2:154a      __Start_YI
+13b2:1556      __End_YI
+Module: C:\WATCOM/lib286/dos\clibl.lib(sbrk.c)
+0c80:4874*     sbrk_
+0c80:4884      __brk_
+Module: C:\WATCOM/lib286/dos\clibl.lib(wctomb.c)
+0c80:48ee      wctomb_
+Module: C:\WATCOM/lib286/dos\clibl.lib(itoa.c)
+0c80:4917+     utoa_
+0c80:4974      itoa_
+Module: C:\WATCOM/lib286/dos\clibl.lib(strupr.c)
+0c80:4998      strupr_
+Module: C:\WATCOM/lib286/dos\clibl.lib(mbisdbcs.c)
+13b2:67e4      ___IsDBCS
+Module: C:\WATCOM/lib286/dos\clibl.lib(mbislead.c)
+0c80:49ba*     _ismbblead_
+13b2:67e6      ___MBCSIsTable
+Module: C:\WATCOM/lib286/dos\clibl.lib(lltoa.c)
+0c80:49d6      ulltoa_
+0c80:4abb*     lltoa_
+Module: C:\WATCOM/lib286/dos\clibl.lib(ltoa.c)
+0c80:4b1d      ultoa_
+0c80:4b8c*     ltoa_
+Module: C:\WATCOM/lib286/dos\clibl.lib(8087cw.c)
+13b2:1466      __8087cw
+Module: C:\WATCOM/lib286/dos\clibl.lib(save8087.c)
+13b2:1468      ___Save8087
+13b2:146c      ___Rest8087
+Module: C:\WATCOM/lib286/dos\clibl.lib(grabfp87.c)
+0c80:4bbc      __GrabFP87_
+Module: C:\WATCOM/lib286/dos\clibl.lib(init8087)
+0c80:4bee*     __init_8087_emu
+0c80:4bf4      __x87id
+Module: C:\WATCOM/lib286/dos\clibl.lib(rtcntrl.c)
+0c80:4c33*     _SetLD64bit_
+0c80:4c3e*     _SetLD80bit_
+0c80:4c49      _LDisDouble_
+Module: C:\WATCOM/lib286\mathl.lib(ldcvt.c)
+0c80:4d1a      _LDScale10x_
+0c80:527c      __LDcvt_
+Module: C:\WATCOM/lib286\mathl.lib(fdld086)
+0c80:56ca      __iFDLD
+Module: C:\WATCOM/lib286\mathl.lib(strtod.c)
+0c80:5d0f+     __Strtold_
+0c80:5ec2      strtod_
+Module: C:\WATCOM/lib286/dos\clibl.lib(filedos.c)
+0c80:6041*     _dos_close_
+0c80:604f      _dos_commit_
+Module: C:\WATCOM/lib286/dos\clibl.lib(doserror)
+0c80:6060      __doserror_
+Module: C:\WATCOM/lib286/dos\clibl.lib(frealloc.c)
+0c80:606e*     _frealloc_
+0c80:606e      realloc_
+Module: C:\WATCOM/lib286/dos\clibl.lib(iomodtty.c)
+0c80:614a      __ChkTTYIOMode_
+0c80:6188*     __IOMode_
+Module: C:\WATCOM/lib286/dos\clibl.lib(alphabet.c)
+13b2:0e46      ___Alphabet
+Module: C:\WATCOM/lib286/dos\clibl.lib(mbinit.c)
+0c80:61d6      __mbinit_
+13b2:14fe+     ___MBCodePage
+Module: C:\WATCOM/lib286/dos\clibl.lib(fpe87)
+0c80:62b6      __Init_FPE_handler_
+0c80:62ef      __Fini_FPE_handler_
+0c80:6326*     __FPEHandler
+Module: C:\WATCOM/lib286\mathl.lib(fldm086)
+0c80:65b8      __FLDM
+0c80:667f*     ___LDM
+Module: C:\WATCOM/lib286\mathl.lib(fldd086)
+0c80:681a      __FLDD
+0c80:6843*     ___LDD
+Module: C:\WATCOM/lib286\mathl.lib(ldclass.c)
+0c80:6aff      __LDClass_
+0c80:6b4d*     _FLClass_
+Module: C:\WATCOM/lib286\mathl.lib(ldi4086)
+0c80:6b6e      __LDI4
+0c80:6b6e*     __LDU4
+Module: C:\WATCOM/lib286\mathl.lib(i4ld086)
+0c80:6bdc      __I4LD
+0c80:6bed*     __U4LD
+Module: C:\WATCOM/lib286\mathl.lib(flda086)
+0c80:6c72*     __FLDA
+0c80:6c30      __FLDS
+0c80:6c9b*     __FLDAC
+0c80:6c5d*     __FLDSC
+0c80:6ccb*     ___LDA
+Module: C:\WATCOM/lib286/dos\clibl.lib(istable.c)
+13b2:0e8c      __IsTable
+Module: C:\WATCOM/lib286\mathl.lib(bufld086)
+0c80:6e6e      __ZBuf2LD
+Module: C:\WATCOM/lib286\mathl.lib(ldfd086)
+0c80:6f36      __iLDFD
+Module: C:\WATCOM/lib286\mathl.lib(inf_nan.c)
+13b2:0f8e*     ___f_infinity
+13b2:0f92*     ___f_posqnan
+13b2:0f96      ___d_infinity
+13b2:0f9e      ___d_posqnan
+13b2:0fa6*     ___ld_infinity
+13b2:0fae*     ___ld_posqnan
+Module: C:\WATCOM/lib286/dos\clibl.lib(fdn086)
+0c80:701e      __FDN
+Module: C:\WATCOM/lib286/dos\clibl.lib(hugeval.c)
+13b2:0fb6      __HugeValue
+Module: C:\WATCOM/lib286/dos\clibl.lib(fmsize.c)
+0c80:7032*     _msize_
+0c80:7032      _fmsize_
+Module: C:\WATCOM/lib286/dos\clibl.lib(nexpand.c)
+0c80:7043      __HeapManager_expand_
+0c80:71ba      _nexpand_
+Module: C:\WATCOM/lib286/dos\clibl.lib(fexpand.c)
+0c80:720d      _fexpand_
+0c80:720d*     _expand_
+Module: C:\WATCOM/lib286/dos\clibl.lib(fpeint.c)
+13b2:1516      ___FPE_int
+Module: C:\WATCOM/lib286/dos\clibl.lib(bfree.c)
+0c80:725a      _bfree_
+Module: C:\WATCOM/lib286/dos\clibl.lib(bexpand.c)
+0c80:727f      _bexpand_
+Module: C:\WATCOM/lib286/dos\clibl.lib(nonibm.c)
+0c80:72d8+     __is_nonIBM_
+13b2:1518      ___NonIBM
+
+
+                        +--------------------+
+                        |   Libraries Used   |
+                        +--------------------+
+
+C:\WATCOM/lib286\mathl.lib
+C:\WATCOM/lib286/dos\clibl.lib
+
+
+                        +-----------------------+
+                        |   Linker Statistics   |
+                        +-----------------------+
+
+Stack size:  0800 (2048.)
+Memory size:  0001ae10 (110096.)
+Entry point address: 0c80:12f8
+Link time: 00:00.00

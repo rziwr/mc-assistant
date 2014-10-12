@@ -1,0 +1,448 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.5.4	//
+!_TAG_REVISION_NAME	MCHPTags	//
+!_TAG_REVISION_VERSION	6.0.1	//
+FREERTOS_CONFIG_H	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\FreeRTOSConfig.h	55;"	d	line:55
+INCLUDE_uxTaskGetStackHighWaterMark::0	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\FreeRTOSConfig.h	108;"	d	line:108
+INCLUDE_uxTaskGetStackHighWaterMark::0	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	140;"	d	line:140
+INCLUDE_uxTaskPriorityGet::0	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\FreeRTOSConfig.h	99;"	d	line:99
+INCLUDE_vResumeFromISR::0	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\FreeRTOSConfig.h	103;"	d	line:103
+INCLUDE_vTaskCleanUpResources::0	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\FreeRTOSConfig.h	101;"	d	line:101
+INCLUDE_vTaskDelay::1	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\FreeRTOSConfig.h	105;"	d	line:105
+INCLUDE_vTaskDelayUntil::0	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\FreeRTOSConfig.h	104;"	d	line:104
+INCLUDE_vTaskDelete::0	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\FreeRTOSConfig.h	100;"	d	line:100
+INCLUDE_vTaskPrioritySet::0	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\FreeRTOSConfig.h	98;"	d	line:98
+INCLUDE_vTaskSuspend::0	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\FreeRTOSConfig.h	102;"	d	line:102
+INCLUDE_xTaskGetCurrentTaskHandle	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	187;"	d	line:187
+INCLUDE_xTaskGetCurrentTaskHandle::0	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\FreeRTOSConfig.h	107;"	d	line:107
+INCLUDE_xTaskGetCurrentTaskHandle::0	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	191;"	d	line:191
+INCLUDE_xTaskGetCurrentTaskHandle::1	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	188;"	d	line:188
+INCLUDE_xTaskGetSchedulerState::0	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\FreeRTOSConfig.h	106;"	d	line:106
+INCLUDE_xTaskGetSchedulerState::0	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	181;"	d	line:181
+INCLUDE_xTaskResumeFromISR::1	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	177;"	d	line:177
+INC_FREERTOS_H	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	55;"	d	line:55
+LIST_H	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\list.h	90;"	d	line:90
+MPU_WRAPPERS_INCLUDED_FROM_API_FILE	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MemMang\heap_1.c	67;"	d	line:67	file:
+MPU_WRAPPERS_INCLUDED_FROM_API_FILE	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MemMang\heap_1.c	72;"	d	line:72	file:
+MPU_WRAPPERS_INCLUDED_FROM_API_FILE	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	62;"	d	line:62	file:
+MPU_WRAPPERS_INCLUDED_FROM_API_FILE	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	68;"	d	line:68	file:
+PORTABLE_H	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\portable.h	59;"	d	line:59
+PORTMACRO_H	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\portmacro.h	55;"	d	line:55
+PRIORITY_TASK0::(tskIDLE_PRIORITY+1)	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\main.c	19;"	d	line:19	file:
+PRIORITY_TASK1::(tskIDLE_PRIORITY+1)	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\main.c	20;"	d	line:20	file:
+PROJDEFS_H	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\projdefs.h	55;"	d	line:55
+TASK_H	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\task.h	62;"	d	line:62
+cStatus	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	2051;"	l	line:2051
+configCHECK_FOR_STACK_OVERFLOW::0	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\FreeRTOSConfig.h	88;"	d	line:88
+configCHECK_FOR_STACK_OVERFLOW::0	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	258;"	d	line:258
+configCPU_CLOCK_HZ::((unsignedlong)48000000)	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\FreeRTOSConfig.h	74;"	d	line:74
+configGENERATE_RUN_TIME_STATS::0	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	380;"	d	line:380
+configIDLE_SHOULD_YIELD::1	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\FreeRTOSConfig.h	82;"	d	line:82
+configIDLE_SHOULD_YIELD::1	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	168;"	d	line:168
+configMAX_CO_ROUTINE_PRIORITIES::(2)	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\FreeRTOSConfig.h	93;"	d	line:93
+configMAX_PRIORITIES::((unsignedportBASE_TYPE)4)	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\FreeRTOSConfig.h	76;"	d	line:76
+configMAX_TASK_NAME_LEN	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	172;"	d	line:172
+configMAX_TASK_NAME_LEN::(4)	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\FreeRTOSConfig.h	79;"	d	line:79
+configMAX_TASK_NAME_LEN::1	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	173;"	d	line:173
+configMAX_TASK_NAME_LEN::16	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	164;"	d	line:164
+configMINIMAL_STACK_SIZE::(105)	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\FreeRTOSConfig.h	77;"	d	line:77
+configQUEUE_REGISTRY_SIZE::0	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	206;"	d	line:206
+configQUEUE_REGISTRY_SIZE::0	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	210;"	d	line:210
+configQUEUE_REGISTRY_SIZE::10	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\FreeRTOSConfig.h	89;"	d	line:89
+configTICK_RATE_HZ::((portTickType)1000)	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\FreeRTOSConfig.h	75;"	d	line:75
+configTOTAL_HEAP_SIZE::((size_t)1024)	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\FreeRTOSConfig.h	78;"	d	line:78
+configUSE_16_BIT_TICKS::1	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\FreeRTOSConfig.h	81;"	d	line:81
+configUSE_ALTERNATIVE_API::0	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\FreeRTOSConfig.h	87;"	d	line:87
+configUSE_ALTERNATIVE_API::0	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	156;"	d	line:156
+configUSE_APPLICATION_TASK_TAG::0	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	136;"	d	line:136
+configUSE_COUNTING_SEMAPHORES::0	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\FreeRTOSConfig.h	86;"	d	line:86
+configUSE_COUNTING_SEMAPHORES::0	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	152;"	d	line:152
+configUSE_CO_ROUTINES::0	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\FreeRTOSConfig.h	92;"	d	line:92
+configUSE_IDLE_HOOK::0	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\FreeRTOSConfig.h	72;"	d	line:72
+configUSE_MALLOC_FAILED_HOOK::0	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	400;"	d	line:400
+configUSE_MUTEXES::0	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\FreeRTOSConfig.h	84;"	d	line:84
+configUSE_MUTEXES::0	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	148;"	d	line:148
+configUSE_PREEMPTION::1	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\FreeRTOSConfig.h	71;"	d	line:71
+configUSE_RECURSIVE_MUTEXES::0	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\FreeRTOSConfig.h	85;"	d	line:85
+configUSE_RECURSIVE_MUTEXES::0	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	144;"	d	line:144
+configUSE_TICK_HOOK::0	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\FreeRTOSConfig.h	73;"	d	line:73
+configUSE_TRACE_FACILITY::0	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\FreeRTOSConfig.h	80;"	d	line:80
+dDummy	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MemMang\heap_1.c	79;"	m	line:79	union:xRTOS_HEAP	file:
+errCOULD_NOT_ALLOCATE_REQUIRED_MEMORY::(-1)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\projdefs.h	69;"	d	line:69
+errNO_TASK_TO_RUN::(-2)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\projdefs.h	70;"	d	line:70
+errQUEUE_BLOCKED::(-4)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\projdefs.h	71;"	d	line:71
+errQUEUE_EMPTY::(0)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\projdefs.h	65;"	d	line:65
+errQUEUE_FULL::(0)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\projdefs.h	66;"	d	line:66
+errQUEUE_YIELD::(-5)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\projdefs.h	72;"	d	line:72
+listCURRENT_LIST_LENGTH::(pxList)((pxList)->uxNumberOfI	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\list.h	166;"	d	line:166
+listGET_LIST_ITEM_VALUE::(pxListItem)((pxListItem)->xIt	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\list.h	152;"	d	line:152
+listGET_OWNER_OF_HEAD_ENTRY::(pxList)((pxList->uxNumberOfIt	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\list.h	217;"	d	line:217
+listGET_OWNER_OF_NEXT_ENTRY::(pxTCB,pxList)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\list.h	198;"	d	line:198
+listIS_CONTAINED_WITHIN::(pxList,pxListItem)((pxListIte	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\list.h	229;"	d	line:229
+listLIST_IS_EMPTY::(pxList)((pxList)->uxNumberOfI	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\list.h	161;"	d	line:161
+listSET_LIST_ITEM_OWNER::(pxListItem,pxOwner)(pxListIte	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\list.h	133;"	d	line:133
+listSET_LIST_ITEM_VALUE::(pxListItem,xValue)(pxListItem	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\list.h	142;"	d	line:142
+main	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\main.c	25;"	f	line:25	signature:( void )
+pcEndOfStack	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	2135;"	l	line:2135
+pcName	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\task.h	114;"	m	line:114	struct:xTASK_PARAMTERS
+pcStatsString	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	167;"	v	line:167	file:
+pcStatusString	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	200;"	v	line:200	file:
+pcTaskName	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	91;"	m	line:91	struct:tskTaskControlBlock	file:
+pcTraceBuffer	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	195;"	v	line:195	file:
+pcTraceBufferEnd	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	197;"	v	line:197	file:
+pcTraceBufferStart	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	196;"	v	line:196	file:
+pdFAIL::(0)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\projdefs.h	64;"	d	line:64
+pdFALSE::(0)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\projdefs.h	61;"	d	line:61
+pdPASS::(1)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\projdefs.h	63;"	d	line:63
+pdTASK_CODE	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\projdefs.h	58;"	t	line:58
+pdTASK_HOOK_CODE	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	75;"	t	line:75
+pdTRUE::(1)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\projdefs.h	60;"	d	line:60
+portBASE_TYPE::char	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\portmacro.h	74;"	d	line:74
+portBIT_CLEAR::((unsignedchar)0)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\port.c	121;"	d	line:121	file:
+portBIT_SET::((unsignedchar)1)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\port.c	120;"	d	line:120	file:
+portBYTE_ALIGNMENT::1	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\portmacro.h	86;"	d	line:86
+portBYTE_ALIGNMENT_MASK::(0x0000)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\portable.h	323;"	d	line:323
+portBYTE_ALIGNMENT_MASK::(0x0001)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\portable.h	319;"	d	line:319
+portBYTE_ALIGNMENT_MASK::(0x0003)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\portable.h	315;"	d	line:315
+portBYTE_ALIGNMENT_MASK::(0x0007)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\portable.h	311;"	d	line:311
+portCHAR::char	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\portmacro.h	68;"	d	line:68
+portCLEAR_INTERRUPT_MASK_FROM_ISR::(uxSavedStatusValue)(void)uxSa	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	201;"	d	line:201
+portCOMPILER_MANAGED_MEMORY_SIZE::((unsignedchar)0x13)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\port.c	112;"	d	line:112	file:
+portCONFIGURE_TIMER_FOR_RUN_TIME_STATS::	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	396;"	d	line:396
+portCRITICAL_NESTING_IN_TCB::0	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	160;"	d	line:160
+portDISABLE_INTERRUPTS::INTCONbits.GIEH=0;	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\portmacro.h	93;"	d	line:93
+portDOUBLE::double	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\portmacro.h	70;"	d	line:70
+portENABLE_INTERRUPTS::INTCONbits.GIEH=1;	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\portmacro.h	94;"	d	line:94
+portENTER_CRITICAL::POSTINC1=INTCON;	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\portmacro.h	98;"	d	line:98
+portEXIT_CRITICAL::_asm	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\portmacro.h	110;"	d	line:110
+portFLOAT::float	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\portmacro.h	69;"	d	line:69
+portGLOBAL_INTERRUPT_FLAG::0x80	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\port.c	102;"	d	line:102	file:
+portGLOBAL_INT_ENABLE_BIT::0x80	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\portmacro.h	87;"	d	line:87
+portINITAL_INTERRUPT_STATE::0xc0	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\port.c	99;"	d	line:99	file:
+portINTERRUPTS_UNCHANGED::0x00	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\port.c	106;"	d	line:106	file:
+portLONG::long	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\portmacro.h	71;"	d	line:71
+portMAX_DELAY::(portTickType)0xffff	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\portmacro.h	78;"	d	line:78
+portMAX_DELAY::(portTickType)0xffffffff	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\portmacro.h	81;"	d	line:81
+portNOP::_asm	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\portmacro.h	131;"	d	line:131
+portNUM_CONFIGURABLE_REGIONS::1	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\portable.h	331;"	d	line:331
+portPRIVILEGE_BIT::((unsignedportBASE_TYPE)0x00)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	404;"	d	line:404
+portREMOVE_STATIC_QUALIFIER	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\portmacro.h	125;"	d	line:125
+portRESTORE_CONTEXT::	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\port.c	365;"	d	line:365	file:
+portSAVE_CONTEXT::(ucForcedInterruptFlags)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\port.c	258;"	d	line:258	file:
+portSET_INTERRUPT_MASK_FROM_ISR::0	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	197;"	d	line:197
+portSHORT::int	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\portmacro.h	72;"	d	line:72
+portSTACK_GROWTH::1	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\portmacro.h	88;"	d	line:88
+portSTACK_TYPE::unsignedchar	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\portmacro.h	73;"	d	line:73
+portTASK_FUNCTION	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1779;"	f	line:1779	file:
+portTASK_FUNCTION::(vFunction,pvParameters)voidvF	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\portmacro.h	120;"	d	line:120
+portTASK_FUNCTION_PROTO	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	323;"	p	line:323	file:
+portTASK_FUNCTION_PROTO::(vFunction,pvParameters)voidvF	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\portmacro.h	119;"	d	line:119
+portTICK_RATE_MS::((portTickType)1000/configTICK	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\portmacro.h	89;"	d	line:89
+portTIMER_FOSC_SCALE::((unsignedlong)4)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\port.c	95;"	d	line:95	file:
+portTickType	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\portmacro.h	77;"	t	line:77
+portTickType	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\portmacro.h	80;"	t	line:80
+portYIELD::vPortYield	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\portmacro.h	115;"	d	line:115
+portYIELD_WITHIN_API::portYIELD	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	408;"	d	line:408
+prvAddTaskToReadyQueue::(pxTCB)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	257;"	d	line:257	file:
+prvAllocateTCBAndStack	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1997;"	f	line:1997	file:	signature:( unsigned short usStackDepth, portSTACK_TYPE *puxStackBuffer )
+prvCheckDelayedTasks::	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	286;"	d	line:286	file:
+prvCheckTasksWaitingTermination	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1962;"	f	line:1962	file:	signature:( void )
+prvDeleteTCB	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	2160;"	f	line:2160	file:	signature:( tskTCB *pxTCB )
+prvGenerateRunTimeStatsForTasksInList	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	2062;"	f	line:2062	file:	signature:( const signed char *pcWriteBuffer, xList *pxList, unsigned long ulTotalRunTime )
+prvGetTCBFromHandle::(pxHandle)((pxHandle==NULL)?(t	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	295;"	d	line:295	file:
+prvInitialiseTCBVariables	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1844;"	f	line:1844	file:	signature:( tskTCB *pxTCB, const signed char * const pcName, unsigned portBASE_TYPE uxPriority, const xMemoryRegion * const xRegions, unsigned short usStackDepth )
+prvInitialiseTaskLists	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1930;"	f	line:1930	file:	signature:( void )
+prvListTaskWithinSingleList	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	2031;"	f	line:2031	file:	signature:( const signed char *pcWriteBuffer, xList *pxList, signed char cStatus )
+prvLowInterrupt	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\port.c	145;"	p	line:145	file:	signature:( void )
+prvLowInterrupt	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\port.c	546;"	f	line:546	file:	signature:( void )
+prvSetupTimerInterrupt	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\port.c	133;"	p	line:133	file:	signature:( void )
+prvSetupTimerInterrupt	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\port.c	609;"	f	line:609	file:	signature:( void )
+prvTickISR	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\port.c	139;"	p	line:139	file:	signature:( void )
+prvTickISR	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\port.c	585;"	f	line:585	file:	signature:( void )
+puxStackBuffer	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\task.h	118;"	m	line:118	struct:xTASK_PARAMTERS
+pvBaseAddress	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\task.h	103;"	m	line:103	struct:xMEMORY_REGION
+pvContainer	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\list.h	104;"	m	line:104	struct:xLIST_ITEM
+pvOwner	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\list.h	103;"	m	line:103	struct:xLIST_ITEM
+pvParameters	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\task.h	116;"	m	line:116	struct:xTASK_PARAMTERS
+pvPortMalloc	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MemMang\heap_1.c	89;"	f	line:89	signature:( size_t xWantedSize )
+pvPortMallocAligned::(x,puxStackBuffer)((puxStackBu	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	412;"	d	line:412
+pvReturn	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MemMang\heap_1.c	91;"	l	line:91
+pvTaskCode	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\task.h	113;"	m	line:113	struct:xTASK_PARAMTERS
+pxCurrentTCB	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	129;"	v	line:129
+pxDelayedTaskList	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	136;"	v	line:136	file:
+pxEndOfStack	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	94;"	m	line:94	struct:tskTaskControlBlock	file:
+pxFirstTCB	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	2033;"	l	line:2033
+pxFirstTCB	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	2064;"	l	line:2064
+pxISR	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\portable.h	238;"	t	line:238
+pxISR	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\portable.h	246;"	t	line:246
+pxISR	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\portable.h	65;"	t	line:65
+pxISR	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\portable.h	70;"	t	line:70
+pxIndex	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\list.h	122;"	m	line:122	struct:xLIST
+pxIndex	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\list.c	92;"	l	line:92
+pxIterator	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\list.c	115;"	l	line:115
+pxList	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\list.c	172;"	l	line:172
+pxNewTCB	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1999;"	l	line:1999
+pxNewTCB	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	389;"	l	line:389
+pxNext	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\list.h	101;"	m	line:101	struct:xLIST_ITEM
+pxNext	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\list.h	111;"	m	line:111	struct:xMINI_LIST_ITEM
+pxNextTCB	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	2033;"	l	line:2033
+pxNextTCB	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	2064;"	l	line:2064
+pxOverflowDelayedTaskList	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	137;"	v	line:137	file:
+pxPortInitialiseStack	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\portable.h	349;"	p	line:349	signature:( portSTACK_TYPE *pxTopOfStack, pdTASK_CODE pxCode, void *pvParameters )
+pxPortInitialiseStack	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\port.c	371;"	f	line:371	signature:( portSTACK_TYPE *pxTopOfStack, pdTASK_CODE pxCode, void *pvParameters )
+pxPrevious	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\list.h	102;"	m	line:102	struct:xLIST_ITEM
+pxPrevious	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\list.h	112;"	m	line:112	struct:xMINI_LIST_ITEM
+pxReadyTasksLists	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	133;"	v	line:133	file:
+pxStack	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	90;"	m	line:90	struct:tskTaskControlBlock	file:
+pxTCB	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1083;"	l	line:1083
+pxTCB	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1417;"	l	line:1417
+pxTCB	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1915;"	l	line:1915
+pxTCB	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1978;"	l	line:1978
+pxTCB	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	2134;"	l	line:2134
+pxTCB	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	2223;"	l	line:2223
+pxTCB	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	2255;"	l	line:2255
+pxTCB	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	536;"	l	line:536
+pxTCB	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	740;"	l	line:740
+pxTCB	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	762;"	l	line:762
+pxTCB	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	867;"	l	line:867
+pxTCB	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	911;"	l	line:911
+pxTCB	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	941;"	l	line:941
+pxTCB	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	984;"	l	line:984
+pxTaskTag	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	110;"	m	line:110	struct:tskTaskControlBlock	file:
+pxTemp	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1366;"	l	line:1366
+pxTopOfStack	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	397;"	l	line:397
+pxTopOfStack	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	81;"	m	line:81	struct:tskTaskControlBlock	file:
+pxUnblockedTCB	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1668;"	l	line:1668
+static	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	125;"	d	line:125	file:
+taskDISABLE_INTERRUPTS::portDISABLE_INTERRUPTS	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\task.h	175;"	d	line:175
+taskENABLE_INTERRUPTS::portENABLE_INTERRUPTS	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\task.h	185;"	d	line:185
+taskENTER_CRITICAL::portENTER_CRITICAL	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\task.h	151;"	d	line:151
+taskEXIT_CRITICAL::portEXIT_CRITICAL	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\task.h	165;"	d	line:165
+taskSCHEDULER_NOT_STARTED::0	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\task.h	188;"	d	line:188
+taskSCHEDULER_RUNNING::1	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\task.h	189;"	d	line:189
+taskSCHEDULER_SUSPENDED::2	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\task.h	190;"	d	line:190
+taskYIELD::portYIELD	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\task.h	137;"	d	line:137
+traceBLOCKING_ON_QUEUE_RECEIVE::(pxQueue)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	246;"	d	line:246
+traceBLOCKING_ON_QUEUE_SEND::(pxQueue)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	254;"	d	line:254
+traceCREATE_COUNTING_SEMAPHORE::	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	292;"	d	line:292
+traceCREATE_COUNTING_SEMAPHORE_FAILED::	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	296;"	d	line:296
+traceCREATE_MUTEX::(pxNewQueue)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	272;"	d	line:272
+traceCREATE_MUTEX_FAILED::	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	276;"	d	line:276
+traceEND::	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	226;"	d	line:226
+traceGIVE_MUTEX_RECURSIVE::(pxMutex)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	280;"	d	line:280
+traceGIVE_MUTEX_RECURSIVE_FAILED::(pxMutex)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	284;"	d	line:284
+traceQUEUE_CREATE::(pxNewQueue)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	264;"	d	line:264
+traceQUEUE_CREATE_FAILED::	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	268;"	d	line:268
+traceQUEUE_DELETE::(pxQueue)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	336;"	d	line:336
+traceQUEUE_PEEK::(pxQueue)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	312;"	d	line:312
+traceQUEUE_RECEIVE::(pxQueue)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	308;"	d	line:308
+traceQUEUE_RECEIVE_FAILED::(pxQueue)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	316;"	d	line:316
+traceQUEUE_RECEIVE_FROM_ISR::(pxQueue)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	328;"	d	line:328
+traceQUEUE_RECEIVE_FROM_ISR_FAILED::(pxQueue)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	332;"	d	line:332
+traceQUEUE_SEND::(pxQueue)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	300;"	d	line:300
+traceQUEUE_SEND_FAILED::(pxQueue)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	304;"	d	line:304
+traceQUEUE_SEND_FROM_ISR::(pxQueue)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	320;"	d	line:320
+traceQUEUE_SEND_FROM_ISR_FAILED::(pxQueue)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	324;"	d	line:324
+traceSTART::	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	220;"	d	line:220
+traceTAKE_MUTEX_RECURSIVE::(pxMutex)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	288;"	d	line:288
+traceTASK_CREATE::(pxNewTCB)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	340;"	d	line:340
+traceTASK_CREATE_FAILED::(pxNewTCB)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	344;"	d	line:344
+traceTASK_DELAY::	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	356;"	d	line:356
+traceTASK_DELAY_UNTIL::	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	352;"	d	line:352
+traceTASK_DELETE::(pxTaskToDelete)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	348;"	d	line:348
+traceTASK_INCREMENT_TICK::(xTickCount)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	376;"	d	line:376
+traceTASK_PRIORITY_SET::(pxTask,uxNewPriority)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	360;"	d	line:360
+traceTASK_RESUME::(pxTaskToResume)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	368;"	d	line:368
+traceTASK_RESUME_FROM_ISR::(pxTaskToResume)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	372;"	d	line:372
+traceTASK_SUSPEND::(pxTaskToSuspend)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	364;"	d	line:364
+traceTASK_SWITCHED_IN::	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	232;"	d	line:232
+traceTASK_SWITCHED_OUT::	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	238;"	d	line:238
+tskBLOCKED_CHAR::((signedchar)'B')	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	184;"	d	line:184	file:
+tskDELETED_CHAR::((signedchar)'D')	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	186;"	d	line:186	file:
+tskIDLE_PRIORITY::((unsignedportBASE_TYPE)0)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\task.h	127;"	d	line:127
+tskIDLE_STACK_SIZE::configMINIMAL_STACK_SIZE	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	73;"	d	line:73	file:
+tskKERNEL_VERSION_NUMBER::"V6.0.4"	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\task.h	75;"	d	line:75
+tskREADY_CHAR::((signedchar)'R')	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	185;"	d	line:185	file:
+tskSIZE_OF_EACH_TRACE_LINE::((unsignedlong)(sizeof(unsigne	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	194;"	d	line:194	file:
+tskSTACK_FILL_BYTE::(0xa5)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	179;"	d	line:179	file:
+tskSUSPENDED_CHAR::((signedchar)'S')	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	187;"	d	line:187	file:
+tskTCB	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\port.c	116;"	t	line:116	file:
+tskTCB	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	117;"	t	line:117	file:
+tskTaskControlBlock	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	79;"	s	line:79	file:
+ucBlock	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\port.c	374;"	l	line:374
+ucByte	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\port.c	613;"	l	line:613
+ucHeap	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MemMang\heap_1.c	83;"	m	line:83	union:xRTOS_HEAP	file:
+ulAddress	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\port.c	373;"	l	line:373
+ulBufferLength	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1335;"	l	line:1335
+ulCompareValue	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\port.c	612;"	l	line:612
+ulConstCompareValue	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\port.c	611;"	l	line:611
+ulLengthInBytes	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\task.h	104;"	m	line:104	struct:xMEMORY_REGION
+ulParameters	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\task.h	105;"	m	line:105	struct:xMEMORY_REGION
+ulRunTimeCounter	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	114;"	m	line:114	struct:tskTaskControlBlock	file:
+ulStatsAsPercentage	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	2065;"	l	line:2065
+ulTaskEndTrace	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1333;"	f	line:1333	signature:( void )
+ulTaskSwitchedInTime	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	168;"	v	line:168	file:
+ulTempCounter	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1566;"	l	line:1566
+ulTotalRunTime	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1254;"	l	line:1254
+usCount	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	2114;"	l	line:2114
+usQueue	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1416;"	l	line:1416
+usStackDepth	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\task.h	115;"	m	line:115	struct:xTASK_PARAMTERS
+usStackRemaining	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	2034;"	l	line:2034
+usStackRemaining	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	2051;"	l	line:2051
+usTaskCheckFreeStackSpace	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	2112;"	f	line:2112	file:	signature:( const unsigned char * pucStackByte )
+uxBasePriority	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	106;"	m	line:106	struct:tskTaskControlBlock	file:
+uxCriticalNesting	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	98;"	m	line:98	struct:tskTaskControlBlock	file:
+uxCurrentNumberOfTasks	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	154;"	v	line:154	file:
+uxCurrentPriority	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	763;"	l	line:763
+uxMissedTicks	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	160;"	v	line:160	file:
+uxNumberOfItems	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\list.h	121;"	m	line:121	struct:xLIST
+uxPreviousTask	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	199;"	v	line:199	file:
+uxPriority	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\task.h	117;"	m	line:117	struct:xTASK_PARAMTERS
+uxPriority	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1932;"	l	line:1932
+uxPriority	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	89;"	m	line:89	struct:tskTaskControlBlock	file:
+uxQueue	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1190;"	l	line:1190
+uxQueue	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1253;"	l	line:1253
+uxReturn	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	2136;"	l	line:2136
+uxReturn	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	741;"	l	line:741
+uxSchedulerSuspended	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	159;"	v	line:159	file:
+uxTCBNumber	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	102;"	m	line:102	struct:tskTaskControlBlock	file:
+uxTaskGetNumberOfTasks	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1178;"	f	line:1178	signature:( void )
+uxTaskGetStackHighWaterMark	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	2132;"	f	line:2132	signature:( xTaskHandle xTask )
+uxTaskNumber	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	163;"	v	line:163	file:
+uxTaskPriorityGet	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	738;"	f	line:738	signature:( xTaskHandle pxTask )
+uxTasksDeleted	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	143;"	v	line:143	file:
+uxTopReadyPriority	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	157;"	v	line:157	file:
+uxTopUsedPriority	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	156;"	v	line:156	file:
+vApplicationIdleHook	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1819;"	p	line:1819	file:	signature:( void )
+vApplicationMallocFailedHook	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MemMang\heap_1.c	120;"	p	line:120	file:	signature:( void )
+vApplicationTickHook	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1388;"	p	line:1388	file:	signature:( void )
+vApplicationTickHook	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1397;"	p	line:1397	file:	signature:( void )
+vListInitialise	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\list.h	241;"	p	line:241	signature:( xList *pxList )
+vListInitialise	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\list.c	63;"	f	line:63	signature:( xList *pxList )
+vListInitialiseItem	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\list.h	252;"	p	line:252	signature:( xListItem *pxItem )
+vListInitialiseItem	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\list.c	83;"	f	line:83	signature:( xListItem *pxItem )
+vListInsert	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\list.h	265;"	p	line:265	signature:( xList *pxList, xListItem *pxNewListItem )
+vListInsert	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\list.c	113;"	f	line:113	signature:( xList *pxList, xListItem *pxNewListItem )
+vListInsertEnd	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\list.h	286;"	p	line:286	signature:( xList *pxList, xListItem *pxNewListItem )
+vListInsertEnd	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\list.c	90;"	f	line:90	signature:( xList *pxList, xListItem *pxNewListItem )
+vListRemove	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\list.h	298;"	p	line:298	signature:( xListItem *pxItemToRemove )
+vListRemove	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\list.c	170;"	f	line:170	signature:( xListItem *pxItemToRemove )
+vPortEndScheduler	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\port.c	515;"	f	line:515	signature:( void )
+vPortFree	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MemMang\heap_1.c	130;"	f	line:130	signature:( void *pv )
+vPortFreeAligned::(pvBlockToFree)vPortFree(pvBlo	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	416;"	d	line:416
+vPortInitialiseBlocks	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MemMang\heap_1.c	139;"	f	line:139	signature:( void )
+vPortYield	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\port.c	528;"	f	line:528	signature:( void )
+vPortYield	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\portmacro.h	114;"	p	line:114	signature:( void )
+vQueueAddToRegistry::(xQueue,pcName)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	211;"	d	line:211
+vQueueUnregisterQueue::(xQueue)	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\FreeRTOS.h	212;"	d	line:212
+vSerialRxISR	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\port.c	128;"	p	line:128	file:	signature:( void )
+vTASK0	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\main.c	22;"	p	line:22	file:	signature:( void *pvParameters )
+vTASK0	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\main.c	35;"	f	line:35	file:	signature:( void *pvParameters )
+vTASK1	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\main.c	23;"	p	line:23	file:	signature:( void *pvParameters )
+vTASK1	C:\Proyectos C18\Proyectos FreeRTOS\FreeRTOS PrimerEjemplo\main.c	43;"	f	line:43	file:	signature:( void *pvParameters )
+vTaskAllocateMPURegions	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1913;"	f	line:1913	signature:( xTaskHandle xTaskToModify, const xMemoryRegion * const xRegions )
+vTaskCleanUpResources	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1414;"	f	line:1414	signature:( void )
+vTaskDelay	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	677;"	f	line:677	signature:( portTickType xTicksToDelay )
+vTaskDelayUntil	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	600;"	f	line:600	signature:( portTickType * const pxPreviousWakeTime, portTickType xTimeIncrement )
+vTaskDelete	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	534;"	f	line:534	signature:( xTaskHandle pxTaskToDelete )
+vTaskEndScheduler	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1062;"	f	line:1062	signature:( void )
+vTaskEnterCritical	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	2279;"	f	line:2279	signature:( void )
+vTaskExitCritical	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	2294;"	f	line:2294	signature:( void )
+vTaskGetRunTimeStats	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1251;"	f	line:1251	signature:( signed char *pcWriteBuffer )
+vTaskIncrementTick	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1356;"	f	line:1356	signature:( void )
+vTaskList	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1188;"	f	line:1188	signature:( signed char *pcWriteBuffer )
+vTaskMissedYield	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1763;"	f	line:1763	signature:( void )
+vTaskPlaceOnEventList	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1596;"	f	line:1596	signature:( const xList * const pxEventList, portTickType xTicksToWait )
+vTaskPriorityDisinherit	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	2253;"	f	line:2253	signature:( xTaskHandle * const pxMutexHolder )
+vTaskPriorityInherit	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	2221;"	f	line:2221	signature:( xTaskHandle * const pxMutexHolder )
+vTaskPrioritySet	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	760;"	f	line:760	signature:( xTaskHandle pxTask, unsigned portBASE_TYPE uxNewPriority )
+vTaskResume	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	939;"	f	line:939	signature:( xTaskHandle pxTaskToResume )
+vTaskSetApplicationTaskTag	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1467;"	f	line:1467	signature:( xTaskHandle xTask, pdTASK_HOOK_CODE pxTagValue )
+vTaskSetTimeOutState	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1713;"	f	line:1713	signature:( xTimeOutType * const pxTimeOut )
+vTaskStartScheduler	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1020;"	f	line:1020	signature:( void )
+vTaskStartTrace	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1316;"	f	line:1316	signature:( signed char * pcBuffer, unsigned long ulBufferSize )
+vTaskSuspend	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	865;"	f	line:865	signature:( xTaskHandle pxTaskToSuspend )
+vTaskSuspendAll	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1073;"	f	line:1073	signature:( void )
+vTaskSwitchContext	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1552;"	f	line:1552	signature:( void )
+vWriteTraceToBuffer::	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	234;"	d	line:234	file:
+vWriteTraceToBuffer::	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	238;"	d	line:238	file:
+xAlreadyYielded	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1084;"	l	line:1084
+xAlreadyYielded	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	603;"	l	line:603
+xAlreadyYielded	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	680;"	l	line:680
+xDelayedTaskList1	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	134;"	v	line:134	file:
+xDelayedTaskList2	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	135;"	v	line:135	file:
+xEventListItem	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	88;"	m	line:88	struct:tskTaskControlBlock	file:
+xGenericListItem	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	87;"	m	line:87	struct:tskTaskControlBlock	file:
+xHeap	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MemMang\heap_1.c	84;"	v	line:84	file:
+xItemValue	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\list.h	100;"	m	line:100	struct:xLIST_ITEM
+xItemValue	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\list.h	110;"	m	line:110	struct:xMINI_LIST_ITEM
+xLIST	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\list.h	119;"	s	line:119
+xLIST_ITEM	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\list.h	98;"	s	line:98
+xList	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\list.h	124;"	t	line:124
+xListEnd	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\list.h	123;"	m	line:123	struct:xLIST
+xListIsEmpty	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1966;"	l	line:1966
+xListItem	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\list.h	106;"	t	line:106
+xMEMORY_REGION	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\task.h	101;"	s	line:101
+xMINI_LIST_ITEM	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\list.h	108;"	s	line:108
+xMPUSettings	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	84;"	m	line:84	struct:tskTaskControlBlock	file:
+xMemoryRegion	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\task.h	106;"	t	line:106
+xMiniListItem	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\list.h	114;"	t	line:114
+xMissedYield	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	161;"	v	line:161	file:
+xNextFreeByte	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MemMang\heap_1.c	86;"	v	line:86	file:
+xNumOfOverflows	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	162;"	v	line:162	file:
+xOverflowCount	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\task.h	94;"	m	line:94	struct:xTIME_OUT
+xPendingReadyList	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	138;"	v	line:138	file:
+xPortGetFreeHeapSize	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MemMang\heap_1.c	146;"	f	line:146	signature:( void )
+xPortStartScheduler	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MPLAB\PIC18F\port.c	499;"	f	line:499	signature:( void )
+xRTOS_HEAP	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\portable\MemMang\heap_1.c	76;"	u	line:76	file:
+xRegions	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\task.h	119;"	m	line:119	struct:xTASK_PARAMTERS
+xReturn	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1022;"	l	line:1022
+xReturn	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1496;"	l	line:1496
+xReturn	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1525;"	l	line:1525
+xReturn	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1669;"	l	line:1669
+xReturn	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1722;"	l	line:1722
+xReturn	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	2177;"	l	line:2177
+xReturn	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	2195;"	l	line:2195
+xReturn	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	388;"	l	line:388
+xReturn	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	910;"	l	line:910
+xRunPrivileged	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	401;"	l	line:401
+xSchedulerRunning	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	158;"	v	line:158	file:
+xShouldDelay	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	603;"	l	line:603
+xSuspendedTaskList	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	149;"	v	line:149	file:
+xTASK_PARAMTERS	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\task.h	111;"	s	line:111
+xTCB	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1469;"	l	line:1469
+xTCB	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1495;"	l	line:1495
+xTCB	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1524;"	l	line:1524
+xTIME_OUT	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\task.h	92;"	s	line:92
+xTaskCallApplicationTaskHook	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1522;"	f	line:1522	signature:( xTaskHandle xTask, void *pvParameter )
+xTaskCheckForTimeOut	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1720;"	f	line:1720	signature:( xTimeOutType * const pxTimeOut, portTickType * const pxTicksToWait )
+xTaskCreate::(pvTaskCode,pcName,usStackDept	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\task.h	272;"	d	line:272
+xTaskCreateRestricted::(x,pxCreatedTask)xTaskGenericC	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\task.h	341;"	d	line:341
+xTaskGenericCreate	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	386;"	f	line:386	signature:( pdTASK_CODE pxTaskCode, const signed char * const pcName, unsigned short usStackDepth, void *pvParameters, unsigned portBASE_TYPE uxPriority, xTaskHandle *pxCreatedTask, portSTACK_TYPE *puxStackBuffer, const xMemoryRegion * const xRegions )
+xTaskGetApplicationTaskTag	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1493;"	f	line:1493	signature:( xTaskHandle xTask )
+xTaskGetCurrentTaskHandle	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	2175;"	f	line:2175	signature:( void )
+xTaskGetSchedulerState	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	2193;"	f	line:2193	signature:( void )
+xTaskGetTickCount	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1163;"	f	line:1163	signature:( void )
+xTaskHandle	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\task.h	87;"	t	line:87
+xTaskIsTaskSuspended	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	908;"	f	line:908	signature:( xTaskHandle xTask )
+xTaskParameters	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\task.h	120;"	t	line:120
+xTaskRemoveFromEventList	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1666;"	f	line:1666	signature:( const xList * const pxEventList )
+xTaskResumeAll	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1081;"	f	line:1081	signature:( void )
+xTaskResumeFromISR	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	981;"	f	line:981	signature:( xTaskHandle pxTaskToResume )
+xTasksWaitingTermination	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	142;"	v	line:142	file:
+xTickCount	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	155;"	v	line:155	file:
+xTicks	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1165;"	l	line:1165
+xTimeOnEntering	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\task.h	95;"	m	line:95	struct:xTIME_OUT
+xTimeOutType	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\include\task.h	96;"	t	line:96
+xTimeToWake	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1598;"	l	line:1598
+xTimeToWake	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	602;"	l	line:602
+xTimeToWake	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	679;"	l	line:679
+xTracing	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	198;"	v	line:198	file:
+xValueOfInsertion	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\list.c	116;"	l	line:116
+xYieldRequired	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	1099;"	l	line:1099
+xYieldRequired	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	763;"	l	line:763
+xYieldRequired	C:\Proyectos C18\Proyectos Sk2550\FreeRTOS\Source\tasks.c	983;"	l	line:983
