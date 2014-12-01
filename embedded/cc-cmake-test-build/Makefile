@@ -114,29 +114,53 @@ cc-cmake-test/fast:
 	$(MAKE) -f CMakeFiles\cc-cmake-test.dir\build.make CMakeFiles/cc-cmake-test.dir/build
 .PHONY : cc-cmake-test/fast
 
-main.obj: main.cpp.obj
-.PHONY : main.obj
+D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.obj: D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.cc.obj
+.PHONY : D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.obj
 
 # target to build an object file
-main.cpp.obj:
-	$(MAKE) -f CMakeFiles\cc-cmake-test.dir\build.make CMakeFiles/cc-cmake-test.dir/main.cpp.obj
-.PHONY : main.cpp.obj
+D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.cc.obj:
+	$(MAKE) -f CMakeFiles\cc-cmake-test.dir\build.make CMakeFiles/cc-cmake-test.dir/D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.cc.obj
+.PHONY : D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.cc.obj
 
-main.i: main.cpp.i
-.PHONY : main.i
+D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.i: D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.cc.i
+.PHONY : D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles\cc-cmake-test.dir\build.make CMakeFiles/cc-cmake-test.dir/main.cpp.i
-.PHONY : main.cpp.i
+D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.cc.i:
+	$(MAKE) -f CMakeFiles\cc-cmake-test.dir\build.make CMakeFiles/cc-cmake-test.dir/D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.cc.i
+.PHONY : D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.cc.i
 
-main.s: main.cpp.s
-.PHONY : main.s
+D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.s: D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.cc.s
+.PHONY : D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles\cc-cmake-test.dir\build.make CMakeFiles/cc-cmake-test.dir/main.cpp.s
-.PHONY : main.cpp.s
+D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.cc.s:
+	$(MAKE) -f CMakeFiles\cc-cmake-test.dir\build.make CMakeFiles/cc-cmake-test.dir/D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.cc.s
+.PHONY : D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.cc.s
+
+src/launcher_tests.obj: src/launcher_tests.cc.obj
+.PHONY : src/launcher_tests.obj
+
+# target to build an object file
+src/launcher_tests.cc.obj:
+	$(MAKE) -f CMakeFiles\cc-cmake-test.dir\build.make CMakeFiles/cc-cmake-test.dir/src/launcher_tests.cc.obj
+.PHONY : src/launcher_tests.cc.obj
+
+src/launcher_tests.i: src/launcher_tests.cc.i
+.PHONY : src/launcher_tests.i
+
+# target to preprocess a source file
+src/launcher_tests.cc.i:
+	$(MAKE) -f CMakeFiles\cc-cmake-test.dir\build.make CMakeFiles/cc-cmake-test.dir/src/launcher_tests.cc.i
+.PHONY : src/launcher_tests.cc.i
+
+src/launcher_tests.s: src/launcher_tests.cc.s
+.PHONY : src/launcher_tests.s
+
+# target to generate assembly for a file
+src/launcher_tests.cc.s:
+	$(MAKE) -f CMakeFiles\cc-cmake-test.dir\build.make CMakeFiles/cc-cmake-test.dir/src/launcher_tests.cc.s
+.PHONY : src/launcher_tests.cc.s
 
 # Help Target
 help:
@@ -147,9 +171,12 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... cc-cmake-test
-	@echo ... main.obj
-	@echo ... main.i
-	@echo ... main.s
+	@echo ... D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.obj
+	@echo ... D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.i
+	@echo ... D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.s
+	@echo ... src/launcher_tests.obj
+	@echo ... src/launcher_tests.i
+	@echo ... src/launcher_tests.s
 .PHONY : help
 
 

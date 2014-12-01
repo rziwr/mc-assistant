@@ -48,37 +48,64 @@ include CMakeFiles/cc-cmake-test.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/cc-cmake-test.dir/flags.make
 
-CMakeFiles/cc-cmake-test.dir/main.cpp.obj: CMakeFiles/cc-cmake-test.dir/flags.make
-CMakeFiles/cc-cmake-test.dir/main.cpp.obj: D:/work/apps/mc-assistant/embedded/cc-cmake-test/main.cpp
+CMakeFiles/cc-cmake-test.dir/src/launcher_tests.cc.obj: CMakeFiles/cc-cmake-test.dir/flags.make
+CMakeFiles/cc-cmake-test.dir/src/launcher_tests.cc.obj: CMakeFiles/cc-cmake-test.dir/includes_CXX.rsp
+CMakeFiles/cc-cmake-test.dir/src/launcher_tests.cc.obj: D:/work/apps/mc-assistant/embedded/cc-cmake-test/src/launcher_tests.cc
 	$(CMAKE_COMMAND) -E cmake_progress_report D:\work\apps\mc-assistant\embedded\cc-cmake-test-build\CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/cc-cmake-test.dir/main.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.2-W\mingw64\bin\G__~1.EXE   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles\cc-cmake-test.dir\main.cpp.obj -c D:\work\apps\mc-assistant\embedded\cc-cmake-test\main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/cc-cmake-test.dir/src/launcher_tests.cc.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.2-W\mingw64\bin\G__~1.EXE   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles\cc-cmake-test.dir\src\launcher_tests.cc.obj -c D:\work\apps\mc-assistant\embedded\cc-cmake-test\src\launcher_tests.cc
 
-CMakeFiles/cc-cmake-test.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cc-cmake-test.dir/main.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.2-W\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_FLAGS) -E D:\work\apps\mc-assistant\embedded\cc-cmake-test\main.cpp > CMakeFiles\cc-cmake-test.dir\main.cpp.i
+CMakeFiles/cc-cmake-test.dir/src/launcher_tests.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cc-cmake-test.dir/src/launcher_tests.cc.i"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.2-W\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_FLAGS) -E D:\work\apps\mc-assistant\embedded\cc-cmake-test\src\launcher_tests.cc > CMakeFiles\cc-cmake-test.dir\src\launcher_tests.cc.i
 
-CMakeFiles/cc-cmake-test.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cc-cmake-test.dir/main.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.2-W\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_FLAGS) -S D:\work\apps\mc-assistant\embedded\cc-cmake-test\main.cpp -o CMakeFiles\cc-cmake-test.dir\main.cpp.s
+CMakeFiles/cc-cmake-test.dir/src/launcher_tests.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cc-cmake-test.dir/src/launcher_tests.cc.s"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.2-W\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_FLAGS) -S D:\work\apps\mc-assistant\embedded\cc-cmake-test\src\launcher_tests.cc -o CMakeFiles\cc-cmake-test.dir\src\launcher_tests.cc.s
 
-CMakeFiles/cc-cmake-test.dir/main.cpp.obj.requires:
-.PHONY : CMakeFiles/cc-cmake-test.dir/main.cpp.obj.requires
+CMakeFiles/cc-cmake-test.dir/src/launcher_tests.cc.obj.requires:
+.PHONY : CMakeFiles/cc-cmake-test.dir/src/launcher_tests.cc.obj.requires
 
-CMakeFiles/cc-cmake-test.dir/main.cpp.obj.provides: CMakeFiles/cc-cmake-test.dir/main.cpp.obj.requires
-	$(MAKE) -f CMakeFiles\cc-cmake-test.dir\build.make CMakeFiles/cc-cmake-test.dir/main.cpp.obj.provides.build
-.PHONY : CMakeFiles/cc-cmake-test.dir/main.cpp.obj.provides
+CMakeFiles/cc-cmake-test.dir/src/launcher_tests.cc.obj.provides: CMakeFiles/cc-cmake-test.dir/src/launcher_tests.cc.obj.requires
+	$(MAKE) -f CMakeFiles\cc-cmake-test.dir\build.make CMakeFiles/cc-cmake-test.dir/src/launcher_tests.cc.obj.provides.build
+.PHONY : CMakeFiles/cc-cmake-test.dir/src/launcher_tests.cc.obj.provides
 
-CMakeFiles/cc-cmake-test.dir/main.cpp.obj.provides.build: CMakeFiles/cc-cmake-test.dir/main.cpp.obj
+CMakeFiles/cc-cmake-test.dir/src/launcher_tests.cc.obj.provides.build: CMakeFiles/cc-cmake-test.dir/src/launcher_tests.cc.obj
+
+CMakeFiles/cc-cmake-test.dir/D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.cc.obj: CMakeFiles/cc-cmake-test.dir/flags.make
+CMakeFiles/cc-cmake-test.dir/D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.cc.obj: CMakeFiles/cc-cmake-test.dir/includes_CXX.rsp
+CMakeFiles/cc-cmake-test.dir/D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.cc.obj: D:/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report D:\work\apps\mc-assistant\embedded\cc-cmake-test-build\CMakeFiles $(CMAKE_PROGRESS_2)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/cc-cmake-test.dir/D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.cc.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.2-W\mingw64\bin\G__~1.EXE   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles\cc-cmake-test.dir\D_\work\apps\mc-assistant\3rdparty\gmock-1.6.0\fused-src\gmock-gtest-all.cc.obj -c D:\work\apps\mc-assistant\3rdparty\gmock-1.6.0\fused-src\gmock-gtest-all.cc
+
+CMakeFiles/cc-cmake-test.dir/D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cc-cmake-test.dir/D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.cc.i"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.2-W\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_FLAGS) -E D:\work\apps\mc-assistant\3rdparty\gmock-1.6.0\fused-src\gmock-gtest-all.cc > CMakeFiles\cc-cmake-test.dir\D_\work\apps\mc-assistant\3rdparty\gmock-1.6.0\fused-src\gmock-gtest-all.cc.i
+
+CMakeFiles/cc-cmake-test.dir/D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cc-cmake-test.dir/D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.cc.s"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.2-W\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_FLAGS) -S D:\work\apps\mc-assistant\3rdparty\gmock-1.6.0\fused-src\gmock-gtest-all.cc -o CMakeFiles\cc-cmake-test.dir\D_\work\apps\mc-assistant\3rdparty\gmock-1.6.0\fused-src\gmock-gtest-all.cc.s
+
+CMakeFiles/cc-cmake-test.dir/D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.cc.obj.requires:
+.PHONY : CMakeFiles/cc-cmake-test.dir/D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.cc.obj.requires
+
+CMakeFiles/cc-cmake-test.dir/D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.cc.obj.provides: CMakeFiles/cc-cmake-test.dir/D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.cc.obj.requires
+	$(MAKE) -f CMakeFiles\cc-cmake-test.dir\build.make CMakeFiles/cc-cmake-test.dir/D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.cc.obj.provides.build
+.PHONY : CMakeFiles/cc-cmake-test.dir/D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.cc.obj.provides
+
+CMakeFiles/cc-cmake-test.dir/D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.cc.obj.provides.build: CMakeFiles/cc-cmake-test.dir/D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.cc.obj
 
 # Object files for target cc-cmake-test
 cc__cmake__test_OBJECTS = \
-"CMakeFiles/cc-cmake-test.dir/main.cpp.obj"
+"CMakeFiles/cc-cmake-test.dir/src/launcher_tests.cc.obj" \
+"CMakeFiles/cc-cmake-test.dir/D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.cc.obj"
 
 # External object files for target cc-cmake-test
 cc__cmake__test_EXTERNAL_OBJECTS =
 
-cc-cmake-test.exe: CMakeFiles/cc-cmake-test.dir/main.cpp.obj
+cc-cmake-test.exe: CMakeFiles/cc-cmake-test.dir/src/launcher_tests.cc.obj
+cc-cmake-test.exe: CMakeFiles/cc-cmake-test.dir/D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.cc.obj
 cc-cmake-test.exe: CMakeFiles/cc-cmake-test.dir/build.make
 cc-cmake-test.exe: CMakeFiles/cc-cmake-test.dir/linklibs.rsp
 cc-cmake-test.exe: CMakeFiles/cc-cmake-test.dir/objects1.rsp
@@ -90,7 +117,8 @@ cc-cmake-test.exe: CMakeFiles/cc-cmake-test.dir/link.txt
 CMakeFiles/cc-cmake-test.dir/build: cc-cmake-test.exe
 .PHONY : CMakeFiles/cc-cmake-test.dir/build
 
-CMakeFiles/cc-cmake-test.dir/requires: CMakeFiles/cc-cmake-test.dir/main.cpp.obj.requires
+CMakeFiles/cc-cmake-test.dir/requires: CMakeFiles/cc-cmake-test.dir/src/launcher_tests.cc.obj.requires
+CMakeFiles/cc-cmake-test.dir/requires: CMakeFiles/cc-cmake-test.dir/D_/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.cc.obj.requires
 .PHONY : CMakeFiles/cc-cmake-test.dir/requires
 
 CMakeFiles/cc-cmake-test.dir/clean:

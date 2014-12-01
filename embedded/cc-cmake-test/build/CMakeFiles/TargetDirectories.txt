@@ -1,0 +1,3 @@
+D:/work/apps/mc-assistant/embedded/cc-cmake-test/build/CMakeFiles/cc-cmake-test.dir
+D:/work/apps/mc-assistant/embedded/cc-cmake-test/build/CMakeFiles/ALL_BUILD.dir
+D:/work/apps/mc-assistant/embedded/cc-cmake-test/build/CMakeFiles/ZERO_CHECK.dir

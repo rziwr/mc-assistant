@@ -50,6 +50,7 @@
             <Add directory="C:/Program Files/mingw-w64/x86_64-4.9.2-win32-seh-rt_v3-rev0/mingw64/lib/gcc/../../x86_64-w64-mingw32/include/c++" />
             <Add directory="C:/Program Files/mingw-w64/x86_64-4.9.2-win32-seh-rt_v3-rev0/mingw64/lib/gcc/../../x86_64-w64-mingw32/include/c++/backward" />
             <Add directory="C:/Program Files/mingw-w64/x86_64-4.9.2-win32-seh-rt_v3-rev0/mingw64/lib/gcc/../../x86_64-w64-mingw32/include/c++/x86_64-w64-mingw32" />
+            <Add directory="D:/work/apps/mc-assistant/embedded/cc-cmake-test/../../3rdparty/gmock-1.6.0/fused-src" />
          </Compiler>
          <MakeCommands>
             <Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.2-W/mingw64/bin/mingw32-make.exe -f &quot;D:/work/apps/mc-assistant/embedded/cc-cmake-test-build/Makefile&quot;  VERBOSE=1 cc-cmake-test" />
@@ -71,6 +72,7 @@
             <Add directory="C:/Program Files/mingw-w64/x86_64-4.9.2-win32-seh-rt_v3-rev0/mingw64/lib/gcc/../../x86_64-w64-mingw32/include/c++" />
             <Add directory="C:/Program Files/mingw-w64/x86_64-4.9.2-win32-seh-rt_v3-rev0/mingw64/lib/gcc/../../x86_64-w64-mingw32/include/c++/backward" />
             <Add directory="C:/Program Files/mingw-w64/x86_64-4.9.2-win32-seh-rt_v3-rev0/mingw64/lib/gcc/../../x86_64-w64-mingw32/include/c++/x86_64-w64-mingw32" />
+            <Add directory="D:/work/apps/mc-assistant/embedded/cc-cmake-test/../../3rdparty/gmock-1.6.0/fused-src" />
          </Compiler>
          <MakeCommands>
             <Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.2-W/mingw64/bin/mingw32-make.exe -f &quot;D:/work/apps/mc-assistant/embedded/cc-cmake-test-build/Makefile&quot;  VERBOSE=1 cc-cmake-test/fast" />
@@ -80,7 +82,9 @@
          </MakeCommands>
       </Target>
       </Build>
-      <Unit filename="D:/work/apps/mc-assistant/embedded/cc-cmake-test/main.cpp">
+      <Unit filename="D:/work/apps/mc-assistant/3rdparty/gmock-1.6.0/fused-src/gmock-gtest-all.cc">
+      </Unit>
+      <Unit filename="D:/work/apps/mc-assistant/embedded/cc-cmake-test/src/launcher_tests.cc">
       </Unit>
       <Unit filename="D:/work/apps/mc-assistant/embedded/cc-cmake-test/CMakeLists.txt">
           <Option virtualFolder="CMake Files\" />
