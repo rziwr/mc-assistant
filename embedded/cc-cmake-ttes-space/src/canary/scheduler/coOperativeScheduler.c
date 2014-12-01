@@ -1,11 +1,11 @@
 #include "canary/config.h"  // in every *.c or *.cc file
-#include "canary/engine/eventLoop.h"
+#include "canary/scheduler/coOperativeScheduler.h"
 
 // App
-#include "canary/engine/onChain.h"
+#include "canary/tasks/onChain.h"
 
 //static
-void eloopIteration_void() {
+void coschIteration_void() {
   onSlot();
   //lockSlot();
   //ulockSlot();
@@ -13,13 +13,14 @@ void eloopIteration_void() {
   //otherSlot();
 }
 
-void eloopRunSuperLoop_void() {
+void coschRunLoop_void() {
   while(1) {
-    eloopIteration_void();
+    coschIteration_void();
     break;  // TODO: remove it
   }
 }
 
-void eloopStop_void() {
+static
+void coschStop_void() {
   // TODO: some action
 }

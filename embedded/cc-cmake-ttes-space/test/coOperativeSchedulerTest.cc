@@ -4,13 +4,14 @@
 #include <gtest/gtest.h>
 
 // App
+// So simpler
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 #include "canary/vm/vm.h"
-#include "canary/engine/eventLoop.h"
-#include "canary/engine/onChain.h"
+#include "canary/scheduler/coOperativeScheduler.h"
+#include "canary/tasks/onChain.h"
 
 #ifdef __cplusplus
 }
@@ -24,5 +25,5 @@ TEST(BlockedLoop, Create) {
   onSignal();
 
   // Launch event loop
-  eloopIteration_void();
+  coschIteration_void();
 }

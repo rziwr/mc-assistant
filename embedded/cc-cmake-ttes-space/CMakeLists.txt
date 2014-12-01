@@ -10,18 +10,20 @@ set(Canary "./src/canary/")
 include_directories(${GMock}/)
 include_directories(./src/)
 
-file( GLOB  canaryEngine  ${Canary}/engine/*.c)
+file( GLOB  canaryScheduler  ${Canary}/scheduler/*.c)
 file( GLOB  canaryLogicalDevices  ${Canary}/logical_devices/*.c)
 file( GLOB  canaryVM  ${Canary}/vm/*.c)
+file( GLOB  canaryTasks  ${Canary}/tasks/*.c)
 
 file( GLOB test ./test/*.cc)
 
 add_executable(
     ${PROJECT_NAME}
     ${SRC_LIST}
-    ${canaryEngine}
+    ${canaryScheduler}
     ${canaryLogicalDevices}
     ${canaryVM}
+    ${canaryTasks}
     ${test}
     ${GMock}/gmock-gtest-all.cc)
 
