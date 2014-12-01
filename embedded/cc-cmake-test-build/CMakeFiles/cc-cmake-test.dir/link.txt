@@ -1,3 +1,0 @@
-"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cc-cmake-test.dir/objects.a
-C:\PROGRA~1\MINGW-~1\X86_64~1.2-W\mingw64\bin\ar.exe cr CMakeFiles\cc-cmake-test.dir/objects.a @CMakeFiles\cc-cmake-test.dir\objects1.rsp
-C:\PROGRA~1\MINGW-~1\X86_64~1.2-W\mingw64\bin\G__~1.EXE     -Wl,--whole-archive CMakeFiles\cc-cmake-test.dir/objects.a -Wl,--no-whole-archive  -o cc-cmake-test.exe -Wl,--out-implib,libcc-cmake-test.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cc-cmake-test.dir\linklibs.rsp
