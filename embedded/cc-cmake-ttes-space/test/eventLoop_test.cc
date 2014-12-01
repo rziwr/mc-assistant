@@ -4,9 +4,17 @@
 #include <gtest/gtest.h>
 
 // App
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include "canary/vm/vm.h"
 #include "canary/engine/eventLoop.h"
 #include "canary/engine/onChain.h"
+
+#ifdef __cplusplus
+}
+#endif
 
 // --gtest_filter=Blocked*
 TEST(BlockedLoop, Create) {
@@ -16,5 +24,5 @@ TEST(BlockedLoop, Create) {
   onSignal();
 
   // Launch event loop
-  evlRun_void();
+  eloopIteration_void();
 }

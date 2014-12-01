@@ -4,17 +4,22 @@
 // App
 #include "canary/engine/onChain.h"
 
-void evlRun_void() {
+//static
+void eloopIteration_void() {
+  onSlot();
+  //lockSlot();
+  //ulockSlot();
+  //offSlot();
+  //otherSlot();
+}
+
+void eloopRunSuperLoop_void() {
   while(1) {
-    onSlot();
-    //lockSlot();
-    //ulockSlot();
-    //offSlot();
-    //otherSlot();
+    eloopIteration_void();
     break;  // TODO: remove it
   }
 }
 
-void evlStop_void() {
+void eloopStop_void() {
   // TODO: some action
 }
