@@ -1,12 +1,12 @@
-#include "embedded/canary/config.h"
+#include "canary/config.h"
 
 // Third party
 #include <gtest/gtest.h>
 
 // App
-#include "embedded/canary/engine/vm.h"
-#include "embedded/canary/engine/eventLoop.h"
-#include "embedded/canary/signals_slots/onChain.h"
+#include "canary/vm/vm.h"
+#include "canary/engine/eventLoop.h"
+#include "canary/engine/onChain.h"
 
 // --gtest_filter=Blocked*
 TEST(BlockedLoop, Create) {

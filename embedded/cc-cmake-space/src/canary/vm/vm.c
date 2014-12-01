@@ -1,10 +1,10 @@
 // Virtual operation vith virtual devices
 //
-#include "embedded/canary/config.h"
-#include "embedded/canary/engine/vm.h"
+#include "canary/config.h"
+#include "canary/vm/vm.h"
 
 // App
-#include "embedded/canary/virtual_devices/virtualDvrPreampl.h"
+#include "canary/vm/virtualDvrPreampl.h"
 
 static int currentChannel_ = 0;
 

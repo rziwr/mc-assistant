@@ -1,8 +1,8 @@
-#include "embedded/canary/config.h"  // in every *.c or *.cc file
-#include "embedded/canary/engine/eventLoop.h"
+#include "canary/config.h"  // in every *.c or *.cc file
+#include "canary/engine/eventLoop.h"
 
 // App
-#include "embedded/canary/signals_slots/onChain.h"
+#include "canary/engine/onChain.h"
 
 void evlRun_void() {
   while(1) {

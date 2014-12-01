@@ -1,8 +1,8 @@
-#include "embedded/canary/config.h"  // in every *.c or *.cc file
+#include "canary/config.h"  // in every *.c or *.cc file
 
 
 // App
-#include "embedded/canary/virtual_devices/virtualDvrPreampl.h"
+#include "canary/vm/virtualDvrPreampl.h"
 
 int onCounter = 0;
 static const int kOnCounter = 10;
