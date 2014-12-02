@@ -22,8 +22,8 @@ typedef unsigned long tLong;
 #define FALSE 0
 #define TRUE (!FALSE)
 #endif
-#define RETURN_NORMAL (bit) 0
-#define RETURN_ERROR (bit) 1
+#define RETURN_NORMAL 0//(bit) 0
+#define RETURN_ERROR 1//(bit) 1
 
 //----------------------------------------------------------------------
 // Interrupts
@@ -53,4 +53,11 @@ typedef unsigned long tLong;
 #define ERROR_I2C_READ_BYTE (14)
 #define ERROR_USART_TI (21)
 #define ERROR_USART_WRITE_CHAR (22)
+
+// Scheduler
+// The maximum number of tasks required at any one time
+// during the execution of the program
+//
+// MUST BE ADJUSTED FOR EACH NEW PROJECT
+#define SCH_MAX_TASKS (4)
 #endif
