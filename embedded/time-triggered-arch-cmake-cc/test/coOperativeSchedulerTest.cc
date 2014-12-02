@@ -13,6 +13,9 @@ extern "C" {
 #include "canary/scheduler/coOperativeScheduler.h"
 #include "canary/tasks/onChain.h"
 
+// Raw
+#include "canary/scheduler_raw/sch52.h"
+
 #ifdef __cplusplus
 }
 #endif
@@ -25,5 +28,20 @@ TEST(BlockedLoop, Create) {
   onSignal();
 
   // Launch event loop
-  coschIteration_void();
+  schDispatch_void();
+}
+
+TEST(SchPair, Base) {
+  // FIXME: how replane on spot task
+
+  // Add periodic tasks
+
+  // Other tasks added from periodic tasks
+  while(1) {
+    //schDispatchPeriodic();
+
+    // Self deleted tasks
+    //schDispatchOneSpot();
+    break;
+  }
 }

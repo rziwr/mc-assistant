@@ -5,7 +5,7 @@
 #include "canary/tasks/onChain.h"
 
 //static
-void coschIteration_void() {
+void schDispatch_void() {
   onSlot();
   //lockSlot();
   //ulockSlot();
@@ -13,14 +13,14 @@ void coschIteration_void() {
   //otherSlot();
 }
 
-void coschRunLoop_void() {
+void schRunLoop_void() {
   while(1) {
-    coschIteration_void();
+    schDispatch_void();
     break;  // TODO: remove it
   }
 }
 
 static
-void coschStop_void() {
+void schStop_void() {
   // TODO: some action
 }

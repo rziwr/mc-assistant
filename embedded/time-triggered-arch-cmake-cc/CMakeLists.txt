@@ -10,6 +10,7 @@ set(Canary "./src/canary/")
 include_directories(${GMock}/)
 include_directories(./src/)
 
+file( GLOB  canarySchedulerRaw  ${Canary}/scheduler_raw/*.c ${Canary}/scheduler_raw/*.h)
 file( GLOB  canaryScheduler  ${Canary}/scheduler/*.c)
 file( GLOB  canaryLogicalDevices  ${Canary}/logical_devices/*.c)
 file( GLOB  canaryVM  ${Canary}/vm/*.c)
@@ -20,6 +21,7 @@ file( GLOB test ./test/*.cc)
 add_executable(
     ${PROJECT_NAME}
     ${SRC_LIST}
+    ${canarySchedulerRaw}
     ${canaryScheduler}
     ${canaryLogicalDevices}
     ${canaryVM}
