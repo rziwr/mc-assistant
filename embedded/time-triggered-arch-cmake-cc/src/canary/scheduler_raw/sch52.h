@@ -3,24 +3,6 @@
 
 #include "canary/scheduler_raw/main.h"
 
-// Store in DATA area, if possible, for rapid access
-// Total memory per task is 7 bytes
-typedef /*data*/ struct
-{
-  // Pointer to the task (must be a 'void (void)' function)
-
-  void (/*code*/ * pTask)(void);  // FIXME: unknown option
-
-  // Delay (ticks) until the function will (next) be run
-  // - see SCH_Add_Task() for further details
-  tWord Delay;
-  // Interval (ticks) between subsequent runs.
-  // - see SCH_Add_Task() for further details
-  tWord Period;
-  // Incremented (by scheduler) when task is due to execute
-  tByte RunMe;
-} sTask;
-
 // FIXME: pic18 - may be troubles with fptrs
 // "c18 c compiler user’s guide"
 // http://www.electro-tech-online.com/threads/problem-in-using-pointer-functions-in-c18-compiler.88502/
@@ -36,5 +18,11 @@ typedef /*data*/ struct
 //   Many troubles with config, but then easer
 //   Продакшен версия будет не такой как тестовая. Задачи можно те же, а сам планировщик будет
 //   другим.
+
+// FIXME: как быть с прочими прерываниями? ADC and UART
+
+void SCH_Init_T2(void);
+void SCH_Start(void);
+void SCH_Dispatch_Tasks(void);
 
 #endif  // RAW_SCH51_H_

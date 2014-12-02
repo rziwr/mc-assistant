@@ -32,6 +32,24 @@ TEST(BlockedLoop, Create) {
 }
 
 TEST(SchPair, Base) {
+  // Set up the scheduler
+  SCH_Init_T2();
+
+  // Prepare for the 'Flash_LED' task
+  //LED_Flash_Init();
+  // Add the 'Flash LED' task (on for ~1000 ms, off for ~1000 ms)
+  // - timings are in ticks (1 ms tick interval)
+  // (Max interval / delay is 65535 ticks)
+  //SCH_Add_Task(LED_Flash_Update, 0, 1000);
+
+  // Start the scheduler
+  SCH_Start();
+
+  while(1) {
+    SCH_Dispatch_Tasks();
+    break;  // FIXME: remove it
+  }
+
   // FIXME: how replane on spot task
 
   // Add periodic tasks
