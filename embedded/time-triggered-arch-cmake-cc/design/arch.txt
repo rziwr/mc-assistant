@@ -4,6 +4,8 @@
 
   http://www.ercim.eu/publication/Ercim_News/enw52/kopetz.html
   Нельзя уменьшить тик, т.к. есть долгие задачи
+  
+  The ‘one interrupt per microcontroller’ rule - !!! cooperative
 
 Schedulers:
 http://www.ijens.org/Vol_11_I_04/117404-8989-IJECS-IJENS.pdf Implementation of Highly-Predictable timeTriggered
