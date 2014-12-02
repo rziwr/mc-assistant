@@ -24,6 +24,16 @@ static sTask SCH_tasks_G[SCH_MAX_TASKS];
 static tByte Error_code_G;
 
 /*------------------------------------------------------------------*/
+void SCH_Go_To_Sleep()
+{
+//PCON |= 0x01; // Enter idle mode (generic 8051 version)
+// Entering idle mode requires TWO consecutive instructions
+// on 80c515 / 80c505 - to avoid accidental triggering
+//PCON |= 0x01; // Enter idle mode (#1)
+//PCON |= 0x20; // Enter idle mode (#2)
+}
+
+/*------------------------------------------------------------------*/
 //bit
 tByte
 SCH_Delete_Task(const tByte TASK_INDEX)
@@ -154,7 +164,7 @@ void SCH_Dispatch_Tasks(void)
   // The scheduler enters idle mode at this point
 
   // FIXME: не ясно как заменить - в системе будут и другие прерывания
-  //SCH_Go_To_Sleep();  // FIXME: very important
+  SCH_Go_To_Sleep();  // FIXME: very important
   }
 
 

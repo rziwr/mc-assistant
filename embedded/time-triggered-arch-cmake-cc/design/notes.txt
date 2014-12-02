@@ -1,2 +1,0 @@
-now it's cooperative scheduler
-но реально это похоже что гибридный
