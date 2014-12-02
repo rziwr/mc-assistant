@@ -132,6 +132,8 @@ void SCH_Dispatch_Tasks(void)
   // Report system status
   //SCH_Report_Status();
   // The scheduler enters idle mode at this point
+
+  // FIXME: не ясно как заменить
   //SCH_Go_To_Sleep();  // FIXME: very important
   }
 

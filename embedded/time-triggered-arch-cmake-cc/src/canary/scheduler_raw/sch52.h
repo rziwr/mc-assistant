@@ -34,5 +34,7 @@ typedef /*data*/ struct
 
 // Conclusion:
 //   Many troubles with config, but then easer
+//   Продакшен версия будет не такой как тестовая. Задачи можно те же, а сам планировщик будет
+//   другим.
 
 #endif  // RAW_SCH51_H_
