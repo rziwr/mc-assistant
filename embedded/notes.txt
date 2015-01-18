@@ -1,2 +1,0 @@
-Time-Triggered Embedded Systems
-http://www.safetty.net/publications/pttes
